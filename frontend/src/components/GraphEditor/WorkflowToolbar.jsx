@@ -7,7 +7,7 @@ import {
   CheckCircle2,
   AlertTriangle,
   XCircle,
-  HelpCircle,
+  FolderOpen,
 } from 'lucide-react';
 
 export default function WorkflowToolbar({
@@ -22,6 +22,9 @@ export default function WorkflowToolbar({
   onExportJson,
   onSave,
   isSaving,
+  savedWorkflows = [],
+  currentWorkflowId = null,
+  onSelectWorkflow,
 }) {
   const [showValidationDetails, setShowValidationDetails] = useState(false);
 
@@ -38,10 +41,31 @@ export default function WorkflowToolbar({
             type="text"
             value={name}
             onChange={(e) => onNameChange(e.target.value)}
-            className="bg-slate-950/90 border border-slate-800 text-white font-semibold px-3 py-1.5 rounded-lg text-xs focus:outline-none focus:border-cyan-500 w-56 sm:w-72 transition tracking-tight"
+            className="bg-slate-950/90 border border-slate-800 text-white font-semibold px-3 py-1.5 rounded-lg text-xs focus:outline-none focus:border-cyan-500 w-52 sm:w-64 transition tracking-tight"
             placeholder="Workflow Name"
           />
         </div>
+
+        {/* Saved Workflows Selector */}
+        {savedWorkflows.length > 0 && onSelectWorkflow && (
+          <div className="hidden lg:flex items-center gap-1.5 text-xs">
+            <FolderOpen className="w-3.5 h-3.5 text-cyan-400" />
+            <select
+              value={currentWorkflowId || ''}
+              onChange={(e) => {
+                if (e.target.value) onSelectWorkflow(e.target.value);
+              }}
+              className="bg-slate-950 border border-slate-800 rounded-lg px-2 py-1 text-[11px] text-slate-300 font-mono focus:outline-none focus:border-cyan-500 max-w-[180px] truncate"
+            >
+              <option value="">Load Saved Workflow...</option>
+              {savedWorkflows.map((wf) => (
+                <option key={wf._id} value={wf._id}>
+                  {wf.name} ({wf.nodes?.length || 0} nodes)
+                </option>
+              ))}
+            </select>
+          </div>
+        )}
 
         <div className="hidden md:flex items-center gap-1.5 text-xs text-slate-400 font-mono">
           <span className="bg-slate-950/80 px-2 py-0.5 rounded-md border border-slate-800 text-[11px]">
@@ -175,4 +199,3 @@ export default function WorkflowToolbar({
     </div>
   );
 }
-

@@ -1,4 +1,4 @@
-import React, { useMemo, useState, useCallback, useRef } from 'react';
+import React, { useMemo, useState, useCallback, useRef, useEffect } from 'react';
 import {
   ReactFlow,
   ReactFlowProvider,
@@ -16,7 +16,7 @@ import NodeConfigPanel from './NodeConfigPanel';
 import WorkflowToolbar from './WorkflowToolbar';
 import JsonExportModal from './JsonExportModal';
 import { useWorkflowState } from '../../hooks/useWorkflowState';
-import { createWorkflow } from '../../services/api';
+import { createWorkflow, updateWorkflow, getWorkflows } from '../../services/api';
 
 function FlowCanvasInner({ onNotify }) {
   const reactFlowWrapper = useRef(null);
@@ -47,10 +47,27 @@ function FlowCanvasInner({ onNotify }) {
     deleteEdge,
     deleteSelected,
     resetWorkflow,
+    loadWorkflow,
   } = useWorkflowState();
 
   const [isExportOpen, setIsExportOpen] = useState(false);
   const [isSaving, setIsSaving] = useState(false);
+  const [savedWorkflows, setSavedWorkflows] = useState([]);
+
+  // Fetch saved workflows from MongoDB
+  const fetchSavedWorkflows = useCallback(() => {
+    getWorkflows()
+      .then((res) => {
+        if (res.data && Array.isArray(res.data.data)) {
+          setSavedWorkflows(res.data.data);
+        }
+      })
+      .catch(() => {});
+  }, []);
+
+  useEffect(() => {
+    fetchSavedWorkflows();
+  }, [fetchSavedWorkflows]);
 
   // Register custom node types with React Flow
   const nodeTypes = useMemo(
@@ -108,7 +125,7 @@ function FlowCanvasInner({ onNotify }) {
     setSelectedEdgeId(null);
   }, [setSelectedNodeId, setSelectedEdgeId]);
 
-  // Save workflow to backend
+  // Save workflow to backend (Create new or Update existing)
   const handleSave = async () => {
     setIsSaving(true);
     try {
@@ -120,20 +137,38 @@ function FlowCanvasInner({ onNotify }) {
         edges,
       };
 
-      const res = await createWorkflow(payload);
-      const createdId = res.data?.data?._id || res.data?.data?.workflowId || workflowId;
-      setWorkflowId(createdId);
+      let res;
+      if (workflowId && workflowId !== 'workflow_001') {
+        res = await updateWorkflow(workflowId, payload);
+      } else {
+        res = await createWorkflow(payload);
+      }
+
+      const savedId = res.data?.data?._id || workflowId;
+      setWorkflowId(savedId);
+      fetchSavedWorkflows();
 
       if (onNotify) {
-        onNotify('success', `Workflow saved successfully! ID: ${createdId}`);
+        onNotify('success', `Workflow saved successfully! ID: ${savedId}`);
       }
     } catch (err) {
       console.error('Failed to save workflow:', err);
+      const msg = err.response?.data?.message || err.response?.data?.error || err.message;
       if (onNotify) {
-        onNotify('error', `Save failed: ${err.response?.data?.message || err.message}`);
+        onNotify('error', `Save failed: ${msg}`);
       }
     } finally {
       setIsSaving(false);
+    }
+  };
+
+  const handleSelectSavedWorkflow = (selectedId) => {
+    const targetWf = savedWorkflows.find((w) => w._id === selectedId);
+    if (targetWf) {
+      loadWorkflow(targetWf);
+      if (onNotify) {
+        onNotify('success', `Loaded workflow: "${targetWf.name}"`);
+      }
     }
   };
 
@@ -154,6 +189,9 @@ function FlowCanvasInner({ onNotify }) {
         onExportJson={() => setIsExportOpen(true)}
         onSave={handleSave}
         isSaving={isSaving}
+        savedWorkflows={savedWorkflows}
+        currentWorkflowId={workflowId}
+        onSelectWorkflow={handleSelectSavedWorkflow}
       />
 
       {/* Main Workspace Area (Sidebar + Canvas + Config Panel) */}
@@ -162,55 +200,55 @@ function FlowCanvasInner({ onNotify }) {
         <NodeSidebar onAddNode={(type) => addNode(type)} />
 
         {/* Center React Flow Canvas */}
-        <div
-          ref={reactFlowWrapper}
-          className="flex-1 min-h-0 h-full w-full relative"
-          style={{ height: 'calc(100vh - 7rem)' }}
-          onDragOver={onDragOver}
-          onDrop={onDrop}
-        >
+        <div ref={reactFlowWrapper} className="flex-1 min-h-0 relative h-full">
           <ReactFlow
             nodes={nodes}
             edges={edges}
             onNodesChange={onNodesChange}
             onEdgesChange={onEdgesChange}
             onConnect={onConnect}
+            onDrop={onDrop}
+            onDragOver={onDragOver}
             onNodeClick={onNodeClick}
             onEdgeClick={onEdgeClick}
             onPaneClick={onPaneClick}
             nodeTypes={nodeTypes}
-            deleteKeyCode={['Backspace', 'Delete']}
-            defaultViewport={{ x: 120, y: 40, zoom: 0.95 }}
-            minZoom={0.25}
-            maxZoom={2}
             fitView
-            fitViewOptions={{ padding: 0.25, includeHiddenNodes: false }}
+            proOptions={{ hideAttribution: true }}
+            className="bg-slate-950 h-full w-full"
             defaultEdgeOptions={{
               type: 'smoothstep',
               animated: true,
-              style: { strokeWidth: 2, stroke: '#38bdf8' },
+              style: { stroke: '#38bdf8', strokeWidth: 2 },
             }}
-            proOptions={{ hideAttribution: true }}
-            style={{ width: '100%', height: '100%' }}
-            className="bg-[#080c15]"
           >
-            <Background color="#334155" gap={24} size={1.2} />
-            <Controls className="!bg-slate-900 !border-slate-800 !text-slate-300 fill-slate-300" />
+            <Background gap={20} size={1} color="#1e293b" />
+            <Controls
+              className="!bg-slate-900 !border-slate-800 !shadow-xl !rounded-lg [&>button]:!bg-slate-900 [&>button]:!border-slate-800 [&>button]:!text-slate-300 [&>button:hover]:!bg-slate-800 [&>button:hover]:!text-white"
+            />
             <MiniMap
-              nodeColor={(n) => {
-                if (n.type === 'sensor') return '#06b6d4';
-                if (n.type === 'movingAverage' || n.type === 'transform') return '#6366f1';
-                if (n.type === 'threshold') return '#f59e0b';
-                if (n.type === 'alert') return '#f43f5e';
-                return '#475569';
+              nodeColor={(node) => {
+                switch (node.type) {
+                  case 'sensor':
+                    return '#06b6d4';
+                  case 'movingAverage':
+                  case 'transform':
+                    return '#818cf8';
+                  case 'threshold':
+                    return '#f59e0b';
+                  case 'alert':
+                    return '#f43f5e';
+                  default:
+                    return '#64748b';
+                }
               }}
-              nodeStrokeColor="#0f172a"
-              className="!bg-slate-900/90 !border-slate-800 rounded-lg overflow-hidden"
+              className="!bg-slate-900/90 !border-slate-800 !rounded-xl !shadow-2xl overflow-hidden"
+              maskColor="rgba(2, 6, 23, 0.75)"
             />
           </ReactFlow>
         </div>
 
-        {/* Right Node Configuration Panel */}
+        {/* Right Properties Configuration Panel */}
         {selectedNode && (
           <NodeConfigPanel
             node={selectedNode}
@@ -221,27 +259,25 @@ function FlowCanvasInner({ onNotify }) {
         )}
       </div>
 
-      {/* JSON Export Modal */}
+      {/* JSON Schema Export Modal */}
       <JsonExportModal
         isOpen={isExportOpen}
         onClose={() => setIsExportOpen(false)}
-        workflow={{
-          workflowId,
-          name,
-          description,
-          isActive,
-          nodes,
-          edges,
-        }}
+        name={name}
+        description={description}
+        isActive={isActive}
+        nodes={nodes}
+        edges={edges}
+        validation={validation}
       />
     </div>
   );
 }
 
-export default function FlowCanvas(props) {
+export default function FlowCanvas({ onNotify }) {
   return (
     <ReactFlowProvider>
-      <FlowCanvasInner {...props} />
+      <FlowCanvasInner onNotify={onNotify} />
     </ReactFlowProvider>
   );
 }

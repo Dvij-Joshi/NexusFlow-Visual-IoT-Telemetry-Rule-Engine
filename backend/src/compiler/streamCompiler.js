@@ -27,8 +27,8 @@ class StreamCompiler {
     const ingress$ = new Subject();
     let currentStream$ = ingress$.asObservable();
 
-    // Iterate through connected nodes and pipe RxJS operators
-    // For demonstration and Week 2/3 roadmap: supports sensor -> movingAverage/transform -> threshold -> alert
+    // Iterate through topologically sorted nodes and pipe RxJS operators
+    // Supports sensor -> movingAverage/transform -> threshold -> alert
     for (const node of parsed.nodes) {
       const type = node.type.toLowerCase();
       const config = node.data || {};
@@ -37,7 +37,10 @@ class StreamCompiler {
         // Filter by deviceId or sensor type if configured
         if (config.deviceId) {
           currentStream$ = currentStream$.pipe(
-            filter((data) => !config.deviceId || data.deviceId === config.deviceId)
+            filter((data) => {
+              const devId = data.deviceId || (data.metadata && data.metadata.deviceId);
+              return !config.deviceId || devId === config.deviceId;
+            })
           );
         }
       } else if (
@@ -47,19 +50,37 @@ class StreamCompiler {
       ) {
         const windowSize = Math.max(1, Number(config.windowSize || 5));
         const field = config.field || 'temperature';
-        const history = [];
+        // Maintain sliding window per device so multi-device telemetry does not cross-pollute
+        const deviceWindows = new Map();
+
         currentStream$ = currentStream$.pipe(
           map((data) => {
-            if (data && typeof data[field] === 'number') {
-              history.push(data[field]);
+            const plain = data && typeof data.toObject === 'function' ? data.toObject() : { ...data };
+            const devId = plain.deviceId || (plain.metadata && plain.metadata.deviceId) || 'default';
+            plain.deviceId = devId;
+
+            if (typeof plain[field] === 'number') {
+              if (!deviceWindows.has(devId)) {
+                deviceWindows.set(devId, []);
+              }
+              const history = deviceWindows.get(devId);
+              history.push(plain[field]);
               if (history.length > windowSize) {
                 history.shift();
               }
               const sum = history.reduce((acc, val) => acc + val, 0);
-              const avg = sum / history.length;
-              return { ...data, [field]: avg, [`${field}_raw`]: data[field], _windowSize: windowSize };
+              const avg = Math.round((sum / history.length) * 100) / 100;
+
+              return {
+                ...plain,
+                deviceId: devId,
+                [field]: avg,
+                [`${field}_raw`]: plain[field],
+                _windowSize: windowSize,
+                _evaluatedField: field,
+              };
             }
-            return data;
+            return plain;
           })
         );
       } else if (type.includes('threshold') || type.includes('condition')) {
@@ -86,19 +107,40 @@ class StreamCompiler {
               default:
                 return val > thresholdVal;
             }
+          }),
+          map((data) => {
+            const plain = data && typeof data.toObject === 'function' ? data.toObject() : { ...data };
+            const devId = plain.deviceId || (plain.metadata && plain.metadata.deviceId) || 'UNKNOWN';
+            return {
+              ...plain,
+              deviceId: devId,
+              _thresholdBreached: thresholdVal,
+              _thresholdField: field,
+            };
           })
         );
       } else if (type.includes('alert') || type.includes('action')) {
         // Output action when condition matches
         currentStream$ = currentStream$.pipe(
           map((data) => {
+            const devId = data.deviceId || (data.metadata && data.metadata.deviceId) || 'UNKNOWN';
+            const field = data._thresholdField || data._evaluatedField || config.field || 'temperature';
+            const triggerValue =
+              typeof data[field] === 'number'
+                ? data[field]
+                : typeof data.temperature === 'number'
+                ? data.temperature
+                : null;
+            const thresholdValue = data._thresholdBreached ?? Number(config.value || config.threshold || 80);
+
             alertService.triggerAlert({
               workflowId,
-              deviceId: data.deviceId,
-              message: config.label || `Threshold exceeded for ${data.deviceId}`,
+              deviceId: devId,
+              message: config.message || config.label || `Threshold exceeded for ${devId}`,
               reading: data,
-              threshold: config.value,
-              severity: config.severity || 'WARNING',
+              triggerValue,
+              thresholdValue,
+              severity: config.severity || 'HIGH',
             });
             return data;
           })
@@ -108,7 +150,7 @@ class StreamCompiler {
 
     // Subscribe to execute the stream
     const subscription = currentStream$.subscribe({
-      next: (val) => {
+      next: (_val) => {
         // Pipeline processed item successfully
       },
       error: (err) => {
@@ -131,9 +173,18 @@ class StreamCompiler {
    * @param {Object} telemetryData
    */
   processTelemetry(telemetryData) {
+    const plain =
+      telemetryData && typeof telemetryData.toObject === 'function'
+        ? telemetryData.toObject()
+        : { ...telemetryData };
+
+    if (!plain.deviceId && plain.metadata && plain.metadata.deviceId) {
+      plain.deviceId = plain.metadata.deviceId;
+    }
+
     for (const [id, pipeline] of this.activePipelines.entries()) {
       try {
-        pipeline.ingress$.next(telemetryData);
+        pipeline.ingress$.next(plain);
       } catch (err) {
         console.error(`[StreamCompiler] Failed to process telemetry for pipeline ${id}:`, err);
       }

@@ -12,10 +12,10 @@
     "semantic_hash": "3204ebf2e79ed29f70c673f6a4064b64"
   },
   "backend/src/compiler/streamCompiler.js": {
-    "mtime": 1794764494.6361144,
-    "seen": 1794765109.1492276,
-    "ast_hash": "4a1ad81e1fddb2c5001f1ea8a417c3a7",
-    "semantic_hash": "4a1ad81e1fddb2c5001f1ea8a417c3a7"
+    "mtime": 1794769265.746882,
+    "seen": 1794769328.1494272,
+    "ast_hash": "3181f7b61e6911999e8d25b5456376b6",
+    "semantic_hash": ""
   },
   "backend/src/config/database.js": {
     "mtime": 1794767252.389775,
@@ -84,10 +84,10 @@
     "semantic_hash": "0ec605af08f11052d6d6a2fcaa0b50eb"
   },
   "frontend/package.json": {
-    "mtime": 1794764494.652061,
-    "seen": 1794765109.1493113,
-    "ast_hash": "e661b799f4308b4d9524ca5eeed0abd7",
-    "semantic_hash": "e661b799f4308b4d9524ca5eeed0abd7"
+    "mtime": 1794769265.7490928,
+    "seen": 1794769328.149458,
+    "ast_hash": "79f0e7e0a2e3764bdf3cac73d1d30fc7",
+    "semantic_hash": ""
   },
   "frontend/postcss.config.js": {
     "mtime": 1794764494.652061,
@@ -96,34 +96,34 @@
     "semantic_hash": "5b84f4567208c7c747079c0477373231"
   },
   "frontend/src/App.jsx": {
-    "mtime": 1794768911.4753218,
-    "seen": 1794768931.3417904,
-    "ast_hash": "4ad366f1e6e5fba2093b2ca9d5514e2e",
+    "mtime": 1794769265.7506993,
+    "seen": 1794769328.1494603,
+    "ast_hash": "6b2754a32f392ed703296d52fe4a3c9f",
     "semantic_hash": ""
   },
   "frontend/src/components/CustomNodes/AlertNode.jsx": {
-    "mtime": 1794764494.6550531,
-    "seen": 1794765109.1493187,
-    "ast_hash": "ee422b758109734b5528da21204c8cbb",
-    "semantic_hash": "ee422b758109734b5528da21204c8cbb"
+    "mtime": 1794769265.7517853,
+    "seen": 1794769328.1494613,
+    "ast_hash": "6acb7f90e79efe810db39c77bfcb8914",
+    "semantic_hash": ""
   },
   "frontend/src/components/CustomNodes/SensorNode.jsx": {
-    "mtime": 1794764494.6560538,
-    "seen": 1794765109.1493204,
-    "ast_hash": "c35ff7ad528d5c30bbe17917fd05b71e",
-    "semantic_hash": "c35ff7ad528d5c30bbe17917fd05b71e"
+    "mtime": 1794769265.7528965,
+    "seen": 1794769328.1494641,
+    "ast_hash": "6c865c4933f8f04c8384f60072381dc8",
+    "semantic_hash": ""
   },
   "frontend/src/components/CustomNodes/ThresholdNode.jsx": {
-    "mtime": 1794764494.6572392,
-    "seen": 1794765109.1493225,
-    "ast_hash": "abd096c711ca4229c03d2b440bc15e1d",
-    "semantic_hash": "abd096c711ca4229c03d2b440bc15e1d"
+    "mtime": 1794769265.7549062,
+    "seen": 1794769328.149465,
+    "ast_hash": "cd256b0d1a481615ddab12c3909f1765",
+    "semantic_hash": ""
   },
   "frontend/src/components/CustomNodes/TransformNode.jsx": {
-    "mtime": 1794764494.6583593,
-    "seen": 1794765109.149325,
-    "ast_hash": "21b1a16fd6cdf5d335adf6d1f9013320",
-    "semantic_hash": "21b1a16fd6cdf5d335adf6d1f9013320"
+    "mtime": 1794769265.7549062,
+    "seen": 1794769328.149466,
+    "ast_hash": "a920e3ee0a73244425281fb636fb39c4",
+    "semantic_hash": ""
   },
   "frontend/src/components/Dashboard/AlertsFeed.jsx": {
     "mtime": 1794764494.6593728,
@@ -144,16 +144,16 @@
     "semantic_hash": ""
   },
   "frontend/src/components/GraphEditor/FlowCanvas.jsx": {
-    "mtime": 1794764494.6625175,
-    "seen": 1794765109.1493347,
-    "ast_hash": "ea39bbdd19464a6613c179a5f34bab57",
-    "semantic_hash": "ea39bbdd19464a6613c179a5f34bab57"
+    "mtime": 1794769265.755903,
+    "seen": 1794769328.1494715,
+    "ast_hash": "9b7d87f5eede8b2574ee3faa36925a39",
+    "semantic_hash": ""
   },
   "frontend/src/main.jsx": {
-    "mtime": 1794764494.6635175,
-    "seen": 1794765109.1493363,
-    "ast_hash": "ed9b0d8c8d9c324ec0b5f65c1d60768a",
-    "semantic_hash": "ed9b0d8c8d9c324ec0b5f65c1d60768a"
+    "mtime": 1794769265.7662046,
+    "seen": 1794769328.1494777,
+    "ast_hash": "784ddb97d3ba07670858f5578518ffb0",
+    "semantic_hash": ""
   },
   "frontend/src/services/api.js": {
     "mtime": 1794768911.4790752,
@@ -216,10 +216,10 @@
     "semantic_hash": "465e7ca7b336a05f796ccd83e49b889f"
   },
   "frontend/index.html": {
-    "mtime": 1794764494.650051,
-    "seen": 1794765109.1493573,
-    "ast_hash": "65936a574c88a50740504e986ded05d1",
-    "semantic_hash": "65936a574c88a50740504e986ded05d1"
+    "mtime": 1794769265.748553,
+    "seen": 1794769328.1494963,
+    "ast_hash": "de9d8768be192160dfdc7f31faf009fe",
+    "semantic_hash": ""
   },
   "backend/src/controllers/alertController.js": {
     "mtime": 1794767252.3908503,
@@ -303,6 +303,60 @@
     "mtime": 1794768911.4763818,
     "seen": 1794768931.341797,
     "ast_hash": "cc087a07e0fd7a99d4f7b8e1ba2f09fd",
+    "semantic_hash": ""
+  },
+  "frontend/src/components/CustomNodes/MovingAverageNode.jsx": {
+    "mtime": 1794769265.7528965,
+    "seen": 1794769328.1494627,
+    "ast_hash": "f3b5a6e4483ea365bb15785588bce991",
+    "semantic_hash": ""
+  },
+  "frontend/src/components/GraphEditor/JsonExportModal.jsx": {
+    "mtime": 1794769265.756904,
+    "seen": 1794769328.1494725,
+    "ast_hash": "eb713ed72de0babf0ffb34e1e7c7caaa",
+    "semantic_hash": ""
+  },
+  "frontend/src/components/GraphEditor/NodeConfigPanel.jsx": {
+    "mtime": 1794769265.757905,
+    "seen": 1794769328.149474,
+    "ast_hash": "c691e04984f7cc57920bed024552e366",
+    "semantic_hash": ""
+  },
+  "frontend/src/components/GraphEditor/NodeSidebar.jsx": {
+    "mtime": 1794769265.7591937,
+    "seen": 1794769328.1494749,
+    "ast_hash": "9b360c3c50060e4d6432538d32db7e17",
+    "semantic_hash": ""
+  },
+  "frontend/src/components/GraphEditor/WorkflowToolbar.jsx": {
+    "mtime": 1794769265.760207,
+    "seen": 1794769328.1494758,
+    "ast_hash": "1696d1114475639293c3151a4f2738e5",
+    "semantic_hash": ""
+  },
+  "frontend/src/hooks/useWorkflowState.js": {
+    "mtime": 1794769265.762214,
+    "seen": 1794769328.1494765,
+    "ast_hash": "62a4d485cd4d9f0293d3752a71affb01",
+    "semantic_hash": ""
+  },
+  "frontend/src/utils/__tests__/workflow.test.js": {
+    "mtime": 1794769265.7682083,
+    "seen": 1794769328.1494813,
+    "ast_hash": "6434396d694ab7d7a9b9c34dcbb16729",
+    "semantic_hash": ""
+  },
+  "frontend/src/utils/workflowSerializer.js": {
+    "mtime": 1794769265.7696357,
+    "seen": 1794769328.149482,
+    "ast_hash": "b7c68b32aa54700d7747c9aac85d52da",
+    "semantic_hash": ""
+  },
+  "frontend/src/utils/workflowValidator.js": {
+    "mtime": 1794769265.7706432,
+    "seen": 1794769328.149483,
+    "ast_hash": "605e2186ca147696f0490221df3f4521",
     "semantic_hash": ""
   },
   "backend/package-lock.json": {

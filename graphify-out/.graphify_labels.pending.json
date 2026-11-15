@@ -1,9 +1,10 @@
 {
   "4": "seed.js",
+  "5": "e2e-pipeline.test.js",
   "6": "telemetryRoutes.js",
   "7": "Telemetry APIs",
   "10": "NexusFlow Database Schema",
   "11": "NexusFlow Database Setup Guide",
   "12": "useWorkflowState.js",
-  "13": "socketServer.js"
+  "13": "mockGenerator.js"
 }

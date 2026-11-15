@@ -3,7 +3,7 @@
  */
 class GraphParser {
   /**
-   * Validate and parse a visual graph
+   * Validate and parse a visual graph with topological ordering (Kahn's algorithm)
    * @param {Object} graph - Object containing nodes and edges
    */
   parse(graph) {
@@ -50,9 +50,54 @@ class GraphParser {
       }
     });
 
+    // Topological Sort (Kahn's Algorithm) to ensure pipeline execution follows edge flow
+    const inDegree = new Map();
+    nodeMap.forEach((node, id) => {
+      inDegree.set(id, node.incoming.length);
+    });
+
+    const queue = [];
+    // Prioritize sensor nodes at the front of the queue
+    nodeMap.forEach((node, id) => {
+      if (inDegree.get(id) === 0) {
+        if (node.type === 'sensor' || node.type === 'sensorNode') {
+          queue.unshift(node);
+        } else {
+          queue.push(node);
+        }
+      }
+    });
+
+    const sortedNodes = [];
+    const visited = new Set();
+
+    while (queue.length > 0) {
+      const curr = queue.shift();
+      if (visited.has(curr.id)) continue;
+      visited.add(curr.id);
+      sortedNodes.push(curr);
+
+      for (const edge of curr.outgoing) {
+        const nextId = edge.targetId;
+        const currentDeg = inDegree.get(nextId) - 1;
+        inDegree.set(nextId, currentDeg);
+        if (currentDeg <= 0 && !visited.has(nextId)) {
+          const nextNode = nodeMap.get(nextId);
+          if (nextNode) queue.push(nextNode);
+        }
+      }
+    }
+
+    // Append any remaining nodes (e.g. disconnected nodes or cycle fallbacks)
+    nodeMap.forEach((node) => {
+      if (!visited.has(node.id)) {
+        sortedNodes.push(node);
+      }
+    });
+
     return {
       nodeMap,
-      nodes: Array.from(nodeMap.values()),
+      nodes: sortedNodes,
       entryNodes,
       rawEdges: edges,
     };

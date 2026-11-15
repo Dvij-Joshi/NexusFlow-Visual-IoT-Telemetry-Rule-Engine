@@ -16,27 +16,30 @@ class IngestionService {
         deviceId: data.deviceId,
         sensorType: data.sensorType || 'sensor',
       },
-      temperature: data.temperature,
-      pressure: data.pressure,
-      vibration: data.vibration,
-      humidity: data.humidity,
+      temperature: data.temperature !== undefined ? Number(data.temperature) : undefined,
+      pressure: data.pressure !== undefined ? Number(data.pressure) : undefined,
+      vibration: data.vibration !== undefined ? Number(data.vibration) : undefined,
+      humidity: data.humidity !== undefined ? Number(data.humidity) : undefined,
       additionalData: data.additionalData || {},
     };
 
     // 1. Save to MongoDB Time-Series Collection
     const saved = await Telemetry.create(reading);
+    const plainDoc = saved && typeof saved.toObject === 'function' ? saved.toObject() : reading;
+    // Ensure top-level deviceId is present on plainDoc
+    plainDoc.deviceId = plainDoc.deviceId || reading.deviceId;
 
-    // 2. Update device lastSeen (fire-and-forget for speed)
+    // 2. Update device lastSeen & status (fire-and-forget for speed)
     Device.findOneAndUpdate(
       { deviceId: data.deviceId },
       { lastSeen: new Date(), status: 'online' }
     ).catch(() => {});
 
     // 3. Broadcast via WebSockets for real-time live monitoring
-    broadcastTelemetry(saved);
+    broadcastTelemetry(plainDoc);
 
     // 4. Process through active compiled RxJS rule engine
-    streamCompiler.processTelemetry(saved);
+    streamCompiler.processTelemetry(plainDoc);
 
     return saved;
   }
@@ -57,10 +60,10 @@ class IngestionService {
         deviceId: item.deviceId,
         sensorType: item.sensorType || 'sensor',
       },
-      temperature: item.temperature,
-      pressure: item.pressure,
-      vibration: item.vibration,
-      humidity: item.humidity,
+      temperature: item.temperature !== undefined ? Number(item.temperature) : undefined,
+      pressure: item.pressure !== undefined ? Number(item.pressure) : undefined,
+      vibration: item.vibration !== undefined ? Number(item.vibration) : undefined,
+      humidity: item.humidity !== undefined ? Number(item.humidity) : undefined,
       additionalData: item.additionalData || {},
     }));
 
@@ -76,10 +79,12 @@ class IngestionService {
       ).catch(() => {});
     });
 
-    // Stream and broadcast in real-time (use savedDocs which have _id)
-    savedDocs.forEach((doc) => {
-      broadcastTelemetry(doc);
-      streamCompiler.processTelemetry(doc);
+    // Stream and broadcast in real-time using plain objects with deviceId preserved
+    savedDocs.forEach((doc, idx) => {
+      const plain = doc && typeof doc.toObject === 'function' ? doc.toObject() : prepared[idx];
+      plain.deviceId = plain.deviceId || prepared[idx].deviceId;
+      broadcastTelemetry(plain);
+      streamCompiler.processTelemetry(plain);
     });
 
     return {

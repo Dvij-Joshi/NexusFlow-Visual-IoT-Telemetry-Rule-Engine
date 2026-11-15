@@ -88,7 +88,7 @@ function generateNodeId(type) {
 }
 
 export function useWorkflowState() {
-  const [workflowId, setWorkflowId] = useState('workflow_001');
+  const [workflowId, setWorkflowId] = useState(null);
   const [name, setName] = useState('Turbine Temperature Monitoring');
   const [description, setDescription] = useState('Monitors turbine temperature with moving average and triggers alerts.');
   const [isActive, setIsActive] = useState(true);
@@ -263,7 +263,8 @@ export function useWorkflowState() {
 
   // Load a workflow structure
   const loadWorkflow = useCallback((workflowData) => {
-    if (workflowData.workflowId) setWorkflowId(workflowData.workflowId);
+    const id = workflowData._id || workflowData.workflowId;
+    if (id) setWorkflowId(id);
     if (workflowData.name) setName(workflowData.name);
     if ('description' in workflowData && workflowData.description !== undefined) {
       setDescription(workflowData.description);

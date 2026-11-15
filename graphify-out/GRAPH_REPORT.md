@@ -1,17 +1,17 @@
 # Graph Report - NexusFlow-Visual-IoT-Telemetry-Rule-Engine  (2026-11-16)
 
 ## Corpus Check
-- 59 files · ~22,059 words
+- 60 files · ~23,658 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 4 file(s) not represented in the graph (top: (none) 2, .example 1, .css 1)
 
 ## Summary
-- 343 nodes · 553 edges · 14 communities (12 shown, 2 thin omitted)
+- 351 nodes · 577 edges · 14 communities (12 shown, 2 thin omitted)
 - Extraction: 94% EXTRACTED · 6% INFERRED · 0% AMBIGUOUS · INFERRED: 35 edges (avg confidence: 0.85)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `f659956c`
+- Built from commit: `b8417b8c`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -21,24 +21,24 @@
 - Backend Dependencies
 - Workflow & Database Layer
 - seed.js
-- Stream Compiler & Graph Parser
+- e2e-pipeline.test.js
 - telemetryRoutes.js
 - Telemetry APIs
 - NexusFlow Database Schema
 - NexusFlow Database Setup Guide
 - useWorkflowState.js
-- socketServer.js
+- mockGenerator.js
 
 ## God Nodes (most connected - your core abstractions)
 1. `react` - 18 edges
-2. `lucide-react` - 15 edges
-3. `App()` - 15 edges
-4. `FlowCanvasInner()` - 12 edges
+2. `App()` - 15 edges
+3. `lucide-react` - 15 edges
+4. `FlowCanvasInner()` - 14 edges
 5. `NexusFlow Database Setup Guide` - 11 edges
-6. `@xyflow/react` - 9 edges
-7. `mongoose` - 9 edges
-8. `Telemetry APIs` - 9 edges
-9. `express` - 8 edges
+6. `mongoose` - 10 edges
+7. `@xyflow/react` - 9 edges
+8. `express` - 9 edges
+9. `Telemetry APIs` - 9 edges
 10. `getDevices()` - 7 edges
 
 ## Surprising Connections (you probably didn't know these)
@@ -50,8 +50,8 @@
   frontend/src/components/GraphEditor/FlowCanvas.jsx → frontend/src/components/CustomNodes/SensorNode.jsx
 - `FlowCanvasInner()` --indirect_call--> `ThresholdNode()`  [INFERRED]
   frontend/src/components/GraphEditor/FlowCanvas.jsx → frontend/src/components/CustomNodes/ThresholdNode.jsx
-- `App()` --calls--> `AlertsFeed()`  [EXTRACTED]
-  frontend/src/App.jsx → frontend/src/components/Dashboard/AlertsFeed.jsx
+- `FlowCanvasInner()` --calls--> `JsonExportModal()`  [EXTRACTED]
+  frontend/src/components/GraphEditor/FlowCanvas.jsx → frontend/src/components/GraphEditor/JsonExportModal.jsx
 
 ## Import Cycles
 - None detected.
@@ -63,28 +63,28 @@ Cohesion: 0.06
 Nodes (40): dependencies, axios@^1.7.9, clsx@^2.1.1, lucide-react@^0.475.0, react@^18.3.1, react-dom@^18.3.1, recharts@^2.15.1, socket.io-client@^4.8.1 (+32 more)
 
 ### Community 1 - "React UI Components"
-Cohesion: 0.06
-Nodes (31): App(), AlertNode(), MovingAverageNode(), SensorNode(), ThresholdNode(), AlertsFeed(), DeviceBar(), LiveTelemetryChart() (+23 more)
+Cohesion: 0.07
+Nodes (33): App(), AlertNode(), MovingAverageNode(), SensorNode(), ThresholdNode(), AlertsFeed(), DeviceBar(), LiveTelemetryChart() (+25 more)
 
 ### Community 2 - "Backend Dependencies"
-Cohesion: 0.06
-Nodes (35): author, dependencies, cors@^2.8.5, dotenv@^16.4.7, mongoose@^8.9.5, rxjs@^7.8.1, description, devDependencies (+27 more)
+Cohesion: 0.08
+Nodes (32): author, dependencies, cors@^2.8.5, dotenv@^16.4.7, express@^4.21.2, mongoose@^8.9.5, rxjs@^7.8.1, socket.io@^4.8.1 (+24 more)
 
 ### Community 3 - "Workflow & Database Layer"
 Cohesion: 0.19
 Nodes (12): createWorkflow(), deleteWorkflow(), getAllWorkflows(), getWorkflowById(), updateWorkflow(), edgeSchema, mongoose, nodeSchema (+4 more)
 
 ### Community 4 - "seed.js"
-Cohesion: 0.05
-Nodes (45): express@^4.21.2, connectDB(), mongoose, getAlertById(), getAlerts(), resolveAlert(), createDevice(), deleteDevice() (+37 more)
+Cohesion: 0.06
+Nodes (35): connectDB(), mongoose, createDevice(), deleteDevice(), getAllDevices(), getDeviceById(), updateDevice(), errorHandler() (+27 more)
 
-### Community 5 - "Stream Compiler & Graph Parser"
-Cohesion: 0.20
-Nodes (4): GraphParser, { filter, map }, StreamCompiler, { Subject }
+### Community 5 - "e2e-pipeline.test.js"
+Cohesion: 0.08
+Nodes (18): GraphParser, { filter, map }, StreamCompiler, { Subject }, getAlertById(), getAlerts(), resolveAlert(), Alert (+10 more)
 
 ### Community 6 - "telemetryRoutes.js"
-Cohesion: 0.23
-Nodes (10): getLatestTelemetry(), getRecentTelemetry(), getTelemetryHistory(), getTelemetryStats(), ingestBatchTelemetry(), ingestTelemetry(), mongoose, Telemetry (+2 more)
+Cohesion: 0.10
+Nodes (16): getLatestTelemetry(), getRecentTelemetry(), getTelemetryHistory(), getTelemetryStats(), ingestBatchTelemetry(), ingestTelemetry(), mongoose, Telemetry (+8 more)
 
 ### Community 7 - "Telemetry APIs"
 Cohesion: 0.07
@@ -102,9 +102,9 @@ Nodes (13): 1. MongoDB Setup, 2. Environment Configuration, 3. Install Dependenc
 Cohesion: 0.23
 Nodes (10): JsonExportModal(), generateNodeId(), INITIAL_EDGES, INITIAL_NODES, useWorkflowState(), downloadWorkflowJson(), exportWorkflowToJsonString(), serializeWorkflow() (+2 more)
 
-### Community 13 - "socketServer.js"
-Cohesion: 0.16
-Nodes (7): socket.io@^4.8.1, AlertService, IngestionService, broadcastAlert(), broadcastTelemetry(), { Server }, socket.io
+### Community 13 - "mockGenerator.js"
+Cohesion: 0.24
+Nodes (7): devices, dotenv, generateReading(), http, path, run(), sendReading()
 
 ## Knowledge Gaps
 - **2 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
@@ -118,11 +118,11 @@ _Questions this graph is uniquely positioned to answer:_
   _`App()` has 4 INFERRED edges - model-reasoned connections that need verification._
 - **Should `Frontend Dependencies` be split into smaller, more focused modules?**
   _Cohesion score 0.06387921022067364 - nodes in this community are weakly interconnected._
-- **Why does `dotenv` connect `Backend Dependencies` to `seed.js`?**
+- **Why does `dotenv` connect `Backend Dependencies` to `e2e-pipeline.test.js`, `seed.js`, `mockGenerator.js`?**
   _High betweenness centrality (0.021) - this node is a cross-community bridge._
 - **Are the 4 inferred relationships involving `FlowCanvasInner()` (e.g. with `AlertNode()` and `MovingAverageNode()`) actually correct?**
   _`FlowCanvasInner()` has 4 INFERRED edges - model-reasoned connections that need verification._
 - **Should `React UI Components` be split into smaller, more focused modules?**
-  _Cohesion score 0.0648018648018648 - nodes in this community are weakly interconnected._
-- **Why does `express` connect `seed.js` to `Backend Dependencies`, `Workflow & Database Layer`, `telemetryRoutes.js`?**
+  _Cohesion score 0.06573426573426573 - nodes in this community are weakly interconnected._
+- **Why does `express` connect `Backend Dependencies` to `Workflow & Database Layer`, `seed.js`, `e2e-pipeline.test.js`, `telemetryRoutes.js`?**
   _High betweenness centrality (0.018) - this node is a cross-community bridge._
