@@ -25,6 +25,7 @@ export default function WorkflowToolbar({
   savedWorkflows = [],
   currentWorkflowId = null,
   onSelectWorkflow,
+  isDirty = false,
 }) {
   const [showValidationDetails, setShowValidationDetails] = useState(false);
 
@@ -41,7 +42,7 @@ export default function WorkflowToolbar({
             type="text"
             value={name}
             onChange={(e) => onNameChange(e.target.value)}
-            className="bg-slate-950/90 border border-slate-800 text-white font-semibold px-3 py-1.5 rounded-lg text-xs focus:outline-none focus:border-cyan-500 w-52 sm:w-64 transition tracking-tight"
+            className="bg-slate-950/90 border border-slate-800 text-white font-semibold px-3 py-1.5 rounded-lg text-xs focus:outline-none focus:border-cyan-500 w-48 sm:w-60 transition tracking-tight"
             placeholder="Workflow Name"
           />
         </div>
@@ -55,9 +56,9 @@ export default function WorkflowToolbar({
               onChange={(e) => {
                 if (e.target.value) onSelectWorkflow(e.target.value);
               }}
-              className="bg-slate-950 border border-slate-800 rounded-lg px-2 py-1 text-[11px] text-slate-300 font-mono focus:outline-none focus:border-cyan-500 max-w-[180px] truncate"
+              className="bg-slate-950 border border-slate-800 rounded-lg px-2 py-1 text-[11px] text-slate-300 font-mono focus:outline-none focus:border-cyan-500 max-w-[170px] truncate"
             >
-              <option value="">Load Saved Workflow...</option>
+              <option value="">Load Saved Circuit...</option>
               {savedWorkflows.map((wf) => (
                 <option key={wf._id} value={wf._id}>
                   {wf.name} ({wf.nodes?.length || 0} nodes)
@@ -74,6 +75,21 @@ export default function WorkflowToolbar({
           <span className="bg-slate-950/80 px-2 py-0.5 rounded-md border border-slate-800 text-[11px]">
             {edgeCount} edges
           </span>
+        </div>
+
+        {/* Database Live Sync State Pill */}
+        <div className="hidden sm:flex items-center">
+          {isDirty ? (
+            <span className="flex items-center gap-1 text-[10px] font-mono font-medium px-2 py-0.5 rounded-full bg-amber-950/60 border border-amber-800 text-amber-300">
+              <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-ping"></span>
+              Unsaved Changes
+            </span>
+          ) : currentWorkflowId ? (
+            <span className="flex items-center gap-1 text-[10px] font-mono font-medium px-2 py-0.5 rounded-full bg-emerald-950/60 border border-emerald-800 text-emerald-300">
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+              Live in DB
+            </span>
+          ) : null}
         </div>
 
         {/* Validation Status Pill */}
@@ -104,7 +120,7 @@ export default function WorkflowToolbar({
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
                 </span>
-                <span className="font-semibold hidden sm:inline">Pipeline Valid</span>
+                <span className="font-semibold hidden sm:inline">Valid Circuit</span>
               </>
             )}
           </button>
@@ -190,10 +206,14 @@ export default function WorkflowToolbar({
         <button
           onClick={onSave}
           disabled={isSaving}
-          className="flex items-center gap-1.5 px-3.5 py-1.5 bg-cyan-600 hover:bg-cyan-500 text-white font-semibold text-xs rounded-lg transition shadow-sm disabled:opacity-50"
+          className={`flex items-center gap-1.5 px-3.5 py-1.5 text-white font-semibold text-xs rounded-lg transition shadow-md disabled:opacity-50 ${
+            isDirty
+              ? 'bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 ring-2 ring-cyan-500/50 shadow-cyan-500/20'
+              : 'bg-cyan-700 hover:bg-cyan-600'
+          }`}
         >
           <Save className="w-3.5 h-3.5" />
-          <span>{isSaving ? 'Saving...' : 'Save Pipeline'}</span>
+          <span>{isSaving ? 'Deploying...' : isDirty ? 'Save & Deploy Live' : 'Saved Live'}</span>
         </button>
       </div>
     </div>

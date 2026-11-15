@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Activity, GitFork, Radio, CheckCircle, Database } from 'lucide-react';
 import FlowCanvas from './components/GraphEditor/FlowCanvas';
 import LiveTelemetryChart from './components/Dashboard/LiveTelemetryChart';
@@ -17,6 +17,8 @@ export default function App() {
   const [dbStatus, setDbStatus] = useState('Checking...');
   const [activeWorkflowsCount, setActiveWorkflowsCount] = useState(0);
   const [notification, setNotification] = useState(null);
+
+  const flowCanvasHandlersRef = useRef(null);
 
   const notify = (type, message) => {
     setNotification({ type, message });
@@ -91,6 +93,23 @@ export default function App() {
     }
   }, [selectedDeviceId]);
 
+  // Tab switching with auto-deploy of dirty circuits
+  const handleTabSwitch = (targetTab) => {
+    if (targetTab === 'dashboard' && activeTab === 'editor') {
+      // If user is moving to dashboard and has unsaved changes, auto-save to MongoDB & deploy!
+      if (flowCanvasHandlersRef.current?.isDirty) {
+        flowCanvasHandlersRef.current.handleSave(true);
+        notify('success', 'Circuit auto-saved & deployed to live rule engine!');
+      }
+    } else if (targetTab === 'editor') {
+      // Recalibrate React Flow bounds when returning to building page
+      setTimeout(() => {
+        window.dispatchEvent(new Event('resize'));
+      }, 50);
+    }
+    setActiveTab(targetTab);
+  };
+
   return (
     <div className="h-screen bg-slate-950 flex flex-col font-sans overflow-hidden">
       {/* Top Navbar */}
@@ -112,7 +131,7 @@ export default function App() {
         {/* Tab Navigation */}
         <nav className="flex items-center gap-1 bg-slate-950 p-1 rounded-xl border border-slate-800">
           <button
-            onClick={() => setActiveTab('editor')}
+            onClick={() => handleTabSwitch('editor')}
             className={`flex items-center gap-2 px-3.5 py-1.5 rounded-lg text-xs font-semibold transition ${
               activeTab === 'editor'
                 ? 'bg-slate-800 text-cyan-400 shadow-sm'
@@ -122,7 +141,7 @@ export default function App() {
             <GitFork className="w-3.5 h-3.5" /> Visual Rule Builder
           </button>
           <button
-            onClick={() => setActiveTab('dashboard')}
+            onClick={() => handleTabSwitch('dashboard')}
             className={`flex items-center gap-2 px-3.5 py-1.5 rounded-lg text-xs font-semibold transition ${
               activeTab === 'dashboard'
                 ? 'bg-slate-800 text-cyan-400 shadow-sm'
@@ -180,36 +199,50 @@ export default function App() {
         </div>
       )}
 
-      {/* Main Content Body */}
-      <main className="flex-1 min-h-0 flex flex-col overflow-hidden">
-        {activeTab === 'editor' ? (
-          <FlowCanvas onNotify={notify} />
-        ) : (
-          <div className="flex-1 p-6 overflow-y-auto space-y-6 max-w-7xl mx-auto w-full">
-            {/* Device Management & Selector Bar */}
-            <DeviceBar
-              selectedDeviceId={selectedDeviceId}
-              onSelectDevice={setSelectedDeviceId}
-              onNotify={notify}
-            />
+      {/* Main Content Body: Both tabs remain mounted to preserve visual circuits and state */}
+      <main className="flex-1 min-h-0 flex flex-col overflow-hidden relative">
+        <div
+          className={`flex-1 min-h-0 flex flex-col h-full w-full ${
+            activeTab === 'editor' ? 'flex' : 'hidden'
+          }`}
+        >
+          <FlowCanvas
+            onNotify={notify}
+            onActiveWorkflowsUpdated={checkHealth}
+            onRegisterSaveHandler={(handlers) => {
+              flowCanvasHandlersRef.current = handlers;
+            }}
+          />
+        </div>
 
-            {/* Mock IoT Telemetry Simulator */}
-            <SimulatorPanel selectedDeviceId={selectedDeviceId} onNotify={notify} />
+        <div
+          className={`flex-1 p-6 overflow-y-auto space-y-6 max-w-7xl mx-auto w-full ${
+            activeTab === 'dashboard' ? 'block' : 'hidden'
+          }`}
+        >
+          {/* Device Management & Selector Bar */}
+          <DeviceBar
+            selectedDeviceId={selectedDeviceId}
+            onSelectDevice={setSelectedDeviceId}
+            onNotify={notify}
+          />
 
-            {/* Live Chart & Alerts Feed */}
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-              <div className="lg:col-span-2">
-                <LiveTelemetryChart
-                  telemetryData={telemetryStream}
-                  selectedDeviceId={selectedDeviceId}
-                />
-              </div>
-              <div className="lg:col-span-1">
-                <AlertsFeed alerts={alerts} />
-              </div>
+          {/* Mock IoT Telemetry Simulator */}
+          <SimulatorPanel selectedDeviceId={selectedDeviceId} onNotify={notify} />
+
+          {/* Live Chart & Alerts Feed */}
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            <div className="lg:col-span-2">
+              <LiveTelemetryChart
+                telemetryData={telemetryStream}
+                selectedDeviceId={selectedDeviceId}
+              />
+            </div>
+            <div className="lg:col-span-1">
+              <AlertsFeed alerts={alerts} />
             </div>
           </div>
-        )}
+        </div>
       </main>
     </div>
   );

@@ -1,6 +1,8 @@
-import { useState, useCallback, useMemo } from 'react';
+import { useState, useCallback, useMemo, useEffect, useRef } from 'react';
 import { applyNodeChanges, applyEdgeChanges, addEdge } from '@xyflow/react';
 import { isValidConnection, validateWorkflow } from '../utils/workflowValidator';
+
+const STORAGE_KEY = 'nexusflow_active_workflow_state';
 
 const INITIAL_NODES = [
   {
@@ -87,19 +89,69 @@ function generateNodeId(type) {
   return `${prefix}_${Date.now().toString(36).slice(-4)}_${idCounter}`;
 }
 
+function getSavedLocalDraft() {
+  try {
+    if (typeof window === 'undefined') return null;
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if (raw) {
+      const parsed = JSON.parse(raw);
+      if (parsed && Array.isArray(parsed.nodes) && parsed.nodes.length > 0) {
+        return parsed;
+      }
+    }
+  } catch (err) {
+    console.warn('[WorkflowState] Failed to read from localStorage:', err);
+  }
+  return null;
+}
+
 export function useWorkflowState() {
-  const [workflowId, setWorkflowId] = useState(null);
-  const [name, setName] = useState('Turbine Temperature Monitoring');
-  const [description, setDescription] = useState('Monitors turbine temperature with moving average and triggers alerts.');
-  const [isActive, setIsActive] = useState(true);
-  const [nodes, setNodes] = useState(INITIAL_NODES);
-  const [edges, setEdges] = useState(INITIAL_EDGES);
+  const localDraft = useMemo(() => getSavedLocalDraft(), []);
+
+  const [workflowId, setWorkflowId] = useState(localDraft?.workflowId || null);
+  const [name, setName] = useState(localDraft?.name || 'Turbine Temperature Monitoring');
+  const [description, setDescription] = useState(
+    localDraft?.description || 'Monitors turbine temperature with moving average and triggers alerts.'
+  );
+  const [isActive, setIsActive] = useState(
+    typeof localDraft?.isActive === 'boolean' ? localDraft.isActive : true
+  );
+  const [nodes, setNodes] = useState(localDraft?.nodes || INITIAL_NODES);
+  const [edges, setEdges] = useState(localDraft?.edges || INITIAL_EDGES);
   const [selectedNodeId, setSelectedNodeId] = useState(null);
   const [selectedEdgeId, setSelectedEdgeId] = useState(null);
+  const [isDirty, setIsDirty] = useState(false);
+
+  // Sync to localStorage so tab switches or reloads never lose circuit progress
+  useEffect(() => {
+    try {
+      if (typeof window !== 'undefined') {
+        const payload = {
+          workflowId,
+          name,
+          description,
+          isActive,
+          nodes,
+          edges,
+        };
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(payload));
+      }
+    } catch (err) {
+      // Ignore quota errors
+    }
+  }, [workflowId, name, description, isActive, nodes, edges]);
 
   // Apply node changes (drag, select, dimension updates)
   const onNodesChange = useCallback((changes) => {
-    setNodes((nds) => applyNodeChanges(changes, nds));
+    setNodes((nds) => {
+      const updated = applyNodeChanges(changes, nds);
+      return updated;
+    });
+
+    const isContentChange = changes.some((c) => c.type === 'position' || c.type === 'remove' || c.type === 'add');
+    if (isContentChange) {
+      setIsDirty(true);
+    }
 
     // Handle selection changes across full batch
     const selectChanges = changes.filter((c) => c.type === 'select');
@@ -120,6 +172,11 @@ export function useWorkflowState() {
   // Apply edge changes (selection, removal)
   const onEdgesChange = useCallback((changes) => {
     setEdges((eds) => applyEdgeChanges(changes, eds));
+
+    const isContentChange = changes.some((c) => c.type === 'remove' || c.type === 'add');
+    if (isContentChange) {
+      setIsDirty(true);
+    }
 
     const selectChanges = changes.filter((c) => c.type === 'select');
     if (selectChanges.length > 0) {
@@ -151,6 +208,7 @@ export function useWorkflowState() {
             eds
           )
         );
+        setIsDirty(true);
       }
     },
     [nodes, edges]
@@ -210,6 +268,7 @@ export function useWorkflowState() {
     setNodes((nds) => [...nds, newNode]);
     setSelectedNodeId(id);
     setSelectedEdgeId(null);
+    setIsDirty(true);
     return newNode;
   }, []);
 
@@ -229,6 +288,7 @@ export function useWorkflowState() {
         return n;
       })
     );
+    setIsDirty(true);
   }, []);
 
   // Delete a specific node and its associated edges
@@ -236,12 +296,14 @@ export function useWorkflowState() {
     setNodes((nds) => nds.filter((n) => n.id !== nodeId));
     setEdges((eds) => eds.filter((e) => e.source !== nodeId && e.target !== nodeId));
     setSelectedNodeId((curr) => (curr === nodeId ? null : curr));
+    setIsDirty(true);
   }, []);
 
   // Delete a specific edge
   const deleteEdge = useCallback((edgeId) => {
     setEdges((eds) => eds.filter((e) => e.id !== edgeId));
     setSelectedEdgeId((curr) => (curr === edgeId ? null : curr));
+    setIsDirty(true);
   }, []);
 
   // Delete whatever element is currently selected
@@ -255,10 +317,18 @@ export function useWorkflowState() {
 
   // Reset to initial template
   const resetWorkflow = useCallback(() => {
+    setWorkflowId(null);
+    setName('Turbine Temperature Monitoring');
+    setDescription('Monitors turbine temperature with moving average and triggers alerts.');
+    setIsActive(true);
     setNodes(INITIAL_NODES);
     setEdges(INITIAL_EDGES);
     setSelectedNodeId(null);
     setSelectedEdgeId(null);
+    setIsDirty(true);
+    try {
+      localStorage.removeItem(STORAGE_KEY);
+    } catch (e) {}
   }, []);
 
   // Load a workflow structure
@@ -283,6 +353,12 @@ export function useWorkflowState() {
     if (Array.isArray(workflowData.edges)) setEdges(workflowData.edges);
     setSelectedNodeId(null);
     setSelectedEdgeId(null);
+    setIsDirty(false);
+  }, []);
+
+  const markSaved = useCallback((savedId) => {
+    if (savedId) setWorkflowId(savedId);
+    setIsDirty(false);
   }, []);
 
   // Selected node object
@@ -314,6 +390,8 @@ export function useWorkflowState() {
     setSelectedEdgeId,
     selectedNode,
     validation,
+    isDirty,
+    markSaved,
     onNodesChange,
     onEdgesChange,
     onConnect,
@@ -326,4 +404,3 @@ export function useWorkflowState() {
     loadWorkflow,
   };
 }
-

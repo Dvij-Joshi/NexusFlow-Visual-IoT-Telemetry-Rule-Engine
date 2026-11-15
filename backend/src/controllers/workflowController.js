@@ -1,3 +1,4 @@
+const mongoose = require('mongoose');
 const Workflow = require('../models/Workflow');
 const streamCompiler = require('../compiler/streamCompiler');
 
@@ -57,6 +58,10 @@ const getAllWorkflows = async (req, res) => {
  */
 const getWorkflowById = async (req, res) => {
   try {
+    if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
+      return res.status(404).json({ error: 'Workflow not found' });
+    }
+
     const workflow = await Workflow.findById(req.params.id);
     if (!workflow) {
       return res.status(404).json({ error: 'Workflow not found' });
@@ -77,6 +82,10 @@ const getWorkflowById = async (req, res) => {
 const updateWorkflow = async (req, res) => {
   try {
     const { name, description, nodes, edges, isActive } = req.body;
+
+    if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
+      return res.status(404).json({ error: 'Workflow not found' });
+    }
 
     const workflow = await Workflow.findByIdAndUpdate(
       req.params.id,
@@ -110,6 +119,10 @@ const updateWorkflow = async (req, res) => {
  */
 const deleteWorkflow = async (req, res) => {
   try {
+    if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
+      return res.status(404).json({ error: 'Workflow not found' });
+    }
+
     const workflow = await Workflow.findByIdAndDelete(req.params.id);
     if (!workflow) {
       return res.status(404).json({ error: 'Workflow not found' });
