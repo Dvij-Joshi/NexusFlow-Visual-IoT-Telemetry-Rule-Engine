@@ -1,0 +1,9 @@
+{
+  "0": "Frontend Dependencies",
+  "1": "React UI Components",
+  "2": "Backend Dependencies",
+  "3": "Workflow & Database Layer",
+  "5": "Stream Compiler & Graph Parser",
+  "8": "Tailwind Config",
+  "9": "PostCSS Config"
+}
