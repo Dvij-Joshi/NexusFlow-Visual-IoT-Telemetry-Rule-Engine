@@ -8,11 +8,10 @@ const MovingAverageNode = ({ data, selected, isConnectable }) => {
 
   return (
     <div
-      className={`w-64 rounded-xl bg-slate-900 border text-slate-100 shadow-md transition-all ${
-        selected
-          ? 'border-indigo-400 ring-2 ring-indigo-500/40 shadow-indigo-950/50'
-          : 'border-slate-800 hover:border-slate-700'
-      }`}
+      className={`w-64 rounded-xl bg-slate-900 border text-slate-100 shadow-md transition-all ${selected
+        ? 'border-indigo-400 ring-2 ring-indigo-500/40 shadow-indigo-950/50'
+        : 'border-slate-800 hover:border-slate-700'
+        }`}
     >
       {/* Input Handle */}
       <Handle
@@ -67,3 +66,4 @@ const MovingAverageNode = ({ data, selected, isConnectable }) => {
 };
 
 export default memo(MovingAverageNode);
+

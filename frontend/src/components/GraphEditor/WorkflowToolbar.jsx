@@ -54,13 +54,12 @@ export default function WorkflowToolbar({
         <div className="relative">
           <button
             onClick={() => setShowValidationDetails(!showValidationDetails)}
-            className={`flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-[11px] font-medium border transition ${
-              !isValid
-                ? 'bg-rose-950/60 border-rose-800 text-rose-300 hover:bg-rose-950'
-                : warningCount > 0
+            className={`flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-[11px] font-medium border transition ${!isValid
+              ? 'bg-rose-950/60 border-rose-800 text-rose-300 hover:bg-rose-950'
+              : warningCount > 0
                 ? 'bg-amber-950/60 border-amber-800 text-amber-300 hover:bg-amber-950'
                 : 'bg-emerald-950/60 border-emerald-800 text-emerald-300 hover:bg-emerald-950'
-            }`}
+              }`}
           >
             {!isValid ? (
               <>
@@ -170,3 +169,4 @@ export default function WorkflowToolbar({
     </div>
   );
 }
+

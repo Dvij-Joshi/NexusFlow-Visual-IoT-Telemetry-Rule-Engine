@@ -4,15 +4,23 @@ import { exportWorkflowToJsonString, downloadWorkflowJson } from '../../utils/wo
 
 export default function JsonExportModal({ isOpen, onClose, workflow }) {
   const [copied, setCopied] = useState(false);
+  const [copyError, setCopyError] = useState(false);
 
   if (!isOpen) return null;
 
   const jsonString = exportWorkflowToJsonString(workflow, 2);
 
-  const handleCopy = () => {
-    navigator.clipboard.writeText(jsonString);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
+  const handleCopy = async () => {
+    try {
+      await navigator.clipboard.writeText(jsonString);
+      setCopied(true);
+      setCopyError(false);
+      setTimeout(() => setCopied(false), 2000);
+    } catch (err) {
+      console.error('Clipboard copy failed:', err);
+      setCopyError(true);
+      setTimeout(() => setCopyError(false), 3000);
+    }
   };
 
   const handleDownload = () => {
@@ -55,12 +63,18 @@ export default function JsonExportModal({ isOpen, onClose, workflow }) {
           <div className="flex items-center gap-2">
             <button
               onClick={handleCopy}
-              className="flex items-center gap-1.5 px-3 py-1.5 bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-medium rounded-lg border border-slate-700 transition"
+              className={`flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium rounded-lg border transition ${
+                copyError
+                  ? 'bg-rose-950 border-rose-800 text-rose-300'
+                  : 'bg-slate-800 hover:bg-slate-700 text-slate-200 border-slate-700'
+              }`}
             >
               {copied ? (
                 <>
                   <Check className="w-3.5 h-3.5 text-emerald-400" /> Copied!
                 </>
+              ) : copyError ? (
+                <span>Copy failed</span>
               ) : (
                 <>
                   <Copy className="w-3.5 h-3.5" /> Copy JSON
@@ -80,3 +94,4 @@ export default function JsonExportModal({ isOpen, onClose, workflow }) {
     </div>
   );
 }
+

@@ -90,7 +90,8 @@ export function validateWorkflow(workflow) {
 
   const nodeMap = new Map(nodes.map((n) => [n.id, n]));
 
-  // 2. Check edges: endpoints must exist and cannot self-connect
+  // 2. Check edges: endpoints must exist, cannot self-connect, cannot target sensors, and no duplicates
+  const seenEdgeTuples = new Set();
   edges.forEach((edge, index) => {
     const edgeId = edge.id || `edge-${index}`;
     if (!edge.source || !edge.target) {
@@ -102,12 +103,26 @@ export function validateWorkflow(workflow) {
       errors.push(`Self-connection detected on node "${edge.source}".`);
     }
 
-    if (!nodeMap.has(edge.source)) {
+    const sourceHandle = edge.sourceHandle || null;
+    const targetHandle = edge.targetHandle || null;
+    const tupleKey = `${edge.source}__${sourceHandle}__${edge.target}__${targetHandle}`;
+    if (seenEdgeTuples.has(tupleKey)) {
+      errors.push(`Duplicate connection detected between "${edge.source}" and "${edge.target}".`);
+    } else {
+      seenEdgeTuples.add(tupleKey);
+    }
+
+    const sourceNode = nodeMap.get(edge.source);
+    const targetNode = nodeMap.get(edge.target);
+
+    if (!sourceNode) {
       errors.push(`Edge references non-existent source node "${edge.source}".`);
     }
 
-    if (!nodeMap.has(edge.target)) {
+    if (!targetNode) {
       errors.push(`Edge references non-existent target node "${edge.target}".`);
+    } else if (targetNode.type === 'sensor') {
+      errors.push(`Edge targets sensor node "${edge.target}". Sensor nodes are ingress-only sources and cannot have incoming connections.`);
     }
   });
 
@@ -150,7 +165,7 @@ export function validateWorkflow(workflow) {
       }
     } else if (node.type === 'movingAverage' || node.type === 'transform') {
       const win = Number(data.windowSize);
-      if (isNaN(win) || win < 1) {
+      if (!Number.isFinite(win) || win < 1) {
         errors.push(`Moving Average node "${label}" must have a windowSize >= 1.`);
       }
     } else if (node.type === 'threshold') {
@@ -170,3 +185,4 @@ export function validateWorkflow(workflow) {
     warnings,
   };
 }
+

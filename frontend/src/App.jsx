@@ -59,9 +59,9 @@ export default function App() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-slate-950 flex flex-col font-sans">
+    <div className="h-screen bg-slate-950 flex flex-col font-sans overflow-hidden">
       {/* Top Navbar */}
-      <header className="h-14 border-b border-slate-800 bg-slate-900/90 backdrop-blur px-6 flex items-center justify-between z-20">
+      <header className="h-14 flex-shrink-0 border-b border-slate-800 bg-slate-900/90 backdrop-blur px-6 flex items-center justify-between z-20">
         <div className="flex items-center gap-3">
           <div className="p-1.5 bg-gradient-to-tr from-cyan-500 to-blue-600 rounded-lg shadow-md shadow-cyan-500/30">
             <Radio className="w-4 h-4 text-slate-950 font-bold" />
@@ -138,7 +138,7 @@ export default function App() {
       )}
 
       {/* Main Content Body */}
-      <main className="flex-1 flex flex-col overflow-hidden">
+      <main className="flex-1 min-h-0 flex flex-col overflow-hidden">
         {activeTab === 'editor' ? (
           <FlowCanvas onNotify={notify} />
         ) : (

@@ -99,8 +99,11 @@ export default function NodeConfigPanel({ node, onUpdate, onDelete, onClose }) {
 
         {/* Display Label */}
         <div className="space-y-1.5">
-          <label className="text-[11px] font-medium text-slate-400">Label / Name</label>
+          <label htmlFor={`node-${node.id}-label`} className="text-[11px] font-medium text-slate-400">
+            Label / Name
+          </label>
           <input
+            id={`node-${node.id}-label`}
             type="text"
             value={data.label || ''}
             onChange={(e) => handleChange('label', e.target.value)}
@@ -113,11 +116,15 @@ export default function NodeConfigPanel({ node, onUpdate, onDelete, onClose }) {
         {isSensor && (
           <div className="space-y-3.5 pt-2 border-t border-slate-800/80">
             <div className="space-y-1.5">
-              <label className="text-[11px] font-medium text-slate-400 flex items-center justify-between">
+              <label
+                htmlFor={`node-${node.id}-deviceId`}
+                className="text-[11px] font-medium text-slate-400 flex items-center justify-between"
+              >
                 <span>Device ID</span>
                 <span className="text-[10px] text-cyan-400 font-mono">Required</span>
               </label>
               <select
+                id={`node-${node.id}-deviceId`}
                 value={data.deviceId || 'TURBINE_01'}
                 onChange={(e) => handleChange('deviceId', e.target.value)}
                 className="w-full bg-slate-950 border border-slate-800 rounded-lg px-3 py-1.5 text-xs text-white focus:outline-none focus:border-cyan-500"
@@ -131,12 +138,14 @@ export default function NodeConfigPanel({ node, onUpdate, onDelete, onClose }) {
             </div>
 
             <div className="space-y-1.5">
-              <label className="text-[11px] font-medium text-slate-400">Telemetry Field</label>
+              <label htmlFor={`node-${node.id}-field`} className="text-[11px] font-medium text-slate-400">
+                Telemetry Field
+              </label>
               <select
+                id={`node-${node.id}-field`}
                 value={data.field || data.channel || 'temperature'}
                 onChange={(e) => {
-                  handleChange('field', e.target.value);
-                  handleChange('channel', e.target.value);
+                  onUpdate(node.id, { field: e.target.value, channel: e.target.value });
                 }}
                 className="w-full bg-slate-950 border border-slate-800 rounded-lg px-3 py-1.5 text-xs text-white focus:outline-none focus:border-cyan-500"
               >
@@ -154,11 +163,15 @@ export default function NodeConfigPanel({ node, onUpdate, onDelete, onClose }) {
         {isMovingAverage && (
           <div className="space-y-3.5 pt-2 border-t border-slate-800/80">
             <div className="space-y-1.5">
-              <label className="text-[11px] font-medium text-slate-400 flex items-center justify-between">
+              <label
+                htmlFor={`node-${node.id}-windowSize`}
+                className="text-[11px] font-medium text-slate-400 flex items-center justify-between"
+              >
                 <span>Window Size (samples)</span>
                 <span className="text-[10px] text-indigo-400 font-mono">Default: 5</span>
               </label>
               <input
+                id={`node-${node.id}-windowSize`}
                 type="number"
                 min="1"
                 max="100"
@@ -177,8 +190,11 @@ export default function NodeConfigPanel({ node, onUpdate, onDelete, onClose }) {
         {isThreshold && (
           <div className="space-y-3.5 pt-2 border-t border-slate-800/80">
             <div className="space-y-1.5">
-              <label className="text-[11px] font-medium text-slate-400">Telemetry Field</label>
+              <label htmlFor={`node-${node.id}-thresh-field`} className="text-[11px] font-medium text-slate-400">
+                Telemetry Field
+              </label>
               <input
+                id={`node-${node.id}-thresh-field`}
                 type="text"
                 value={data.field || 'temperature'}
                 onChange={(e) => handleChange('field', e.target.value)}
@@ -188,8 +204,11 @@ export default function NodeConfigPanel({ node, onUpdate, onDelete, onClose }) {
             </div>
 
             <div className="space-y-1.5">
-              <label className="text-[11px] font-medium text-slate-400">Comparison Operator</label>
+              <label htmlFor={`node-${node.id}-operator`} className="text-[11px] font-medium text-slate-400">
+                Comparison Operator
+              </label>
               <select
+                id={`node-${node.id}-operator`}
                 value={data.operator || '>'}
                 onChange={(e) => handleChange('operator', e.target.value)}
                 className="w-full bg-slate-950 border border-slate-800 rounded-lg px-3 py-1.5 text-xs text-white font-mono focus:outline-none focus:border-amber-500"
@@ -203,8 +222,11 @@ export default function NodeConfigPanel({ node, onUpdate, onDelete, onClose }) {
             </div>
 
             <div className="space-y-1.5">
-              <label className="text-[11px] font-medium text-slate-400">Threshold Value</label>
+              <label htmlFor={`node-${node.id}-threshold-val`} className="text-[11px] font-medium text-slate-400">
+                Threshold Value
+              </label>
               <input
+                id={`node-${node.id}-threshold-val`}
                 type="number"
                 step="any"
                 value={data.value ?? 80}
@@ -219,8 +241,11 @@ export default function NodeConfigPanel({ node, onUpdate, onDelete, onClose }) {
         {isAlert && (
           <div className="space-y-3.5 pt-2 border-t border-slate-800/80">
             <div className="space-y-1.5">
-              <label className="text-[11px] font-medium text-slate-400">Alert Message</label>
+              <label htmlFor={`node-${node.id}-alert-msg`} className="text-[11px] font-medium text-slate-400">
+                Alert Message
+              </label>
               <textarea
+                id={`node-${node.id}-alert-msg`}
                 rows={3}
                 value={data.message || ''}
                 onChange={(e) => handleChange('message', e.target.value)}
@@ -230,8 +255,11 @@ export default function NodeConfigPanel({ node, onUpdate, onDelete, onClose }) {
             </div>
 
             <div className="space-y-1.5">
-              <label className="text-[11px] font-medium text-slate-400">Severity Level</label>
+              <label htmlFor={`node-${node.id}-alert-severity`} className="text-[11px] font-medium text-slate-400">
+                Severity Level
+              </label>
               <select
+                id={`node-${node.id}-alert-severity`}
                 value={data.severity || 'High'}
                 onChange={(e) => handleChange('severity', e.target.value)}
                 className="w-full bg-slate-950 border border-slate-800 rounded-lg px-3 py-1.5 text-xs text-white focus:outline-none focus:border-rose-500"
@@ -257,3 +285,4 @@ export default function NodeConfigPanel({ node, onUpdate, onDelete, onClose }) {
     </div>
   );
 }
+

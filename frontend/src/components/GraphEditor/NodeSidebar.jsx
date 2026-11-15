@@ -54,9 +54,8 @@ export default function NodeSidebar({ onAddNode }) {
 
   return (
     <aside
-      className={`relative z-10 flex flex-col border-r border-slate-800 bg-slate-900/95 transition-all duration-200 select-none ${
-        isCollapsed ? 'w-12' : 'w-64'
-      }`}
+      className={`relative z-10 flex flex-col border-r border-slate-800 bg-slate-900/95 transition-all duration-200 select-none ${isCollapsed ? 'w-12' : 'w-64'
+        }`}
     >
       {/* Header */}
       <div className="flex h-12 items-center justify-between border-b border-slate-800 px-3">
@@ -141,3 +140,4 @@ export default function NodeSidebar({ onAddNode }) {
     </aside>
   );
 }
+

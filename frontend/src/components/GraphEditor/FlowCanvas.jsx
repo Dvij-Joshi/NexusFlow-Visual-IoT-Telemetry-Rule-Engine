@@ -29,6 +29,7 @@ function FlowCanvasInner({ onNotify }) {
     setName,
     description,
     setDescription,
+    isActive,
     nodes,
     edges,
     selectedNodeId,
@@ -114,7 +115,7 @@ function FlowCanvasInner({ onNotify }) {
       const payload = {
         name,
         description,
-        isActive: true,
+        isActive,
         nodes,
         edges,
       };
@@ -139,7 +140,7 @@ function FlowCanvasInner({ onNotify }) {
   const hasSelection = Boolean(selectedNodeId || selectedEdgeId);
 
   return (
-    <div className="h-full flex flex-col relative bg-slate-950 select-none">
+    <div className="flex-1 min-h-0 flex flex-col relative bg-slate-950 select-none">
       {/* Top Toolbar */}
       <WorkflowToolbar
         name={name}
@@ -156,14 +157,14 @@ function FlowCanvasInner({ onNotify }) {
       />
 
       {/* Main Workspace Area (Sidebar + Canvas + Config Panel) */}
-      <div className="flex-1 flex relative overflow-hidden">
+      <div className="flex-1 min-h-0 flex relative overflow-hidden">
         {/* Left Node Selection Panel */}
         <NodeSidebar onAddNode={(type) => addNode(type)} />
 
         {/* Center React Flow Canvas */}
         <div
           ref={reactFlowWrapper}
-          className="flex-1 h-full relative"
+          className="flex-1 min-h-0 h-full w-full relative"
           onDragOver={onDragOver}
           onDrop={onDrop}
         >
@@ -179,6 +180,8 @@ function FlowCanvasInner({ onNotify }) {
             nodeTypes={nodeTypes}
             deleteKeyCode={['Backspace', 'Delete']}
             fitView
+            fitViewOptions={{ padding: 0.2 }}
+            style={{ width: '100%', height: '100%' }}
             className="bg-slate-950"
           >
             <Background color="#1e293b" gap={20} size={1} />
@@ -216,6 +219,7 @@ function FlowCanvasInner({ onNotify }) {
           workflowId,
           name,
           description,
+          isActive,
           nodes,
           edges,
         }}

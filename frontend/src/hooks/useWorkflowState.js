@@ -47,9 +47,30 @@ const INITIAL_NODES = [
 ];
 
 const INITIAL_EDGES = [
-  { id: 'e_sensor_to_avg', source: 'sensor_1', target: 'moving_avg_1', animated: true },
-  { id: 'e_avg_to_thresh', source: 'moving_avg_1', target: 'threshold_1', animated: true },
-  { id: 'e_thresh_to_alert', source: 'threshold_1', target: 'alert_1', animated: true },
+  {
+    id: 'e_sensor_to_avg',
+    source: 'sensor_1',
+    target: 'moving_avg_1',
+    type: 'smoothstep',
+    animated: true,
+    style: { stroke: '#38bdf8', strokeWidth: 2 },
+  },
+  {
+    id: 'e_avg_to_thresh',
+    source: 'moving_avg_1',
+    target: 'threshold_1',
+    type: 'smoothstep',
+    animated: true,
+    style: { stroke: '#818cf8', strokeWidth: 2 },
+  },
+  {
+    id: 'e_thresh_to_alert',
+    source: 'threshold_1',
+    target: 'alert_1',
+    type: 'smoothstep',
+    animated: true,
+    style: { stroke: '#fbbf24', strokeWidth: 2 },
+  },
 ];
 
 let idCounter = 1;
@@ -70,6 +91,7 @@ export function useWorkflowState() {
   const [workflowId, setWorkflowId] = useState('workflow_001');
   const [name, setName] = useState('Turbine Temperature Monitoring');
   const [description, setDescription] = useState('Monitors turbine temperature with moving average and triggers alerts.');
+  const [isActive, setIsActive] = useState(true);
   const [nodes, setNodes] = useState(INITIAL_NODES);
   const [edges, setEdges] = useState(INITIAL_EDGES);
   const [selectedNodeId, setSelectedNodeId] = useState(null);
@@ -79,14 +101,18 @@ export function useWorkflowState() {
   const onNodesChange = useCallback((changes) => {
     setNodes((nds) => applyNodeChanges(changes, nds));
 
-    // Handle selection change from React Flow
-    const selectChange = changes.find((c) => c.type === 'select');
-    if (selectChange) {
-      if (selectChange.selected) {
-        setSelectedNodeId(selectChange.id);
+    // Handle selection changes across full batch
+    const selectChanges = changes.filter((c) => c.type === 'select');
+    if (selectChanges.length > 0) {
+      const selectedItem = [...selectChanges].reverse().find((c) => c.selected);
+      if (selectedItem) {
+        setSelectedNodeId(selectedItem.id);
         setSelectedEdgeId(null);
       } else {
-        setSelectedNodeId((curr) => (curr === selectChange.id ? null : curr));
+        setSelectedNodeId((curr) => {
+          const wasCurrentDeselected = selectChanges.some((c) => !c.selected && c.id === curr);
+          return wasCurrentDeselected ? null : curr;
+        });
       }
     }
   }, []);
@@ -95,13 +121,17 @@ export function useWorkflowState() {
   const onEdgesChange = useCallback((changes) => {
     setEdges((eds) => applyEdgeChanges(changes, eds));
 
-    const selectChange = changes.find((c) => c.type === 'select');
-    if (selectChange) {
-      if (selectChange.selected) {
-        setSelectedEdgeId(selectChange.id);
+    const selectChanges = changes.filter((c) => c.type === 'select');
+    if (selectChanges.length > 0) {
+      const selectedItem = [...selectChanges].reverse().find((c) => c.selected);
+      if (selectedItem) {
+        setSelectedEdgeId(selectedItem.id);
         setSelectedNodeId(null);
       } else {
-        setSelectedEdgeId((curr) => (curr === selectChange.id ? null : curr));
+        setSelectedEdgeId((curr) => {
+          const wasCurrentDeselected = selectChanges.some((c) => !c.selected && c.id === curr);
+          return wasCurrentDeselected ? null : curr;
+        });
       }
     }
   }, []);
@@ -110,7 +140,17 @@ export function useWorkflowState() {
   const onConnect = useCallback(
     (params) => {
       if (isValidConnection(params, nodes, edges)) {
-        setEdges((eds) => addEdge({ ...params, animated: true }, eds));
+        setEdges((eds) =>
+          addEdge(
+            {
+              ...params,
+              type: 'smoothstep',
+              animated: true,
+              style: { stroke: '#38bdf8', strokeWidth: 2 },
+            },
+            eds
+          )
+        );
       }
     },
     [nodes, edges]
@@ -225,7 +265,12 @@ export function useWorkflowState() {
   const loadWorkflow = useCallback((workflowData) => {
     if (workflowData.workflowId) setWorkflowId(workflowData.workflowId);
     if (workflowData.name) setName(workflowData.name);
-    if (workflowData.description) setDescription(workflowData.description);
+    if ('description' in workflowData && workflowData.description !== undefined) {
+      setDescription(workflowData.description);
+    }
+    if (typeof workflowData.isActive === 'boolean') {
+      setIsActive(workflowData.isActive);
+    }
     if (Array.isArray(workflowData.nodes)) {
       setNodes(
         workflowData.nodes.map((n) => ({
@@ -258,6 +303,8 @@ export function useWorkflowState() {
     setName,
     description,
     setDescription,
+    isActive,
+    setIsActive,
     nodes,
     edges,
     selectedNodeId,
@@ -278,3 +325,4 @@ export function useWorkflowState() {
     loadWorkflow,
   };
 }
+

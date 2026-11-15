@@ -40,6 +40,28 @@ class StreamCompiler {
             filter((data) => !config.deviceId || data.deviceId === config.deviceId)
           );
         }
+      } else if (
+        type.includes('movingaverage') ||
+        type.includes('moving_avg') ||
+        type.includes('transform')
+      ) {
+        const windowSize = Math.max(1, Number(config.windowSize || 5));
+        const field = config.field || 'temperature';
+        const history = [];
+        currentStream$ = currentStream$.pipe(
+          map((data) => {
+            if (data && typeof data[field] === 'number') {
+              history.push(data[field]);
+              if (history.length > windowSize) {
+                history.shift();
+              }
+              const sum = history.reduce((acc, val) => acc + val, 0);
+              const avg = sum / history.length;
+              return { ...data, [field]: avg, [`${field}_raw`]: data[field], _windowSize: windowSize };
+            }
+            return data;
+          })
+        );
       } else if (type.includes('threshold') || type.includes('condition')) {
         const field = config.field || 'temperature';
         const operator = config.operator || '>';

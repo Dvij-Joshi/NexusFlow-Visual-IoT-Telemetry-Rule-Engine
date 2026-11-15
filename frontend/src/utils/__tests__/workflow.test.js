@@ -234,4 +234,55 @@ describe('Workflow JSON Serialization & Schema Compliance', () => {
     const serialized = serializeWorkflow(legacyGraph);
     assert.equal(serialized.nodes[0].data.windowSize, 7);
   });
+
+  test('validateWorkflow: rejects edges targeting sensor nodes', () => {
+    const invalidTarget = {
+      workflowId: 'wf_sensor_target',
+      name: 'Invalid Sensor Target',
+      nodes: [
+        { id: 'thresh_1', type: 'threshold', data: { value: 50 } },
+        { id: 'sensor_1', type: 'sensor', data: { deviceId: 'TURBINE_01' } },
+      ],
+      edges: [{ id: 'e_bad', source: 'thresh_1', target: 'sensor_1' }],
+    };
+
+    const result = validateWorkflow(invalidTarget);
+    assert.equal(result.isValid, false);
+    assert.ok(result.errors.some((err) => err.includes('cannot have incoming connections')));
+  });
+
+  test('validateWorkflow: rejects duplicate edge tuples even with different edge IDs', () => {
+    const duplicateEdges = {
+      workflowId: 'wf_dup_edges',
+      name: 'Duplicate Edges',
+      nodes: [
+        { id: 'sensor_1', type: 'sensor', data: { deviceId: 'TURBINE_01' } },
+        { id: 'avg_1', type: 'movingAverage', data: { windowSize: 5 } },
+      ],
+      edges: [
+        { id: 'edge_id_1', source: 'sensor_1', target: 'avg_1' },
+        { id: 'edge_id_2', source: 'sensor_1', target: 'avg_1' },
+      ],
+    };
+
+    const result = validateWorkflow(duplicateEdges);
+    assert.equal(result.isValid, false);
+    assert.ok(result.errors.some((err) => err.includes('Duplicate connection detected')));
+  });
+
+  test('validateWorkflow: rejects non-finite window sizes (Infinity, NaN)', () => {
+    const nonFinite = {
+      workflowId: 'wf_inf',
+      name: 'Infinity Window',
+      nodes: [
+        { id: 'sensor_1', type: 'sensor', data: { deviceId: 'TURBINE_01' } },
+        { id: 'avg_1', type: 'movingAverage', data: { windowSize: Infinity } },
+      ],
+      edges: [{ id: 'e1', source: 'sensor_1', target: 'avg_1' }],
+    };
+
+    const result = validateWorkflow(nonFinite);
+    assert.equal(result.isValid, false);
+    assert.ok(result.errors.some((err) => err.includes('windowSize >= 1')));
+  });
 });

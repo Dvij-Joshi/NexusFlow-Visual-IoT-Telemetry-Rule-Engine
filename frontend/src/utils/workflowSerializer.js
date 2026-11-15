@@ -120,3 +120,4 @@ export function downloadWorkflowJson(workflow, filename) {
   document.body.removeChild(link);
   URL.revokeObjectURL(url);
 }
+
