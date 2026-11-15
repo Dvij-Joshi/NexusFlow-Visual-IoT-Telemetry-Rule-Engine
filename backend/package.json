@@ -6,7 +6,9 @@
   "scripts": {
     "start": "node src/server.js",
     "dev": "nodemon src/server.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "seed": "node src/scripts/seed.js",
+    "generate": "node src/scripts/mockGenerator.js",
+    "test": "jest --verbose --forceExit --detectOpenHandles"
   },
   "keywords": [
     "iot",
@@ -27,6 +29,8 @@
     "socket.io": "^4.8.1"
   },
   "devDependencies": {
-    "nodemon": "^3.1.9"
+    "jest": "^29.7.0",
+    "nodemon": "^3.1.9",
+    "supertest": "^6.3.4"
   }
 }

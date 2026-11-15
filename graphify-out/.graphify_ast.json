@@ -1,0 +1,4779 @@
+{
+  "nodes": [
+    {
+      "id": "backend_package",
+      "label": "package.json",
+      "file_type": "code",
+      "source_file": "backend/package.json",
+      "source_location": "L1",
+      "_origin": "ast"
+    },
+    {
+      "id": "backend_package_name",
+      "label": "name",
+      "file_type": "code",
+      "source_file": "backend/package.json",
+      "source_location": "L2",
+      "_origin": "ast"
+    },
+    {
+      "id": "backend_package_version",
+      "label": "version",
+      "file_type": "code",
+      "source_file": "backend/package.json",
+      "source_location": "L3",
+      "_origin": "ast"
+    },
+    {
+      "id": "backend_package_description",
+      "label": "description",
+      "file_type": "code",
+      "source_file": "backend/package.json",
+      "source_location": "L4",
+      "_origin": "ast"
+    },
+    {
+      "id": "backend_package_main",
+      "label": "main",
+      "file_type": "code",
+      "source_file": "backend/package.json",
+      "source_location": "L5",
+      "_origin": "ast"
+    },
+    {
+      "id": "backend_package_scripts",
+      "label": "scripts",
+      "file_type": "code",
+      "source_file": "backend/package.json",
+      "source_location": "L6",
+      "_origin": "ast"
+    },
+    {
+      "id": "backend_package_scripts_start",
+      "label": "start",
+      "file_type": "code",
+      "source_file": "backend/package.json",
+      "source_location": "L7",
+      "_origin": "ast"
+    },
+    {
+      "id": "backend_package_scripts_dev",
+      "label": "dev",
+      "file_type": "code",
+      "source_file": "backend/package.json",
+      "source_location": "L8",
+      "_origin": "ast"
+    },
+    {
+      "id": "backend_package_scripts_test",
+      "label": "test",
+      "file_type": "code",
+      "source_file": "backend/package.json",
+      "source_location": "L9",
+      "_origin": "ast"
+    },
+    {
+      "id": "backend_package_keywords",
+      "label": "keywords",
+      "file_type": "code",
+      "source_file": "backend/package.json",
+      "source_location": "L11",
+      "_origin": "ast"
+    },
+    {
+      "id": "backend_package_author",
+      "label": "author",
+      "file_type": "code",
+      "source_file": "backend/package.json",
+      "source_location": "L19",
+      "_origin": "ast"
+    },
+    {
+      "id": "backend_package_license",
+      "label": "license",
+      "file_type": "code",
+      "source_file": "backend/package.json",
+      "source_location": "L20",
+      "_origin": "ast"
+    },
+    {
+      "id": "backend_package_dependencies",
+      "label": "dependencies",
+      "file_type": "code",
+      "source_file": "backend/package.json",
+      "source_location": "L21",
+      "_origin": "ast"
+    },
+    {
+      "id": "backend_package_dependencies_cors",
+      "label": "cors@^2.8.5",
+      "file_type": "code",
+      "source_file": "backend/package.json",
+      "source_location": "L22",
+      "_origin": "ast"
+    },
+    {
+      "id": "ref_cors",
+      "label": "cors",
+      "file_type": "concept",
+      "source_file": "backend/package.json",
+      "source_location": "L22",
+      "_origin": "ast"
+    },
+    {
+      "id": "backend_package_dependencies_dotenv",
+      "label": "dotenv@^16.4.7",
+      "file_type": "code",
+      "source_file": "backend/package.json",
+      "source_location": "L23",
+      "_origin": "ast"
+    },
+    {
+      "id": "ref_dotenv",
+      "label": "dotenv",
+      "file_type": "concept",
+      "source_file": "backend/package.json",
+      "source_location": "L23",
+      "_origin": "ast"
+    },
+    {
+      "id": "backend_package_dependencies_express",
+      "label": "express@^4.21.2",
+      "file_type": "code",
+      "source_file": "backend/package.json",
+      "source_location": "L24",
+      "_origin": "ast"
+    },
+    {
+      "id": "ref_express",
+      "label": "express",
+      "file_type": "concept",
+      "source_file": "backend/package.json",
+      "source_location": "L24",
+      "_origin": "ast"
+    },
+    {
+      "id": "backend_package_dependencies_mongoose",
+      "label": "mongoose@^8.9.5",
+      "file_type": "code",
+      "source_file": "backend/package.json",
+      "source_location": "L25",
+      "_origin": "ast"
+    },
+    {
+      "id": "ref_mongoose",
+      "label": "mongoose",
+      "file_type": "concept",
+      "source_file": "backend/package.json",
+      "source_location": "L25",
+      "_origin": "ast"
+    },
+    {
+      "id": "backend_package_dependencies_rxjs",
+      "label": "rxjs@^7.8.1",
+      "file_type": "code",
+      "source_file": "backend/package.json",
+      "source_location": "L26",
+      "_origin": "ast"
+    },
+    {
+      "id": "ref_rxjs",
+      "label": "rxjs",
+      "file_type": "concept",
+      "source_file": "backend/package.json",
+      "source_location": "L26",
+      "_origin": "ast"
+    },
+    {
+      "id": "backend_package_dependencies_socket_io",
+      "label": "socket.io@^4.8.1",
+      "file_type": "code",
+      "source_file": "backend/package.json",
+      "source_location": "L27",
+      "_origin": "ast"
+    },
+    {
+      "id": "ref_socket_io",
+      "label": "socket.io",
+      "file_type": "concept",
+      "source_file": "backend/package.json",
+      "source_location": "L27",
+      "_origin": "ast"
+    },
+    {
+      "id": "backend_package_devdependencies",
+      "label": "devDependencies",
+      "file_type": "code",
+      "source_file": "backend/package.json",
+      "source_location": "L29",
+      "_origin": "ast"
+    },
+    {
+      "id": "backend_package_devdependencies_nodemon",
+      "label": "nodemon@^3.1.9",
+      "file_type": "code",
+      "source_file": "backend/package.json",
+      "source_location": "L30",
+      "_origin": "ast"
+    },
+    {
+      "id": "ref_nodemon",
+      "label": "nodemon",
+      "file_type": "concept",
+      "source_file": "backend/package.json",
+      "source_location": "L30",
+      "_origin": "ast"
+    },
+    {
+      "id": "backend_src_compiler_graphparser",
+      "label": "graphParser.js",
+      "file_type": "code",
+      "source_file": "backend/src/compiler/graphParser.js",
+      "source_location": "L1",
+      "_origin": "ast"
+    },
+    {
+      "id": "backend_src_compiler_graphparser_graphparser",
+      "label": "GraphParser",
+      "file_type": "code",
+      "source_file": "backend/src/compiler/graphParser.js",
+      "source_location": "L4",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast"
+    },
+    {
+      "id": "backend_src_compiler_graphparser_graphparser_parse",
+      "label": ".parse()",
+      "file_type": "code",
+      "source_file": "backend/src/compiler/graphParser.js",
+      "source_location": "L9",
+      "_callable": true,
+      "_origin": "ast"
+    },
+    {
+      "id": "backend_src_compiler_streamcompiler",
+      "label": "streamCompiler.js",
+      "file_type": "code",
+      "source_file": "backend/src/compiler/streamCompiler.js",
+      "source_location": "L1",
+      "_origin": "ast"
+    },
+    {
+      "id": "backend_src_compiler_streamcompiler_subject",
+      "label": "{ Subject }",
+      "file_type": "code",
+      "source_file": "backend/src/compiler/streamCompiler.js",
+      "source_location": "L1",
+      "_origin": "ast"
+    },
+    {
+      "id": "backend_src_compiler_streamcompiler_filter_map",
+      "label": "{ filter, map }",
+      "file_type": "code",
+      "source_file": "backend/src/compiler/streamCompiler.js",
+      "source_location": "L2",
+      "_origin": "ast"
+    },
+    {
+      "id": "backend_src_compiler_streamcompiler_streamcompiler",
+      "label": "StreamCompiler",
+      "file_type": "code",
+      "source_file": "backend/src/compiler/streamCompiler.js",
+      "source_location": "L6",
+      "_callable": true,
+      "_callable_class": true,
+      "_ts_fields": {
+        "activePipelines": "Map"
+      },
+      "_origin": "ast"
+    },
+    {
+      "id": "backend_src_compiler_streamcompiler_streamcompiler_constructor",
+      "label": ".constructor()",
+      "file_type": "code",
+      "source_file": "backend/src/compiler/streamCompiler.js",
+      "source_location": "L7",
+      "_callable": true,
+      "_origin": "ast"
+    },
+    {
+      "id": "backend_src_compiler_streamcompiler_streamcompiler_compileworkflow",
+      "label": ".compileWorkflow()",
+      "file_type": "code",
+      "source_file": "backend/src/compiler/streamCompiler.js",
+      "source_location": "L16",
+      "_callable": true,
+      "_origin": "ast"
+    },
+    {
+      "id": "backend_src_compiler_streamcompiler_streamcompiler_processtelemetry",
+      "label": ".processTelemetry()",
+      "file_type": "code",
+      "source_file": "backend/src/compiler/streamCompiler.js",
+      "source_location": "L111",
+      "_callable": true,
+      "_origin": "ast"
+    },
+    {
+      "id": "backend_src_compiler_streamcompiler_streamcompiler_stopworkflow",
+      "label": ".stopWorkflow()",
+      "file_type": "code",
+      "source_file": "backend/src/compiler/streamCompiler.js",
+      "source_location": "L124",
+      "_callable": true,
+      "_origin": "ast"
+    },
+    {
+      "id": "backend_src_config_database",
+      "label": "database.js",
+      "file_type": "code",
+      "source_file": "backend/src/config/database.js",
+      "source_location": "L1",
+      "_origin": "ast"
+    },
+    {
+      "id": "backend_src_config_database_mongoose",
+      "label": "mongoose",
+      "file_type": "code",
+      "source_file": "backend/src/config/database.js",
+      "source_location": "L1",
+      "_origin": "ast"
+    },
+    {
+      "id": "backend_src_config_database_connectdb",
+      "label": "connectDB()",
+      "file_type": "code",
+      "source_file": "backend/src/config/database.js",
+      "source_location": "L3",
+      "_callable": true,
+      "_origin": "ast"
+    },
+    {
+      "id": "backend_src_controllers_telemetrycontroller",
+      "label": "telemetryController.js",
+      "file_type": "code",
+      "source_file": "backend/src/controllers/telemetryController.js",
+      "source_location": "L1",
+      "_origin": "ast"
+    },
+    {
+      "id": "backend_src_controllers_telemetrycontroller_ingesttelemetry",
+      "label": "ingestTelemetry()",
+      "file_type": "code",
+      "source_file": "backend/src/controllers/telemetryController.js",
+      "source_location": "L7",
+      "_callable": true,
+      "_origin": "ast"
+    },
+    {
+      "id": "backend_src_controllers_telemetrycontroller_ingestbatchtelemetry",
+      "label": "ingestBatchTelemetry()",
+      "file_type": "code",
+      "source_file": "backend/src/controllers/telemetryController.js",
+      "source_location": "L29",
+      "_callable": true,
+      "_origin": "ast"
+    },
+    {
+      "id": "backend_src_controllers_telemetrycontroller_getrecenttelemetry",
+      "label": "getRecentTelemetry()",
+      "file_type": "code",
+      "source_file": "backend/src/controllers/telemetryController.js",
+      "source_location": "L51",
+      "_callable": true,
+      "_origin": "ast"
+    },
+    {
+      "id": "backend_src_controllers_workflowcontroller",
+      "label": "workflowController.js",
+      "file_type": "code",
+      "source_file": "backend/src/controllers/workflowController.js",
+      "source_location": "L1",
+      "_origin": "ast"
+    },
+    {
+      "id": "backend_src_controllers_workflowcontroller_createworkflow",
+      "label": "createWorkflow()",
+      "file_type": "code",
+      "source_file": "backend/src/controllers/workflowController.js",
+      "source_location": "L7",
+      "_callable": true,
+      "_origin": "ast"
+    },
+    {
+      "id": "backend_src_controllers_workflowcontroller_getallworkflows",
+      "label": "getAllWorkflows()",
+      "file_type": "code",
+      "source_file": "backend/src/controllers/workflowController.js",
+      "source_location": "L41",
+      "_callable": true,
+      "_origin": "ast"
+    },
+    {
+      "id": "backend_src_controllers_workflowcontroller_getworkflowbyid",
+      "label": "getWorkflowById()",
+      "file_type": "code",
+      "source_file": "backend/src/controllers/workflowController.js",
+      "source_location": "L58",
+      "_callable": true,
+      "_origin": "ast"
+    },
+    {
+      "id": "backend_src_controllers_workflowcontroller_updateworkflow",
+      "label": "updateWorkflow()",
+      "file_type": "code",
+      "source_file": "backend/src/controllers/workflowController.js",
+      "source_location": "L77",
+      "_callable": true,
+      "_origin": "ast"
+    },
+    {
+      "id": "backend_src_controllers_workflowcontroller_deleteworkflow",
+      "label": "deleteWorkflow()",
+      "file_type": "code",
+      "source_file": "backend/src/controllers/workflowController.js",
+      "source_location": "L111",
+      "_callable": true,
+      "_origin": "ast"
+    },
+    {
+      "id": "backend_src_models_telemetry",
+      "label": "Telemetry.js",
+      "file_type": "code",
+      "source_file": "backend/src/models/Telemetry.js",
+      "source_location": "L1",
+      "_origin": "ast"
+    },
+    {
+      "id": "backend_src_models_telemetry_mongoose",
+      "label": "mongoose",
+      "file_type": "code",
+      "source_file": "backend/src/models/Telemetry.js",
+      "source_location": "L1",
+      "_origin": "ast"
+    },
+    {
+      "id": "backend_src_models_telemetry_telemetryschema",
+      "label": "telemetrySchema",
+      "file_type": "code",
+      "source_file": "backend/src/models/Telemetry.js",
+      "source_location": "L3",
+      "_origin": "ast"
+    },
+    {
+      "id": "backend_src_models_telemetry_telemetry",
+      "label": "Telemetry",
+      "file_type": "code",
+      "source_file": "backend/src/models/Telemetry.js",
+      "source_location": "L59",
+      "_origin": "ast"
+    },
+    {
+      "id": "backend_src_models_workflow",
+      "label": "Workflow.js",
+      "file_type": "code",
+      "source_file": "backend/src/models/Workflow.js",
+      "source_location": "L1",
+      "_origin": "ast"
+    },
+    {
+      "id": "backend_src_models_workflow_mongoose",
+      "label": "mongoose",
+      "file_type": "code",
+      "source_file": "backend/src/models/Workflow.js",
+      "source_location": "L1",
+      "_origin": "ast"
+    },
+    {
+      "id": "backend_src_models_workflow_nodeschema",
+      "label": "nodeSchema",
+      "file_type": "code",
+      "source_file": "backend/src/models/Workflow.js",
+      "source_location": "L3",
+      "_origin": "ast"
+    },
+    {
+      "id": "backend_src_models_workflow_edgeschema",
+      "label": "edgeSchema",
+      "file_type": "code",
+      "source_file": "backend/src/models/Workflow.js",
+      "source_location": "L16",
+      "_origin": "ast"
+    },
+    {
+      "id": "backend_src_models_workflow_workflowschema",
+      "label": "workflowSchema",
+      "file_type": "code",
+      "source_file": "backend/src/models/Workflow.js",
+      "source_location": "L29",
+      "_origin": "ast"
+    },
+    {
+      "id": "backend_src_models_workflow_workflow",
+      "label": "Workflow",
+      "file_type": "code",
+      "source_file": "backend/src/models/Workflow.js",
+      "source_location": "L52",
+      "_origin": "ast"
+    },
+    {
+      "id": "backend_src_routes_telemetryroutes",
+      "label": "telemetryRoutes.js",
+      "file_type": "code",
+      "source_file": "backend/src/routes/telemetryRoutes.js",
+      "source_location": "L1",
+      "_origin": "ast"
+    },
+    {
+      "id": "backend_src_routes_telemetryroutes_express",
+      "label": "express",
+      "file_type": "code",
+      "source_file": "backend/src/routes/telemetryRoutes.js",
+      "source_location": "L1",
+      "_origin": "ast"
+    },
+    {
+      "id": "backend_src_routes_telemetryroutes_router",
+      "label": "router",
+      "file_type": "code",
+      "source_file": "backend/src/routes/telemetryRoutes.js",
+      "source_location": "L2",
+      "_origin": "ast"
+    },
+    {
+      "id": "backend_src_routes_workflowroutes",
+      "label": "workflowRoutes.js",
+      "file_type": "code",
+      "source_file": "backend/src/routes/workflowRoutes.js",
+      "source_location": "L1",
+      "_origin": "ast"
+    },
+    {
+      "id": "backend_src_routes_workflowroutes_express",
+      "label": "express",
+      "file_type": "code",
+      "source_file": "backend/src/routes/workflowRoutes.js",
+      "source_location": "L1",
+      "_origin": "ast"
+    },
+    {
+      "id": "backend_src_routes_workflowroutes_router",
+      "label": "router",
+      "file_type": "code",
+      "source_file": "backend/src/routes/workflowRoutes.js",
+      "source_location": "L2",
+      "_origin": "ast"
+    },
+    {
+      "id": "backend_src_server",
+      "label": "server.js",
+      "file_type": "code",
+      "source_file": "backend/src/server.js",
+      "source_location": "L1",
+      "_origin": "ast"
+    },
+    {
+      "id": "backend_src_server_http",
+      "label": "http",
+      "file_type": "code",
+      "source_file": "backend/src/server.js",
+      "source_location": "L1",
+      "_origin": "ast"
+    },
+    {
+      "id": "backend_src_server_express",
+      "label": "express",
+      "file_type": "code",
+      "source_file": "backend/src/server.js",
+      "source_location": "L2",
+      "_origin": "ast"
+    },
+    {
+      "id": "backend_src_server_cors",
+      "label": "cors",
+      "file_type": "code",
+      "source_file": "backend/src/server.js",
+      "source_location": "L3",
+      "_origin": "ast"
+    },
+    {
+      "id": "backend_src_server_dotenv",
+      "label": "dotenv",
+      "file_type": "code",
+      "source_file": "backend/src/server.js",
+      "source_location": "L4",
+      "_origin": "ast"
+    },
+    {
+      "id": "backend_src_server_app",
+      "label": "app",
+      "file_type": "code",
+      "source_file": "backend/src/server.js",
+      "source_location": "L16",
+      "_origin": "ast"
+    },
+    {
+      "id": "backend_src_server_server",
+      "label": "server",
+      "file_type": "code",
+      "source_file": "backend/src/server.js",
+      "source_location": "L17",
+      "_origin": "ast"
+    },
+    {
+      "id": "backend_src_server_startserver",
+      "label": "startServer()",
+      "file_type": "code",
+      "source_file": "backend/src/server.js",
+      "source_location": "L50",
+      "_callable": true,
+      "_origin": "ast"
+    },
+    {
+      "id": "backend_src_services_alertservice",
+      "label": "alertService.js",
+      "file_type": "code",
+      "source_file": "backend/src/services/alertService.js",
+      "source_location": "L1",
+      "_origin": "ast"
+    },
+    {
+      "id": "backend_src_services_alertservice_alertservice",
+      "label": "AlertService",
+      "file_type": "code",
+      "source_file": "backend/src/services/alertService.js",
+      "source_location": "L3",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast"
+    },
+    {
+      "id": "backend_src_services_alertservice_alertservice_triggeralert",
+      "label": ".triggerAlert()",
+      "file_type": "code",
+      "source_file": "backend/src/services/alertService.js",
+      "source_location": "L8",
+      "_callable": true,
+      "_origin": "ast"
+    },
+    {
+      "id": "backend_src_services_alertservice_alertservice_sendoutboundwebhook",
+      "label": ".sendOutboundWebhook()",
+      "file_type": "code",
+      "source_file": "backend/src/services/alertService.js",
+      "source_location": "L37",
+      "_callable": true,
+      "_origin": "ast"
+    },
+    {
+      "id": "backend_src_services_ingestionservice",
+      "label": "ingestionService.js",
+      "file_type": "code",
+      "source_file": "backend/src/services/ingestionService.js",
+      "source_location": "L1",
+      "_origin": "ast"
+    },
+    {
+      "id": "backend_src_services_ingestionservice_ingestionservice",
+      "label": "IngestionService",
+      "file_type": "code",
+      "source_file": "backend/src/services/ingestionService.js",
+      "source_location": "L5",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast"
+    },
+    {
+      "id": "backend_src_services_ingestionservice_ingestionservice_ingestsingle",
+      "label": ".ingestSingle()",
+      "file_type": "code",
+      "source_file": "backend/src/services/ingestionService.js",
+      "source_location": "L10",
+      "_callable": true,
+      "_origin": "ast"
+    },
+    {
+      "id": "backend_src_services_ingestionservice_ingestionservice_ingestbatch",
+      "label": ".ingestBatch()",
+      "file_type": "code",
+      "source_file": "backend/src/services/ingestionService.js",
+      "source_location": "L41",
+      "_callable": true,
+      "_origin": "ast"
+    },
+    {
+      "id": "backend_src_sockets_socketserver",
+      "label": "socketServer.js",
+      "file_type": "code",
+      "source_file": "backend/src/sockets/socketServer.js",
+      "source_location": "L1",
+      "_origin": "ast"
+    },
+    {
+      "id": "backend_src_sockets_socketserver_server",
+      "label": "{ Server }",
+      "file_type": "code",
+      "source_file": "backend/src/sockets/socketServer.js",
+      "source_location": "L1",
+      "_origin": "ast"
+    },
+    {
+      "id": "backend_src_sockets_socketserver_initsocketserver",
+      "label": "initSocketServer()",
+      "file_type": "code",
+      "source_file": "backend/src/sockets/socketServer.js",
+      "source_location": "L5",
+      "_callable": true,
+      "_origin": "ast"
+    },
+    {
+      "id": "backend_src_sockets_socketserver_getio",
+      "label": "getIO()",
+      "file_type": "code",
+      "source_file": "backend/src/sockets/socketServer.js",
+      "source_location": "L36",
+      "_callable": true,
+      "_origin": "ast"
+    },
+    {
+      "id": "backend_src_sockets_socketserver_broadcasttelemetry",
+      "label": "broadcastTelemetry()",
+      "file_type": "code",
+      "source_file": "backend/src/sockets/socketServer.js",
+      "source_location": "L40",
+      "_callable": true,
+      "_origin": "ast"
+    },
+    {
+      "id": "backend_src_sockets_socketserver_broadcastalert",
+      "label": "broadcastAlert()",
+      "file_type": "code",
+      "source_file": "backend/src/sockets/socketServer.js",
+      "source_location": "L51",
+      "_callable": true,
+      "_origin": "ast"
+    },
+    {
+      "id": "frontend_package",
+      "label": "package.json",
+      "file_type": "code",
+      "source_file": "frontend/package.json",
+      "source_location": "L1",
+      "_origin": "ast"
+    },
+    {
+      "id": "frontend_package_name",
+      "label": "name",
+      "file_type": "code",
+      "source_file": "frontend/package.json",
+      "source_location": "L2",
+      "_origin": "ast"
+    },
+    {
+      "id": "frontend_package_private",
+      "label": "private",
+      "file_type": "code",
+      "source_file": "frontend/package.json",
+      "source_location": "L3",
+      "_origin": "ast"
+    },
+    {
+      "id": "frontend_package_version",
+      "label": "version",
+      "file_type": "code",
+      "source_file": "frontend/package.json",
+      "source_location": "L4",
+      "_origin": "ast"
+    },
+    {
+      "id": "frontend_package_type",
+      "label": "type",
+      "file_type": "code",
+      "source_file": "frontend/package.json",
+      "source_location": "L5",
+      "_origin": "ast"
+    },
+    {
+      "id": "frontend_package_scripts",
+      "label": "scripts",
+      "file_type": "code",
+      "source_file": "frontend/package.json",
+      "source_location": "L6",
+      "_origin": "ast"
+    },
+    {
+      "id": "frontend_package_scripts_dev",
+      "label": "dev",
+      "file_type": "code",
+      "source_file": "frontend/package.json",
+      "source_location": "L7",
+      "_origin": "ast"
+    },
+    {
+      "id": "frontend_package_scripts_build",
+      "label": "build",
+      "file_type": "code",
+      "source_file": "frontend/package.json",
+      "source_location": "L8",
+      "_origin": "ast"
+    },
+    {
+      "id": "frontend_package_scripts_preview",
+      "label": "preview",
+      "file_type": "code",
+      "source_file": "frontend/package.json",
+      "source_location": "L9",
+      "_origin": "ast"
+    },
+    {
+      "id": "frontend_package_dependencies",
+      "label": "dependencies",
+      "file_type": "code",
+      "source_file": "frontend/package.json",
+      "source_location": "L11",
+      "_origin": "ast"
+    },
+    {
+      "id": "frontend_package_dependencies_xyflow_react",
+      "label": "@xyflow/react@^12.4.2",
+      "file_type": "code",
+      "source_file": "frontend/package.json",
+      "source_location": "L12",
+      "_origin": "ast"
+    },
+    {
+      "id": "ref_xyflow_react",
+      "label": "@xyflow/react",
+      "file_type": "concept",
+      "source_file": "frontend/package.json",
+      "source_location": "L12",
+      "_origin": "ast"
+    },
+    {
+      "id": "frontend_package_dependencies_axios",
+      "label": "axios@^1.7.9",
+      "file_type": "code",
+      "source_file": "frontend/package.json",
+      "source_location": "L13",
+      "_origin": "ast"
+    },
+    {
+      "id": "ref_axios",
+      "label": "axios",
+      "file_type": "concept",
+      "source_file": "frontend/package.json",
+      "source_location": "L13",
+      "_origin": "ast"
+    },
+    {
+      "id": "frontend_package_dependencies_clsx",
+      "label": "clsx@^2.1.1",
+      "file_type": "code",
+      "source_file": "frontend/package.json",
+      "source_location": "L14",
+      "_origin": "ast"
+    },
+    {
+      "id": "ref_clsx",
+      "label": "clsx",
+      "file_type": "concept",
+      "source_file": "frontend/package.json",
+      "source_location": "L14",
+      "_origin": "ast"
+    },
+    {
+      "id": "frontend_package_dependencies_lucide_react",
+      "label": "lucide-react@^0.475.0",
+      "file_type": "code",
+      "source_file": "frontend/package.json",
+      "source_location": "L15",
+      "_origin": "ast"
+    },
+    {
+      "id": "ref_lucide_react",
+      "label": "lucide-react",
+      "file_type": "concept",
+      "source_file": "frontend/package.json",
+      "source_location": "L15",
+      "_origin": "ast"
+    },
+    {
+      "id": "frontend_package_dependencies_react",
+      "label": "react@^18.3.1",
+      "file_type": "code",
+      "source_file": "frontend/package.json",
+      "source_location": "L16",
+      "_origin": "ast"
+    },
+    {
+      "id": "ref_react",
+      "label": "react",
+      "file_type": "concept",
+      "source_file": "frontend/package.json",
+      "source_location": "L16",
+      "_origin": "ast"
+    },
+    {
+      "id": "frontend_package_dependencies_react_dom",
+      "label": "react-dom@^18.3.1",
+      "file_type": "code",
+      "source_file": "frontend/package.json",
+      "source_location": "L17",
+      "_origin": "ast"
+    },
+    {
+      "id": "ref_react_dom",
+      "label": "react-dom",
+      "file_type": "concept",
+      "source_file": "frontend/package.json",
+      "source_location": "L17",
+      "_origin": "ast"
+    },
+    {
+      "id": "frontend_package_dependencies_recharts",
+      "label": "recharts@^2.15.1",
+      "file_type": "code",
+      "source_file": "frontend/package.json",
+      "source_location": "L18",
+      "_origin": "ast"
+    },
+    {
+      "id": "ref_recharts",
+      "label": "recharts",
+      "file_type": "concept",
+      "source_file": "frontend/package.json",
+      "source_location": "L18",
+      "_origin": "ast"
+    },
+    {
+      "id": "frontend_package_dependencies_socket_io_client",
+      "label": "socket.io-client@^4.8.1",
+      "file_type": "code",
+      "source_file": "frontend/package.json",
+      "source_location": "L19",
+      "_origin": "ast"
+    },
+    {
+      "id": "ref_socket_io_client",
+      "label": "socket.io-client",
+      "file_type": "concept",
+      "source_file": "frontend/package.json",
+      "source_location": "L19",
+      "_origin": "ast"
+    },
+    {
+      "id": "frontend_package_dependencies_tailwind_merge",
+      "label": "tailwind-merge@^3.0.1",
+      "file_type": "code",
+      "source_file": "frontend/package.json",
+      "source_location": "L20",
+      "_origin": "ast"
+    },
+    {
+      "id": "ref_tailwind_merge",
+      "label": "tailwind-merge",
+      "file_type": "concept",
+      "source_file": "frontend/package.json",
+      "source_location": "L20",
+      "_origin": "ast"
+    },
+    {
+      "id": "frontend_package_devdependencies",
+      "label": "devDependencies",
+      "file_type": "code",
+      "source_file": "frontend/package.json",
+      "source_location": "L22",
+      "_origin": "ast"
+    },
+    {
+      "id": "frontend_package_devdependencies_types_react",
+      "label": "@types/react@^18.3.18",
+      "file_type": "code",
+      "source_file": "frontend/package.json",
+      "source_location": "L23",
+      "_origin": "ast"
+    },
+    {
+      "id": "ref_types_react",
+      "label": "@types/react",
+      "file_type": "concept",
+      "source_file": "frontend/package.json",
+      "source_location": "L23",
+      "_origin": "ast"
+    },
+    {
+      "id": "frontend_package_devdependencies_types_react_dom",
+      "label": "@types/react-dom@^18.3.5",
+      "file_type": "code",
+      "source_file": "frontend/package.json",
+      "source_location": "L24",
+      "_origin": "ast"
+    },
+    {
+      "id": "ref_types_react_dom",
+      "label": "@types/react-dom",
+      "file_type": "concept",
+      "source_file": "frontend/package.json",
+      "source_location": "L24",
+      "_origin": "ast"
+    },
+    {
+      "id": "frontend_package_devdependencies_vitejs_plugin_react",
+      "label": "@vitejs/plugin-react@^4.3.4",
+      "file_type": "code",
+      "source_file": "frontend/package.json",
+      "source_location": "L25",
+      "_origin": "ast"
+    },
+    {
+      "id": "ref_vitejs_plugin_react",
+      "label": "@vitejs/plugin-react",
+      "file_type": "concept",
+      "source_file": "frontend/package.json",
+      "source_location": "L25",
+      "_origin": "ast"
+    },
+    {
+      "id": "frontend_package_devdependencies_autoprefixer",
+      "label": "autoprefixer@^10.4.20",
+      "file_type": "code",
+      "source_file": "frontend/package.json",
+      "source_location": "L26",
+      "_origin": "ast"
+    },
+    {
+      "id": "ref_autoprefixer",
+      "label": "autoprefixer",
+      "file_type": "concept",
+      "source_file": "frontend/package.json",
+      "source_location": "L26",
+      "_origin": "ast"
+    },
+    {
+      "id": "frontend_package_devdependencies_postcss",
+      "label": "postcss@^8.5.1",
+      "file_type": "code",
+      "source_file": "frontend/package.json",
+      "source_location": "L27",
+      "_origin": "ast"
+    },
+    {
+      "id": "ref_postcss",
+      "label": "postcss",
+      "file_type": "concept",
+      "source_file": "frontend/package.json",
+      "source_location": "L27",
+      "_origin": "ast"
+    },
+    {
+      "id": "frontend_package_devdependencies_tailwindcss",
+      "label": "tailwindcss@^3.4.17",
+      "file_type": "code",
+      "source_file": "frontend/package.json",
+      "source_location": "L28",
+      "_origin": "ast"
+    },
+    {
+      "id": "ref_tailwindcss",
+      "label": "tailwindcss",
+      "file_type": "concept",
+      "source_file": "frontend/package.json",
+      "source_location": "L28",
+      "_origin": "ast"
+    },
+    {
+      "id": "frontend_package_devdependencies_vite",
+      "label": "vite@^6.1.0",
+      "file_type": "code",
+      "source_file": "frontend/package.json",
+      "source_location": "L29",
+      "_origin": "ast"
+    },
+    {
+      "id": "ref_vite",
+      "label": "vite",
+      "file_type": "concept",
+      "source_file": "frontend/package.json",
+      "source_location": "L29",
+      "_origin": "ast"
+    },
+    {
+      "id": "frontend_postcss_config",
+      "label": "postcss.config.js",
+      "file_type": "code",
+      "source_file": "frontend/postcss.config.js",
+      "source_location": "L1",
+      "_origin": "ast"
+    },
+    {
+      "id": "frontend_src_app",
+      "label": "App.jsx",
+      "file_type": "code",
+      "source_file": "frontend/src/App.jsx",
+      "source_location": "L1",
+      "_origin": "ast"
+    },
+    {
+      "id": "frontend_src_app_app",
+      "label": "App()",
+      "file_type": "code",
+      "source_file": "frontend/src/App.jsx",
+      "source_location": "L10",
+      "_callable": true,
+      "_origin": "ast"
+    },
+    {
+      "id": "frontend_src_app_app_onconnect",
+      "label": "onConnect()",
+      "file_type": "code",
+      "source_file": "frontend/src/App.jsx",
+      "source_location": "L32",
+      "_callable": true,
+      "_origin": "ast"
+    },
+    {
+      "id": "frontend_src_app_app_ondisconnect",
+      "label": "onDisconnect()",
+      "file_type": "code",
+      "source_file": "frontend/src/App.jsx",
+      "source_location": "L36",
+      "_callable": true,
+      "_origin": "ast"
+    },
+    {
+      "id": "frontend_src_app_app_ontelemetry",
+      "label": "onTelemetry()",
+      "file_type": "code",
+      "source_file": "frontend/src/App.jsx",
+      "source_location": "L40",
+      "_callable": true,
+      "_origin": "ast"
+    },
+    {
+      "id": "frontend_src_app_app_onalert",
+      "label": "onAlert()",
+      "file_type": "code",
+      "source_file": "frontend/src/App.jsx",
+      "source_location": "L44",
+      "_callable": true,
+      "_origin": "ast"
+    },
+    {
+      "id": "frontend_src_components_customnodes_alertnode",
+      "label": "AlertNode.jsx",
+      "file_type": "code",
+      "source_file": "frontend/src/components/CustomNodes/AlertNode.jsx",
+      "source_location": "L1",
+      "_origin": "ast"
+    },
+    {
+      "id": "frontend_src_components_customnodes_alertnode_alertnode",
+      "label": "AlertNode()",
+      "file_type": "code",
+      "source_file": "frontend/src/components/CustomNodes/AlertNode.jsx",
+      "source_location": "L5",
+      "_callable": true,
+      "_origin": "ast"
+    },
+    {
+      "id": "frontend_src_components_customnodes_sensornode",
+      "label": "SensorNode.jsx",
+      "file_type": "code",
+      "source_file": "frontend/src/components/CustomNodes/SensorNode.jsx",
+      "source_location": "L1",
+      "_origin": "ast"
+    },
+    {
+      "id": "frontend_src_components_customnodes_sensornode_sensornode",
+      "label": "SensorNode()",
+      "file_type": "code",
+      "source_file": "frontend/src/components/CustomNodes/SensorNode.jsx",
+      "source_location": "L5",
+      "_callable": true,
+      "_origin": "ast"
+    },
+    {
+      "id": "frontend_src_components_customnodes_thresholdnode",
+      "label": "ThresholdNode.jsx",
+      "file_type": "code",
+      "source_file": "frontend/src/components/CustomNodes/ThresholdNode.jsx",
+      "source_location": "L1",
+      "_origin": "ast"
+    },
+    {
+      "id": "frontend_src_components_customnodes_thresholdnode_thresholdnode",
+      "label": "ThresholdNode()",
+      "file_type": "code",
+      "source_file": "frontend/src/components/CustomNodes/ThresholdNode.jsx",
+      "source_location": "L5",
+      "_callable": true,
+      "_origin": "ast"
+    },
+    {
+      "id": "frontend_src_components_customnodes_transformnode",
+      "label": "TransformNode.jsx",
+      "file_type": "code",
+      "source_file": "frontend/src/components/CustomNodes/TransformNode.jsx",
+      "source_location": "L1",
+      "_origin": "ast"
+    },
+    {
+      "id": "frontend_src_components_customnodes_transformnode_transformnode",
+      "label": "TransformNode()",
+      "file_type": "code",
+      "source_file": "frontend/src/components/CustomNodes/TransformNode.jsx",
+      "source_location": "L5",
+      "_callable": true,
+      "_origin": "ast"
+    },
+    {
+      "id": "frontend_src_components_dashboard_alertsfeed",
+      "label": "AlertsFeed.jsx",
+      "file_type": "code",
+      "source_file": "frontend/src/components/Dashboard/AlertsFeed.jsx",
+      "source_location": "L1",
+      "_origin": "ast"
+    },
+    {
+      "id": "frontend_src_components_dashboard_alertsfeed_alertsfeed",
+      "label": "AlertsFeed()",
+      "file_type": "code",
+      "source_file": "frontend/src/components/Dashboard/AlertsFeed.jsx",
+      "source_location": "L4",
+      "_callable": true,
+      "_origin": "ast"
+    },
+    {
+      "id": "frontend_src_components_dashboard_livetelemetrychart",
+      "label": "LiveTelemetryChart.jsx",
+      "file_type": "code",
+      "source_file": "frontend/src/components/Dashboard/LiveTelemetryChart.jsx",
+      "source_location": "L1",
+      "_origin": "ast"
+    },
+    {
+      "id": "frontend_src_components_dashboard_livetelemetrychart_livetelemetrychart",
+      "label": "LiveTelemetryChart()",
+      "file_type": "code",
+      "source_file": "frontend/src/components/Dashboard/LiveTelemetryChart.jsx",
+      "source_location": "L12",
+      "_callable": true,
+      "_origin": "ast"
+    },
+    {
+      "id": "frontend_src_components_dashboard_simulatorpanel",
+      "label": "SimulatorPanel.jsx",
+      "file_type": "code",
+      "source_file": "frontend/src/components/Dashboard/SimulatorPanel.jsx",
+      "source_location": "L1",
+      "_origin": "ast"
+    },
+    {
+      "id": "frontend_src_components_dashboard_simulatorpanel_simulatorpanel",
+      "label": "SimulatorPanel()",
+      "file_type": "code",
+      "source_file": "frontend/src/components/Dashboard/SimulatorPanel.jsx",
+      "source_location": "L5",
+      "_callable": true,
+      "_origin": "ast"
+    },
+    {
+      "id": "frontend_src_components_grapheditor_flowcanvas",
+      "label": "FlowCanvas.jsx",
+      "file_type": "code",
+      "source_file": "frontend/src/components/GraphEditor/FlowCanvas.jsx",
+      "source_location": "L1",
+      "_origin": "ast"
+    },
+    {
+      "id": "frontend_src_components_grapheditor_flowcanvas_initialnodes",
+      "label": "initialNodes",
+      "file_type": "code",
+      "source_file": "frontend/src/components/GraphEditor/FlowCanvas.jsx",
+      "source_location": "L18",
+      "_origin": "ast"
+    },
+    {
+      "id": "frontend_src_components_grapheditor_flowcanvas_initialedges",
+      "label": "initialEdges",
+      "file_type": "code",
+      "source_file": "frontend/src/components/GraphEditor/FlowCanvas.jsx",
+      "source_location": "L45",
+      "_origin": "ast"
+    },
+    {
+      "id": "frontend_src_components_grapheditor_flowcanvas_flowcanvas",
+      "label": "FlowCanvas()",
+      "file_type": "code",
+      "source_file": "frontend/src/components/GraphEditor/FlowCanvas.jsx",
+      "source_location": "L51",
+      "_callable": true,
+      "_origin": "ast"
+    },
+    {
+      "id": "frontend_src_main",
+      "label": "main.jsx",
+      "file_type": "code",
+      "source_file": "frontend/src/main.jsx",
+      "source_location": "L1",
+      "_origin": "ast"
+    },
+    {
+      "id": "frontend_src_services_api",
+      "label": "api.js",
+      "file_type": "code",
+      "source_file": "frontend/src/services/api.js",
+      "source_location": "L1",
+      "_origin": "ast"
+    },
+    {
+      "id": "frontend_src_services_api_api",
+      "label": "api",
+      "file_type": "code",
+      "source_file": "frontend/src/services/api.js",
+      "source_location": "L3",
+      "_origin": "ast"
+    },
+    {
+      "id": "frontend_src_services_api_getworkflows",
+      "label": "getWorkflows()",
+      "file_type": "code",
+      "source_file": "frontend/src/services/api.js",
+      "source_location": "L10",
+      "_callable": true,
+      "_origin": "ast"
+    },
+    {
+      "id": "frontend_src_services_api_getworkflowbyid",
+      "label": "getWorkflowById()",
+      "file_type": "code",
+      "source_file": "frontend/src/services/api.js",
+      "source_location": "L11",
+      "_callable": true,
+      "_origin": "ast"
+    },
+    {
+      "id": "frontend_src_services_api_createworkflow",
+      "label": "createWorkflow()",
+      "file_type": "code",
+      "source_file": "frontend/src/services/api.js",
+      "source_location": "L12",
+      "_callable": true,
+      "_origin": "ast"
+    },
+    {
+      "id": "frontend_src_services_api_updateworkflow",
+      "label": "updateWorkflow()",
+      "file_type": "code",
+      "source_file": "frontend/src/services/api.js",
+      "source_location": "L13",
+      "_callable": true,
+      "_origin": "ast"
+    },
+    {
+      "id": "frontend_src_services_api_deleteworkflow",
+      "label": "deleteWorkflow()",
+      "file_type": "code",
+      "source_file": "frontend/src/services/api.js",
+      "source_location": "L14",
+      "_callable": true,
+      "_origin": "ast"
+    },
+    {
+      "id": "frontend_src_services_api_ingesttelemetry",
+      "label": "ingestTelemetry()",
+      "file_type": "code",
+      "source_file": "frontend/src/services/api.js",
+      "source_location": "L16",
+      "_callable": true,
+      "_origin": "ast"
+    },
+    {
+      "id": "frontend_src_services_api_ingestbatchtelemetry",
+      "label": "ingestBatchTelemetry()",
+      "file_type": "code",
+      "source_file": "frontend/src/services/api.js",
+      "source_location": "L17",
+      "_callable": true,
+      "_origin": "ast"
+    },
+    {
+      "id": "frontend_src_services_api_getrecenttelemetry",
+      "label": "getRecentTelemetry()",
+      "file_type": "code",
+      "source_file": "frontend/src/services/api.js",
+      "source_location": "L18",
+      "_callable": true,
+      "_origin": "ast"
+    },
+    {
+      "id": "frontend_src_services_socket",
+      "label": "socket.js",
+      "file_type": "code",
+      "source_file": "frontend/src/services/socket.js",
+      "source_location": "L1",
+      "_origin": "ast"
+    },
+    {
+      "id": "frontend_src_services_socket_socket",
+      "label": "socket",
+      "file_type": "code",
+      "source_file": "frontend/src/services/socket.js",
+      "source_location": "L5",
+      "_origin": "ast"
+    },
+    {
+      "id": "frontend_src_services_socket_subscribetodevice",
+      "label": "subscribeToDevice()",
+      "file_type": "code",
+      "source_file": "frontend/src/services/socket.js",
+      "source_location": "L11",
+      "_callable": true,
+      "_origin": "ast"
+    },
+    {
+      "id": "frontend_src_services_socket_unsubscribefromdevice",
+      "label": "unsubscribeFromDevice()",
+      "file_type": "code",
+      "source_file": "frontend/src/services/socket.js",
+      "source_location": "L15",
+      "_callable": true,
+      "_origin": "ast"
+    },
+    {
+      "id": "frontend_tailwind_config",
+      "label": "tailwind.config.js",
+      "file_type": "code",
+      "source_file": "frontend/tailwind.config.js",
+      "source_location": "L1",
+      "_origin": "ast"
+    },
+    {
+      "id": "tailwindcss",
+      "label": "tailwindcss",
+      "file_type": "code",
+      "source_file": "tailwindcss",
+      "confidence": "EXTRACTED",
+      "type": "module",
+      "_origin": "ast"
+    },
+    {
+      "id": "frontend_vite_config",
+      "label": "vite.config.js",
+      "file_type": "code",
+      "source_file": "frontend/vite.config.js",
+      "source_location": "L1",
+      "_origin": "ast"
+    }
+  ],
+  "edges": [
+    {
+      "source": "backend_package",
+      "target": "backend_package_name",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/package.json",
+      "source_location": "L2",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_package",
+      "target": "backend_package_version",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/package.json",
+      "source_location": "L3",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_package",
+      "target": "backend_package_description",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/package.json",
+      "source_location": "L4",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_package",
+      "target": "backend_package_main",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/package.json",
+      "source_location": "L5",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_package",
+      "target": "backend_package_scripts",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/package.json",
+      "source_location": "L6",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_package_scripts",
+      "target": "backend_package_scripts_start",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/package.json",
+      "source_location": "L7",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_package_scripts",
+      "target": "backend_package_scripts_dev",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/package.json",
+      "source_location": "L8",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_package_scripts",
+      "target": "backend_package_scripts_test",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/package.json",
+      "source_location": "L9",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_package",
+      "target": "backend_package_keywords",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/package.json",
+      "source_location": "L11",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_package",
+      "target": "backend_package_author",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/package.json",
+      "source_location": "L19",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_package",
+      "target": "backend_package_license",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/package.json",
+      "source_location": "L20",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_package",
+      "target": "backend_package_dependencies",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/package.json",
+      "source_location": "L21",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_package_dependencies",
+      "target": "backend_package_dependencies_cors",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/package.json",
+      "source_location": "L22",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_package",
+      "target": "ref_cors",
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/package.json",
+      "source_location": "L22",
+      "weight": 1.0,
+      "context": "import",
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_package_dependencies_cors",
+      "target": "ref_cors",
+      "relation": "declares",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/package.json",
+      "source_location": "L22",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_package_dependencies",
+      "target": "backend_package_dependencies_dotenv",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/package.json",
+      "source_location": "L23",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_package",
+      "target": "ref_dotenv",
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/package.json",
+      "source_location": "L23",
+      "weight": 1.0,
+      "context": "import",
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_package_dependencies_dotenv",
+      "target": "ref_dotenv",
+      "relation": "declares",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/package.json",
+      "source_location": "L23",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_package_dependencies",
+      "target": "backend_package_dependencies_express",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/package.json",
+      "source_location": "L24",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_package",
+      "target": "ref_express",
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/package.json",
+      "source_location": "L24",
+      "weight": 1.0,
+      "context": "import",
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_package_dependencies_express",
+      "target": "ref_express",
+      "relation": "declares",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/package.json",
+      "source_location": "L24",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_package_dependencies",
+      "target": "backend_package_dependencies_mongoose",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/package.json",
+      "source_location": "L25",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_package",
+      "target": "ref_mongoose",
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/package.json",
+      "source_location": "L25",
+      "weight": 1.0,
+      "context": "import",
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_package_dependencies_mongoose",
+      "target": "ref_mongoose",
+      "relation": "declares",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/package.json",
+      "source_location": "L25",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_package_dependencies",
+      "target": "backend_package_dependencies_rxjs",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/package.json",
+      "source_location": "L26",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_package",
+      "target": "ref_rxjs",
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/package.json",
+      "source_location": "L26",
+      "weight": 1.0,
+      "context": "import",
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_package_dependencies_rxjs",
+      "target": "ref_rxjs",
+      "relation": "declares",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/package.json",
+      "source_location": "L26",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_package_dependencies",
+      "target": "backend_package_dependencies_socket_io",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/package.json",
+      "source_location": "L27",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_package",
+      "target": "ref_socket_io",
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/package.json",
+      "source_location": "L27",
+      "weight": 1.0,
+      "context": "import",
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_package_dependencies_socket_io",
+      "target": "ref_socket_io",
+      "relation": "declares",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/package.json",
+      "source_location": "L27",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_package",
+      "target": "backend_package_devdependencies",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/package.json",
+      "source_location": "L29",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_package_devdependencies",
+      "target": "backend_package_devdependencies_nodemon",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/package.json",
+      "source_location": "L30",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_package",
+      "target": "ref_nodemon",
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/package.json",
+      "source_location": "L30",
+      "weight": 1.0,
+      "context": "import",
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_package_devdependencies_nodemon",
+      "target": "ref_nodemon",
+      "relation": "declares",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/package.json",
+      "source_location": "L30",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_src_compiler_graphparser",
+      "target": "backend_src_compiler_graphparser_graphparser",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/compiler/graphParser.js",
+      "source_location": "L4",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_src_compiler_graphparser_graphparser",
+      "target": "backend_src_compiler_graphparser_graphparser_parse",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/compiler/graphParser.js",
+      "source_location": "L9",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_src_compiler_streamcompiler",
+      "target": "ref_rxjs",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/compiler/streamCompiler.js",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_src_compiler_streamcompiler",
+      "target": "backend_src_compiler_streamcompiler_subject",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/compiler/streamCompiler.js",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_src_compiler_streamcompiler",
+      "target": "ref_rxjs",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/compiler/streamCompiler.js",
+      "source_location": "L2",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_src_compiler_streamcompiler",
+      "target": "backend_src_compiler_streamcompiler_filter_map",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/compiler/streamCompiler.js",
+      "source_location": "L2",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_src_compiler_streamcompiler",
+      "target": "backend_src_compiler_graphparser",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/compiler/streamCompiler.js",
+      "source_location": "L3",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_src_compiler_streamcompiler",
+      "target": "backend_src_services_alertservice",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/compiler/streamCompiler.js",
+      "source_location": "L4",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_src_compiler_streamcompiler",
+      "target": "backend_src_compiler_streamcompiler_streamcompiler",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/compiler/streamCompiler.js",
+      "source_location": "L6",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_src_compiler_streamcompiler_streamcompiler",
+      "target": "backend_src_compiler_streamcompiler_streamcompiler_constructor",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/compiler/streamCompiler.js",
+      "source_location": "L7",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_src_compiler_streamcompiler_streamcompiler",
+      "target": "backend_src_compiler_streamcompiler_streamcompiler_compileworkflow",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/compiler/streamCompiler.js",
+      "source_location": "L16",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_src_compiler_streamcompiler_streamcompiler",
+      "target": "backend_src_compiler_streamcompiler_streamcompiler_processtelemetry",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/compiler/streamCompiler.js",
+      "source_location": "L111",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_src_compiler_streamcompiler_streamcompiler",
+      "target": "backend_src_compiler_streamcompiler_streamcompiler_stopworkflow",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/compiler/streamCompiler.js",
+      "source_location": "L124",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_src_compiler_streamcompiler_streamcompiler_compileworkflow",
+      "target": "backend_src_compiler_streamcompiler_streamcompiler_stopworkflow",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/compiler/streamCompiler.js",
+      "source_location": "L20",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_src_config_database",
+      "target": "ref_mongoose",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/config/database.js",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_src_config_database",
+      "target": "backend_src_config_database_mongoose",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/config/database.js",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_src_config_database",
+      "target": "backend_src_config_database_connectdb",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/config/database.js",
+      "source_location": "L3",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_src_controllers_telemetrycontroller",
+      "target": "backend_src_services_ingestionservice",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/controllers/telemetryController.js",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_src_controllers_telemetrycontroller",
+      "target": "backend_src_models_telemetry",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/controllers/telemetryController.js",
+      "source_location": "L2",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_src_controllers_telemetrycontroller",
+      "target": "backend_src_controllers_telemetrycontroller_ingesttelemetry",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/controllers/telemetryController.js",
+      "source_location": "L7",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_src_controllers_telemetrycontroller",
+      "target": "backend_src_controllers_telemetrycontroller_ingestbatchtelemetry",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/controllers/telemetryController.js",
+      "source_location": "L29",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_src_controllers_telemetrycontroller",
+      "target": "backend_src_controllers_telemetrycontroller_getrecenttelemetry",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/controllers/telemetryController.js",
+      "source_location": "L51",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_src_controllers_telemetrycontroller",
+      "target": "backend_src_controllers_telemetrycontroller_ingesttelemetry",
+      "relation": "indirect_call",
+      "context": "collection",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "backend/src/controllers/telemetryController.js",
+      "source_location": "L73",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_src_controllers_telemetrycontroller",
+      "target": "backend_src_controllers_telemetrycontroller_ingestbatchtelemetry",
+      "relation": "indirect_call",
+      "context": "collection",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "backend/src/controllers/telemetryController.js",
+      "source_location": "L74",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_src_controllers_telemetrycontroller",
+      "target": "backend_src_controllers_telemetrycontroller_getrecenttelemetry",
+      "relation": "indirect_call",
+      "context": "collection",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "backend/src/controllers/telemetryController.js",
+      "source_location": "L75",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_src_controllers_workflowcontroller",
+      "target": "backend_src_models_workflow",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/controllers/workflowController.js",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_src_controllers_workflowcontroller",
+      "target": "backend_src_compiler_streamcompiler",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/controllers/workflowController.js",
+      "source_location": "L2",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_src_controllers_workflowcontroller",
+      "target": "backend_src_controllers_workflowcontroller_createworkflow",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/controllers/workflowController.js",
+      "source_location": "L7",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_src_controllers_workflowcontroller",
+      "target": "backend_src_controllers_workflowcontroller_getallworkflows",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/controllers/workflowController.js",
+      "source_location": "L41",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_src_controllers_workflowcontroller",
+      "target": "backend_src_controllers_workflowcontroller_getworkflowbyid",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/controllers/workflowController.js",
+      "source_location": "L58",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_src_controllers_workflowcontroller",
+      "target": "backend_src_controllers_workflowcontroller_updateworkflow",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/controllers/workflowController.js",
+      "source_location": "L77",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_src_controllers_workflowcontroller",
+      "target": "backend_src_controllers_workflowcontroller_deleteworkflow",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/controllers/workflowController.js",
+      "source_location": "L111",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_src_controllers_workflowcontroller",
+      "target": "backend_src_controllers_workflowcontroller_createworkflow",
+      "relation": "indirect_call",
+      "context": "collection",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "backend/src/controllers/workflowController.js",
+      "source_location": "L131",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_src_controllers_workflowcontroller",
+      "target": "backend_src_controllers_workflowcontroller_getallworkflows",
+      "relation": "indirect_call",
+      "context": "collection",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "backend/src/controllers/workflowController.js",
+      "source_location": "L132",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_src_controllers_workflowcontroller",
+      "target": "backend_src_controllers_workflowcontroller_getworkflowbyid",
+      "relation": "indirect_call",
+      "context": "collection",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "backend/src/controllers/workflowController.js",
+      "source_location": "L133",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_src_controllers_workflowcontroller",
+      "target": "backend_src_controllers_workflowcontroller_updateworkflow",
+      "relation": "indirect_call",
+      "context": "collection",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "backend/src/controllers/workflowController.js",
+      "source_location": "L134",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_src_controllers_workflowcontroller",
+      "target": "backend_src_controllers_workflowcontroller_deleteworkflow",
+      "relation": "indirect_call",
+      "context": "collection",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "backend/src/controllers/workflowController.js",
+      "source_location": "L135",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_src_models_telemetry",
+      "target": "ref_mongoose",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/models/Telemetry.js",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_src_models_telemetry",
+      "target": "backend_src_models_telemetry_mongoose",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/models/Telemetry.js",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_src_models_telemetry",
+      "target": "backend_src_models_telemetry_telemetryschema",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/models/Telemetry.js",
+      "source_location": "L3",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_src_models_telemetry",
+      "target": "backend_src_models_telemetry_telemetry",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/models/Telemetry.js",
+      "source_location": "L59",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_src_models_workflow",
+      "target": "ref_mongoose",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/models/Workflow.js",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_src_models_workflow",
+      "target": "backend_src_models_workflow_mongoose",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/models/Workflow.js",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_src_models_workflow",
+      "target": "backend_src_models_workflow_nodeschema",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/models/Workflow.js",
+      "source_location": "L3",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_src_models_workflow",
+      "target": "backend_src_models_workflow_edgeschema",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/models/Workflow.js",
+      "source_location": "L16",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_src_models_workflow",
+      "target": "backend_src_models_workflow_workflowschema",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/models/Workflow.js",
+      "source_location": "L29",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_src_models_workflow",
+      "target": "backend_src_models_workflow_workflow",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/models/Workflow.js",
+      "source_location": "L52",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_src_routes_telemetryroutes",
+      "target": "ref_express",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/routes/telemetryRoutes.js",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_src_routes_telemetryroutes",
+      "target": "backend_src_routes_telemetryroutes_express",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/routes/telemetryRoutes.js",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_src_routes_telemetryroutes",
+      "target": "backend_src_routes_telemetryroutes_router",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/routes/telemetryRoutes.js",
+      "source_location": "L2",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_src_routes_telemetryroutes",
+      "target": "backend_src_controllers_telemetrycontroller",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/routes/telemetryRoutes.js",
+      "source_location": "L3",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_src_routes_telemetryroutes",
+      "target": "backend_src_controllers_telemetrycontroller_ingesttelemetry",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/routes/telemetryRoutes.js",
+      "source_location": "L3",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_src_routes_telemetryroutes",
+      "target": "backend_src_controllers_telemetrycontroller_ingestbatchtelemetry",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/routes/telemetryRoutes.js",
+      "source_location": "L3",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_src_routes_telemetryroutes",
+      "target": "backend_src_controllers_telemetrycontroller_getrecenttelemetry",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/routes/telemetryRoutes.js",
+      "source_location": "L3",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_src_routes_workflowroutes",
+      "target": "ref_express",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/routes/workflowRoutes.js",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_src_routes_workflowroutes",
+      "target": "backend_src_routes_workflowroutes_express",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/routes/workflowRoutes.js",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_src_routes_workflowroutes",
+      "target": "backend_src_routes_workflowroutes_router",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/routes/workflowRoutes.js",
+      "source_location": "L2",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_src_routes_workflowroutes",
+      "target": "backend_src_controllers_workflowcontroller",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/routes/workflowRoutes.js",
+      "source_location": "L3",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_src_routes_workflowroutes",
+      "target": "backend_src_controllers_workflowcontroller_createworkflow",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/routes/workflowRoutes.js",
+      "source_location": "L3",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_src_routes_workflowroutes",
+      "target": "backend_src_controllers_workflowcontroller_getallworkflows",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/routes/workflowRoutes.js",
+      "source_location": "L3",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_src_routes_workflowroutes",
+      "target": "backend_src_controllers_workflowcontroller_getworkflowbyid",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/routes/workflowRoutes.js",
+      "source_location": "L3",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_src_routes_workflowroutes",
+      "target": "backend_src_controllers_workflowcontroller_updateworkflow",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/routes/workflowRoutes.js",
+      "source_location": "L3",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_src_routes_workflowroutes",
+      "target": "backend_src_controllers_workflowcontroller_deleteworkflow",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/routes/workflowRoutes.js",
+      "source_location": "L3",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_src_server",
+      "target": "ref_http",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/server.js",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_src_server",
+      "target": "backend_src_server_http",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/server.js",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_src_server",
+      "target": "ref_express",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/server.js",
+      "source_location": "L2",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_src_server",
+      "target": "backend_src_server_express",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/server.js",
+      "source_location": "L2",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_src_server",
+      "target": "ref_cors",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/server.js",
+      "source_location": "L3",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_src_server",
+      "target": "backend_src_server_cors",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/server.js",
+      "source_location": "L3",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_src_server",
+      "target": "ref_dotenv",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/server.js",
+      "source_location": "L4",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_src_server",
+      "target": "backend_src_server_dotenv",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/server.js",
+      "source_location": "L4",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_src_server",
+      "target": "backend_src_config_database",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/server.js",
+      "source_location": "L9",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_src_server",
+      "target": "backend_src_sockets_socketserver",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/server.js",
+      "source_location": "L10",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_src_server",
+      "target": "backend_src_sockets_socketserver_initsocketserver",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/server.js",
+      "source_location": "L10",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_src_server",
+      "target": "backend_src_routes_telemetryroutes",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/server.js",
+      "source_location": "L11",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_src_server",
+      "target": "backend_src_routes_workflowroutes",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/server.js",
+      "source_location": "L12",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_src_server",
+      "target": "backend_src_models_workflow",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/server.js",
+      "source_location": "L13",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_src_server",
+      "target": "backend_src_compiler_streamcompiler",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/server.js",
+      "source_location": "L14",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_src_server",
+      "target": "backend_src_server_app",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/server.js",
+      "source_location": "L16",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_src_server",
+      "target": "backend_src_server_server",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/server.js",
+      "source_location": "L17",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_src_server",
+      "target": "backend_src_server_startserver",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/server.js",
+      "source_location": "L50",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_src_services_alertservice",
+      "target": "backend_src_sockets_socketserver",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/services/alertService.js",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_src_services_alertservice",
+      "target": "backend_src_sockets_socketserver_broadcastalert",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/services/alertService.js",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_src_services_alertservice",
+      "target": "backend_src_services_alertservice_alertservice",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/services/alertService.js",
+      "source_location": "L3",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_src_services_alertservice_alertservice",
+      "target": "backend_src_services_alertservice_alertservice_triggeralert",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/services/alertService.js",
+      "source_location": "L8",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_src_services_alertservice_alertservice",
+      "target": "backend_src_services_alertservice_alertservice_sendoutboundwebhook",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/services/alertService.js",
+      "source_location": "L37",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_src_services_alertservice_alertservice_triggeralert",
+      "target": "backend_src_services_alertservice_alertservice_sendoutboundwebhook",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/services/alertService.js",
+      "source_location": "L28",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_src_services_ingestionservice",
+      "target": "backend_src_models_telemetry",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/services/ingestionService.js",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_src_services_ingestionservice",
+      "target": "backend_src_sockets_socketserver",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/services/ingestionService.js",
+      "source_location": "L2",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_src_services_ingestionservice",
+      "target": "backend_src_sockets_socketserver_broadcasttelemetry",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/services/ingestionService.js",
+      "source_location": "L2",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_src_services_ingestionservice",
+      "target": "backend_src_compiler_streamcompiler",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/services/ingestionService.js",
+      "source_location": "L3",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_src_services_ingestionservice",
+      "target": "backend_src_services_ingestionservice_ingestionservice",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/services/ingestionService.js",
+      "source_location": "L5",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_src_services_ingestionservice_ingestionservice",
+      "target": "backend_src_services_ingestionservice_ingestionservice_ingestsingle",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/services/ingestionService.js",
+      "source_location": "L10",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_src_services_ingestionservice_ingestionservice",
+      "target": "backend_src_services_ingestionservice_ingestionservice_ingestbatch",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/services/ingestionService.js",
+      "source_location": "L41",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_src_sockets_socketserver",
+      "target": "ref_socket_io",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/sockets/socketServer.js",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_src_sockets_socketserver",
+      "target": "backend_src_sockets_socketserver_server",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/sockets/socketServer.js",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_src_sockets_socketserver",
+      "target": "backend_src_sockets_socketserver_initsocketserver",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/sockets/socketServer.js",
+      "source_location": "L5",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_src_sockets_socketserver",
+      "target": "backend_src_sockets_socketserver_getio",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/sockets/socketServer.js",
+      "source_location": "L36",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_src_sockets_socketserver",
+      "target": "backend_src_sockets_socketserver_broadcasttelemetry",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/sockets/socketServer.js",
+      "source_location": "L40",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_src_sockets_socketserver",
+      "target": "backend_src_sockets_socketserver_broadcastalert",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/sockets/socketServer.js",
+      "source_location": "L51",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_src_sockets_socketserver",
+      "target": "backend_src_sockets_socketserver_initsocketserver",
+      "relation": "indirect_call",
+      "context": "collection",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "backend/src/sockets/socketServer.js",
+      "source_location": "L57",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_src_sockets_socketserver",
+      "target": "backend_src_sockets_socketserver_getio",
+      "relation": "indirect_call",
+      "context": "collection",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "backend/src/sockets/socketServer.js",
+      "source_location": "L58",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_src_sockets_socketserver",
+      "target": "backend_src_sockets_socketserver_broadcasttelemetry",
+      "relation": "indirect_call",
+      "context": "collection",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "backend/src/sockets/socketServer.js",
+      "source_location": "L59",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_src_sockets_socketserver",
+      "target": "backend_src_sockets_socketserver_broadcastalert",
+      "relation": "indirect_call",
+      "context": "collection",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "backend/src/sockets/socketServer.js",
+      "source_location": "L60",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_package",
+      "target": "frontend_package_name",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/package.json",
+      "source_location": "L2",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_package",
+      "target": "frontend_package_private",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/package.json",
+      "source_location": "L3",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_package",
+      "target": "frontend_package_version",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/package.json",
+      "source_location": "L4",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_package",
+      "target": "frontend_package_type",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/package.json",
+      "source_location": "L5",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_package",
+      "target": "frontend_package_scripts",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/package.json",
+      "source_location": "L6",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_package_scripts",
+      "target": "frontend_package_scripts_dev",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/package.json",
+      "source_location": "L7",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_package_scripts",
+      "target": "frontend_package_scripts_build",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/package.json",
+      "source_location": "L8",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_package_scripts",
+      "target": "frontend_package_scripts_preview",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/package.json",
+      "source_location": "L9",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_package",
+      "target": "frontend_package_dependencies",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/package.json",
+      "source_location": "L11",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_package_dependencies",
+      "target": "frontend_package_dependencies_xyflow_react",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/package.json",
+      "source_location": "L12",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_package",
+      "target": "ref_xyflow_react",
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/package.json",
+      "source_location": "L12",
+      "weight": 1.0,
+      "context": "import",
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_package_dependencies_xyflow_react",
+      "target": "ref_xyflow_react",
+      "relation": "declares",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/package.json",
+      "source_location": "L12",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_package_dependencies",
+      "target": "frontend_package_dependencies_axios",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/package.json",
+      "source_location": "L13",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_package",
+      "target": "ref_axios",
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/package.json",
+      "source_location": "L13",
+      "weight": 1.0,
+      "context": "import",
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_package_dependencies_axios",
+      "target": "ref_axios",
+      "relation": "declares",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/package.json",
+      "source_location": "L13",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_package_dependencies",
+      "target": "frontend_package_dependencies_clsx",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/package.json",
+      "source_location": "L14",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_package",
+      "target": "ref_clsx",
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/package.json",
+      "source_location": "L14",
+      "weight": 1.0,
+      "context": "import",
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_package_dependencies_clsx",
+      "target": "ref_clsx",
+      "relation": "declares",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/package.json",
+      "source_location": "L14",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_package_dependencies",
+      "target": "frontend_package_dependencies_lucide_react",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/package.json",
+      "source_location": "L15",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_package",
+      "target": "ref_lucide_react",
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/package.json",
+      "source_location": "L15",
+      "weight": 1.0,
+      "context": "import",
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_package_dependencies_lucide_react",
+      "target": "ref_lucide_react",
+      "relation": "declares",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/package.json",
+      "source_location": "L15",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_package_dependencies",
+      "target": "frontend_package_dependencies_react",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/package.json",
+      "source_location": "L16",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_package",
+      "target": "ref_react",
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/package.json",
+      "source_location": "L16",
+      "weight": 1.0,
+      "context": "import",
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_package_dependencies_react",
+      "target": "ref_react",
+      "relation": "declares",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/package.json",
+      "source_location": "L16",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_package_dependencies",
+      "target": "frontend_package_dependencies_react_dom",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/package.json",
+      "source_location": "L17",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_package",
+      "target": "ref_react_dom",
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/package.json",
+      "source_location": "L17",
+      "weight": 1.0,
+      "context": "import",
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_package_dependencies_react_dom",
+      "target": "ref_react_dom",
+      "relation": "declares",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/package.json",
+      "source_location": "L17",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_package_dependencies",
+      "target": "frontend_package_dependencies_recharts",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/package.json",
+      "source_location": "L18",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_package",
+      "target": "ref_recharts",
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/package.json",
+      "source_location": "L18",
+      "weight": 1.0,
+      "context": "import",
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_package_dependencies_recharts",
+      "target": "ref_recharts",
+      "relation": "declares",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/package.json",
+      "source_location": "L18",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_package_dependencies",
+      "target": "frontend_package_dependencies_socket_io_client",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/package.json",
+      "source_location": "L19",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_package",
+      "target": "ref_socket_io_client",
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/package.json",
+      "source_location": "L19",
+      "weight": 1.0,
+      "context": "import",
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_package_dependencies_socket_io_client",
+      "target": "ref_socket_io_client",
+      "relation": "declares",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/package.json",
+      "source_location": "L19",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_package_dependencies",
+      "target": "frontend_package_dependencies_tailwind_merge",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/package.json",
+      "source_location": "L20",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_package",
+      "target": "ref_tailwind_merge",
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/package.json",
+      "source_location": "L20",
+      "weight": 1.0,
+      "context": "import",
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_package_dependencies_tailwind_merge",
+      "target": "ref_tailwind_merge",
+      "relation": "declares",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/package.json",
+      "source_location": "L20",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_package",
+      "target": "frontend_package_devdependencies",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/package.json",
+      "source_location": "L22",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_package_devdependencies",
+      "target": "frontend_package_devdependencies_types_react",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/package.json",
+      "source_location": "L23",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_package",
+      "target": "ref_types_react",
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/package.json",
+      "source_location": "L23",
+      "weight": 1.0,
+      "context": "import",
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_package_devdependencies_types_react",
+      "target": "ref_types_react",
+      "relation": "declares",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/package.json",
+      "source_location": "L23",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_package_devdependencies",
+      "target": "frontend_package_devdependencies_types_react_dom",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/package.json",
+      "source_location": "L24",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_package",
+      "target": "ref_types_react_dom",
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/package.json",
+      "source_location": "L24",
+      "weight": 1.0,
+      "context": "import",
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_package_devdependencies_types_react_dom",
+      "target": "ref_types_react_dom",
+      "relation": "declares",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/package.json",
+      "source_location": "L24",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_package_devdependencies",
+      "target": "frontend_package_devdependencies_vitejs_plugin_react",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/package.json",
+      "source_location": "L25",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_package",
+      "target": "ref_vitejs_plugin_react",
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/package.json",
+      "source_location": "L25",
+      "weight": 1.0,
+      "context": "import",
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_package_devdependencies_vitejs_plugin_react",
+      "target": "ref_vitejs_plugin_react",
+      "relation": "declares",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/package.json",
+      "source_location": "L25",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_package_devdependencies",
+      "target": "frontend_package_devdependencies_autoprefixer",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/package.json",
+      "source_location": "L26",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_package",
+      "target": "ref_autoprefixer",
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/package.json",
+      "source_location": "L26",
+      "weight": 1.0,
+      "context": "import",
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_package_devdependencies_autoprefixer",
+      "target": "ref_autoprefixer",
+      "relation": "declares",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/package.json",
+      "source_location": "L26",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_package_devdependencies",
+      "target": "frontend_package_devdependencies_postcss",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/package.json",
+      "source_location": "L27",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_package",
+      "target": "ref_postcss",
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/package.json",
+      "source_location": "L27",
+      "weight": 1.0,
+      "context": "import",
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_package_devdependencies_postcss",
+      "target": "ref_postcss",
+      "relation": "declares",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/package.json",
+      "source_location": "L27",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_package_devdependencies",
+      "target": "frontend_package_devdependencies_tailwindcss",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/package.json",
+      "source_location": "L28",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_package",
+      "target": "ref_tailwindcss",
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/package.json",
+      "source_location": "L28",
+      "weight": 1.0,
+      "context": "import",
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_package_devdependencies_tailwindcss",
+      "target": "ref_tailwindcss",
+      "relation": "declares",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/package.json",
+      "source_location": "L28",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_package_devdependencies",
+      "target": "frontend_package_devdependencies_vite",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/package.json",
+      "source_location": "L29",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_package",
+      "target": "ref_vite",
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/package.json",
+      "source_location": "L29",
+      "weight": 1.0,
+      "context": "import",
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_package_devdependencies_vite",
+      "target": "ref_vite",
+      "relation": "declares",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/package.json",
+      "source_location": "L29",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_src_app",
+      "target": "ref_react",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/App.jsx",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_src_app",
+      "target": "ref_lucide_react",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/App.jsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_src_app",
+      "target": "frontend_src_components_grapheditor_flowcanvas",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/App.jsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_src_app",
+      "target": "frontend_src_components_dashboard_livetelemetrychart",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/App.jsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_src_app",
+      "target": "frontend_src_components_dashboard_alertsfeed",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/App.jsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_src_app",
+      "target": "frontend_src_components_dashboard_simulatorpanel",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/App.jsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_src_app",
+      "target": "frontend_src_services_socket",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/App.jsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_src_app",
+      "target": "frontend_src_services_socket_socket",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/App.jsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_src_app",
+      "target": "frontend_src_services_api",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/App.jsx",
+      "source_location": "L8",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_src_app",
+      "target": "frontend_src_services_api_getrecenttelemetry",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/App.jsx",
+      "source_location": "L8",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_src_app",
+      "target": "frontend_src_app_app",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/App.jsx",
+      "source_location": "L10",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_src_app_app",
+      "target": "frontend_src_app_app_onconnect",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/App.jsx",
+      "source_location": "L32",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_src_app_app",
+      "target": "frontend_src_app_app_ondisconnect",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/App.jsx",
+      "source_location": "L36",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_src_app_app",
+      "target": "frontend_src_app_app_ontelemetry",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/App.jsx",
+      "source_location": "L40",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_src_app_app",
+      "target": "frontend_src_app_app_onalert",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/App.jsx",
+      "source_location": "L44",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_src_app_app",
+      "target": "frontend_src_app_app_onconnect",
+      "relation": "indirect_call",
+      "context": "argument",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "frontend/src/App.jsx",
+      "source_location": "L48",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_src_app_app",
+      "target": "frontend_src_app_app_ondisconnect",
+      "relation": "indirect_call",
+      "context": "argument",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "frontend/src/App.jsx",
+      "source_location": "L49",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_src_app_app",
+      "target": "frontend_src_app_app_ontelemetry",
+      "relation": "indirect_call",
+      "context": "argument",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "frontend/src/App.jsx",
+      "source_location": "L50",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_src_app_app",
+      "target": "frontend_src_app_app_onalert",
+      "relation": "indirect_call",
+      "context": "argument",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "frontend/src/App.jsx",
+      "source_location": "L51",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_src_components_customnodes_alertnode",
+      "target": "ref_react",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/components/CustomNodes/AlertNode.jsx",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_src_components_customnodes_alertnode",
+      "target": "ref_xyflow_react",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/components/CustomNodes/AlertNode.jsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_src_components_customnodes_alertnode",
+      "target": "ref_lucide_react",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/components/CustomNodes/AlertNode.jsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_src_components_customnodes_alertnode",
+      "target": "frontend_src_components_customnodes_alertnode_alertnode",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/components/CustomNodes/AlertNode.jsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_src_components_customnodes_alertnode",
+      "target": "frontend_src_components_customnodes_alertnode_alertnode",
+      "relation": "indirect_call",
+      "context": "argument",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "frontend/src/components/CustomNodes/AlertNode.jsx",
+      "source_location": "L41",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_src_components_customnodes_sensornode",
+      "target": "ref_react",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/components/CustomNodes/SensorNode.jsx",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_src_components_customnodes_sensornode",
+      "target": "ref_xyflow_react",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/components/CustomNodes/SensorNode.jsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_src_components_customnodes_sensornode",
+      "target": "ref_lucide_react",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/components/CustomNodes/SensorNode.jsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_src_components_customnodes_sensornode",
+      "target": "frontend_src_components_customnodes_sensornode_sensornode",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/components/CustomNodes/SensorNode.jsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_src_components_customnodes_sensornode",
+      "target": "frontend_src_components_customnodes_sensornode_sensornode",
+      "relation": "indirect_call",
+      "context": "argument",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "frontend/src/components/CustomNodes/SensorNode.jsx",
+      "source_location": "L41",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_src_components_customnodes_thresholdnode",
+      "target": "ref_react",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/components/CustomNodes/ThresholdNode.jsx",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_src_components_customnodes_thresholdnode",
+      "target": "ref_xyflow_react",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/components/CustomNodes/ThresholdNode.jsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_src_components_customnodes_thresholdnode",
+      "target": "ref_lucide_react",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/components/CustomNodes/ThresholdNode.jsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_src_components_customnodes_thresholdnode",
+      "target": "frontend_src_components_customnodes_thresholdnode_thresholdnode",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/components/CustomNodes/ThresholdNode.jsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_src_components_customnodes_thresholdnode",
+      "target": "frontend_src_components_customnodes_thresholdnode_thresholdnode",
+      "relation": "indirect_call",
+      "context": "argument",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "frontend/src/components/CustomNodes/ThresholdNode.jsx",
+      "source_location": "L48",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_src_components_customnodes_transformnode",
+      "target": "ref_react",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/components/CustomNodes/TransformNode.jsx",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_src_components_customnodes_transformnode",
+      "target": "ref_xyflow_react",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/components/CustomNodes/TransformNode.jsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_src_components_customnodes_transformnode",
+      "target": "ref_lucide_react",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/components/CustomNodes/TransformNode.jsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_src_components_customnodes_transformnode",
+      "target": "frontend_src_components_customnodes_transformnode_transformnode",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/components/CustomNodes/TransformNode.jsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_src_components_customnodes_transformnode",
+      "target": "frontend_src_components_customnodes_transformnode_transformnode",
+      "relation": "indirect_call",
+      "context": "argument",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "frontend/src/components/CustomNodes/TransformNode.jsx",
+      "source_location": "L50",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_src_components_dashboard_alertsfeed",
+      "target": "ref_react",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/components/Dashboard/AlertsFeed.jsx",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_src_components_dashboard_alertsfeed",
+      "target": "ref_lucide_react",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/components/Dashboard/AlertsFeed.jsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_src_components_dashboard_alertsfeed",
+      "target": "frontend_src_components_dashboard_alertsfeed_alertsfeed",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/components/Dashboard/AlertsFeed.jsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_src_components_dashboard_livetelemetrychart",
+      "target": "ref_react",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/components/Dashboard/LiveTelemetryChart.jsx",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_src_components_dashboard_livetelemetrychart",
+      "target": "ref_recharts",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/components/Dashboard/LiveTelemetryChart.jsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_src_components_dashboard_livetelemetrychart",
+      "target": "frontend_src_components_dashboard_livetelemetrychart_livetelemetrychart",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/components/Dashboard/LiveTelemetryChart.jsx",
+      "source_location": "L12",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_src_components_dashboard_simulatorpanel",
+      "target": "ref_react",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/components/Dashboard/SimulatorPanel.jsx",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_src_components_dashboard_simulatorpanel",
+      "target": "ref_lucide_react",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/components/Dashboard/SimulatorPanel.jsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_src_components_dashboard_simulatorpanel",
+      "target": "frontend_src_services_api",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/components/Dashboard/SimulatorPanel.jsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_src_components_dashboard_simulatorpanel",
+      "target": "frontend_src_services_api_ingesttelemetry",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/components/Dashboard/SimulatorPanel.jsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_src_components_dashboard_simulatorpanel",
+      "target": "frontend_src_services_api_ingestbatchtelemetry",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/components/Dashboard/SimulatorPanel.jsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_src_components_dashboard_simulatorpanel",
+      "target": "frontend_src_components_dashboard_simulatorpanel_simulatorpanel",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/components/Dashboard/SimulatorPanel.jsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_src_components_grapheditor_flowcanvas",
+      "target": "ref_react",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/components/GraphEditor/FlowCanvas.jsx",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_src_components_grapheditor_flowcanvas",
+      "target": "ref_xyflow_react",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/components/GraphEditor/FlowCanvas.jsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_src_components_grapheditor_flowcanvas",
+      "target": "ref_lucide_react",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/components/GraphEditor/FlowCanvas.jsx",
+      "source_location": "L11",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_src_components_grapheditor_flowcanvas",
+      "target": "frontend_src_components_customnodes_sensornode",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/components/GraphEditor/FlowCanvas.jsx",
+      "source_location": "L12",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_src_components_grapheditor_flowcanvas",
+      "target": "frontend_src_components_customnodes_transformnode",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/components/GraphEditor/FlowCanvas.jsx",
+      "source_location": "L13",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_src_components_grapheditor_flowcanvas",
+      "target": "frontend_src_components_customnodes_thresholdnode",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/components/GraphEditor/FlowCanvas.jsx",
+      "source_location": "L14",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_src_components_grapheditor_flowcanvas",
+      "target": "frontend_src_components_customnodes_alertnode",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/components/GraphEditor/FlowCanvas.jsx",
+      "source_location": "L15",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_src_components_grapheditor_flowcanvas",
+      "target": "frontend_src_services_api",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/components/GraphEditor/FlowCanvas.jsx",
+      "source_location": "L16",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_src_components_grapheditor_flowcanvas",
+      "target": "frontend_src_services_api_createworkflow",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/components/GraphEditor/FlowCanvas.jsx",
+      "source_location": "L16",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_src_components_grapheditor_flowcanvas",
+      "target": "frontend_src_components_grapheditor_flowcanvas_initialnodes",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/components/GraphEditor/FlowCanvas.jsx",
+      "source_location": "L18",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_src_components_grapheditor_flowcanvas",
+      "target": "frontend_src_components_grapheditor_flowcanvas_initialedges",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/components/GraphEditor/FlowCanvas.jsx",
+      "source_location": "L45",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_src_components_grapheditor_flowcanvas",
+      "target": "frontend_src_components_grapheditor_flowcanvas_flowcanvas",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/components/GraphEditor/FlowCanvas.jsx",
+      "source_location": "L51",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_src_main",
+      "target": "ref_react",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/main.jsx",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_src_main",
+      "target": "ref_react_dom",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/main.jsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_src_main",
+      "target": "frontend_src_app",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/main.jsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_src_main",
+      "target": "frontend_src_index",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/main.jsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_src_services_api",
+      "target": "ref_axios",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/services/api.js",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_src_services_api",
+      "target": "frontend_src_services_api_api",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/services/api.js",
+      "source_location": "L3",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_src_services_api",
+      "target": "frontend_src_services_api_getworkflows",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/services/api.js",
+      "source_location": "L10",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_src_services_api",
+      "target": "frontend_src_services_api_getworkflowbyid",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/services/api.js",
+      "source_location": "L11",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_src_services_api",
+      "target": "frontend_src_services_api_createworkflow",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/services/api.js",
+      "source_location": "L12",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_src_services_api",
+      "target": "frontend_src_services_api_updateworkflow",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/services/api.js",
+      "source_location": "L13",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_src_services_api",
+      "target": "frontend_src_services_api_deleteworkflow",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/services/api.js",
+      "source_location": "L14",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_src_services_api",
+      "target": "frontend_src_services_api_ingesttelemetry",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/services/api.js",
+      "source_location": "L16",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_src_services_api",
+      "target": "frontend_src_services_api_ingestbatchtelemetry",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/services/api.js",
+      "source_location": "L17",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_src_services_api",
+      "target": "frontend_src_services_api_getrecenttelemetry",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/services/api.js",
+      "source_location": "L18",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_src_services_socket",
+      "target": "ref_socket_io_client",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/services/socket.js",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_src_services_socket",
+      "target": "frontend_src_services_socket_socket",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/services/socket.js",
+      "source_location": "L5",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_src_services_socket",
+      "target": "frontend_src_services_socket_subscribetodevice",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/services/socket.js",
+      "source_location": "L11",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_src_services_socket",
+      "target": "frontend_src_services_socket_unsubscribefromdevice",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/services/socket.js",
+      "source_location": "L15",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_tailwind_config",
+      "target": "tailwindcss",
+      "relation": "dynamic_import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/tailwind.config.js",
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_vite_config",
+      "target": "ref_vite",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/vite.config.js",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_vite_config",
+      "target": "ref_vitejs_plugin_react",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/vite.config.js",
+      "source_location": "L2",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_src_controllers_telemetrycontroller",
+      "target": "backend_src_models_telemetry_telemetry",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/controllers/telemetryController.js",
+      "source_location": "L2",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_src_controllers_workflowcontroller",
+      "target": "backend_src_models_workflow_workflow",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/controllers/workflowController.js",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_src_server",
+      "target": "backend_src_config_database_connectdb",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/server.js",
+      "source_location": "L9",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_src_server",
+      "target": "backend_src_routes_telemetryroutes_router",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/server.js",
+      "source_location": "L11",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_src_server",
+      "target": "backend_src_routes_workflowroutes_router",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/server.js",
+      "source_location": "L12",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_src_server",
+      "target": "backend_src_models_workflow_workflow",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/server.js",
+      "source_location": "L13",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_src_services_ingestionservice",
+      "target": "backend_src_models_telemetry_telemetry",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/services/ingestionService.js",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_src_app",
+      "target": "frontend_src_components_grapheditor_flowcanvas_flowcanvas",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/App.jsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_src_app",
+      "target": "frontend_src_components_dashboard_livetelemetrychart_livetelemetrychart",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/App.jsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_src_app",
+      "target": "frontend_src_components_dashboard_alertsfeed_alertsfeed",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/App.jsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_src_app",
+      "target": "frontend_src_components_dashboard_simulatorpanel_simulatorpanel",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/App.jsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_src_main",
+      "target": "frontend_src_app_app",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/main.jsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_src_server_startserver",
+      "target": "backend_src_config_database_connectdb",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/server.js",
+      "source_location": "L53",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_src_app_app",
+      "target": "frontend_src_services_api_getrecenttelemetry",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/App.jsx",
+      "source_location": "L24",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_src_components_dashboard_simulatorpanel_simulatorpanel",
+      "target": "frontend_src_services_api_ingesttelemetry",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/components/Dashboard/SimulatorPanel.jsx",
+      "source_location": "L21",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_src_components_dashboard_simulatorpanel_simulatorpanel",
+      "target": "frontend_src_services_api_ingestbatchtelemetry",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/components/Dashboard/SimulatorPanel.jsx",
+      "source_location": "L37",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_src_components_grapheditor_flowcanvas_flowcanvas",
+      "target": "frontend_src_services_api_createworkflow",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/components/GraphEditor/FlowCanvas.jsx",
+      "source_location": "L113",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_src_services_alertservice_alertservice_triggeralert",
+      "target": "backend_src_sockets_socketserver_broadcastalert",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/src/services/alertService.js",
+      "source_location": "L24",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_src_services_ingestionservice_ingestionservice_ingestsingle",
+      "target": "backend_src_sockets_socketserver_broadcasttelemetry",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/src/services/ingestionService.js",
+      "source_location": "L29",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "backend_src_services_ingestionservice_ingestionservice_ingestbatch",
+      "target": "backend_src_sockets_socketserver_broadcasttelemetry",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "backend/src/services/ingestionService.js",
+      "source_location": "L65",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_src_app_app",
+      "target": "frontend_src_components_grapheditor_flowcanvas_flowcanvas",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "frontend/src/App.jsx",
+      "source_location": "L143",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_src_app_app",
+      "target": "frontend_src_components_dashboard_simulatorpanel_simulatorpanel",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "frontend/src/App.jsx",
+      "source_location": "L146",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_src_app_app",
+      "target": "frontend_src_components_dashboard_livetelemetrychart_livetelemetrychart",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "frontend/src/App.jsx",
+      "source_location": "L149",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_src_app_app",
+      "target": "frontend_src_components_dashboard_alertsfeed_alertsfeed",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "frontend/src/App.jsx",
+      "source_location": "L152",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_src_components_grapheditor_flowcanvas_flowcanvas",
+      "target": "frontend_src_components_customnodes_sensornode_sensornode",
+      "relation": "indirect_call",
+      "context": "collection",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "frontend/src/components/GraphEditor/FlowCanvas.jsx",
+      "source_location": "L59",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_src_components_grapheditor_flowcanvas_flowcanvas",
+      "target": "frontend_src_components_customnodes_transformnode_transformnode",
+      "relation": "indirect_call",
+      "context": "collection",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "frontend/src/components/GraphEditor/FlowCanvas.jsx",
+      "source_location": "L60",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_src_components_grapheditor_flowcanvas_flowcanvas",
+      "target": "frontend_src_components_customnodes_thresholdnode_thresholdnode",
+      "relation": "indirect_call",
+      "context": "collection",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "frontend/src/components/GraphEditor/FlowCanvas.jsx",
+      "source_location": "L61",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_src_components_grapheditor_flowcanvas_flowcanvas",
+      "target": "frontend_src_components_customnodes_alertnode_alertnode",
+      "relation": "indirect_call",
+      "context": "collection",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "frontend/src/components/GraphEditor/FlowCanvas.jsx",
+      "source_location": "L62",
+      "weight": 1.0,
+      "_origin": "ast"
+    }
+  ],
+  "input_tokens": 0,
+  "output_tokens": 0,
+  "failed_sources": [],
+  "skipped_sources": [],
+  "extracted_sources": [
+    "D:\\infotech_intern_pro\\NexusFlow-Visual-IoT-Telemetry-Rule-Engine\\backend\\package.json",
+    "D:\\infotech_intern_pro\\NexusFlow-Visual-IoT-Telemetry-Rule-Engine\\backend\\src\\compiler\\graphParser.js",
+    "D:\\infotech_intern_pro\\NexusFlow-Visual-IoT-Telemetry-Rule-Engine\\backend\\src\\compiler\\streamCompiler.js",
+    "D:\\infotech_intern_pro\\NexusFlow-Visual-IoT-Telemetry-Rule-Engine\\backend\\src\\config\\database.js",
+    "D:\\infotech_intern_pro\\NexusFlow-Visual-IoT-Telemetry-Rule-Engine\\backend\\src\\controllers\\telemetryController.js",
+    "D:\\infotech_intern_pro\\NexusFlow-Visual-IoT-Telemetry-Rule-Engine\\backend\\src\\controllers\\workflowController.js",
+    "D:\\infotech_intern_pro\\NexusFlow-Visual-IoT-Telemetry-Rule-Engine\\backend\\src\\models\\Telemetry.js",
+    "D:\\infotech_intern_pro\\NexusFlow-Visual-IoT-Telemetry-Rule-Engine\\backend\\src\\models\\Workflow.js",
+    "D:\\infotech_intern_pro\\NexusFlow-Visual-IoT-Telemetry-Rule-Engine\\backend\\src\\routes\\telemetryRoutes.js",
+    "D:\\infotech_intern_pro\\NexusFlow-Visual-IoT-Telemetry-Rule-Engine\\backend\\src\\routes\\workflowRoutes.js",
+    "D:\\infotech_intern_pro\\NexusFlow-Visual-IoT-Telemetry-Rule-Engine\\backend\\src\\server.js",
+    "D:\\infotech_intern_pro\\NexusFlow-Visual-IoT-Telemetry-Rule-Engine\\backend\\src\\services\\alertService.js",
+    "D:\\infotech_intern_pro\\NexusFlow-Visual-IoT-Telemetry-Rule-Engine\\backend\\src\\services\\ingestionService.js",
+    "D:\\infotech_intern_pro\\NexusFlow-Visual-IoT-Telemetry-Rule-Engine\\backend\\src\\sockets\\socketServer.js",
+    "D:\\infotech_intern_pro\\NexusFlow-Visual-IoT-Telemetry-Rule-Engine\\frontend\\package.json",
+    "D:\\infotech_intern_pro\\NexusFlow-Visual-IoT-Telemetry-Rule-Engine\\frontend\\postcss.config.js",
+    "D:\\infotech_intern_pro\\NexusFlow-Visual-IoT-Telemetry-Rule-Engine\\frontend\\src\\App.jsx",
+    "D:\\infotech_intern_pro\\NexusFlow-Visual-IoT-Telemetry-Rule-Engine\\frontend\\src\\components\\CustomNodes\\AlertNode.jsx",
+    "D:\\infotech_intern_pro\\NexusFlow-Visual-IoT-Telemetry-Rule-Engine\\frontend\\src\\components\\CustomNodes\\SensorNode.jsx",
+    "D:\\infotech_intern_pro\\NexusFlow-Visual-IoT-Telemetry-Rule-Engine\\frontend\\src\\components\\CustomNodes\\ThresholdNode.jsx",
+    "D:\\infotech_intern_pro\\NexusFlow-Visual-IoT-Telemetry-Rule-Engine\\frontend\\src\\components\\CustomNodes\\TransformNode.jsx",
+    "D:\\infotech_intern_pro\\NexusFlow-Visual-IoT-Telemetry-Rule-Engine\\frontend\\src\\components\\Dashboard\\AlertsFeed.jsx",
+    "D:\\infotech_intern_pro\\NexusFlow-Visual-IoT-Telemetry-Rule-Engine\\frontend\\src\\components\\Dashboard\\LiveTelemetryChart.jsx",
+    "D:\\infotech_intern_pro\\NexusFlow-Visual-IoT-Telemetry-Rule-Engine\\frontend\\src\\components\\Dashboard\\SimulatorPanel.jsx",
+    "D:\\infotech_intern_pro\\NexusFlow-Visual-IoT-Telemetry-Rule-Engine\\frontend\\src\\components\\GraphEditor\\FlowCanvas.jsx",
+    "D:\\infotech_intern_pro\\NexusFlow-Visual-IoT-Telemetry-Rule-Engine\\frontend\\src\\main.jsx",
+    "D:\\infotech_intern_pro\\NexusFlow-Visual-IoT-Telemetry-Rule-Engine\\frontend\\src\\services\\api.js",
+    "D:\\infotech_intern_pro\\NexusFlow-Visual-IoT-Telemetry-Rule-Engine\\frontend\\src\\services\\socket.js",
+    "D:\\infotech_intern_pro\\NexusFlow-Visual-IoT-Telemetry-Rule-Engine\\frontend\\tailwind.config.js",
+    "D:\\infotech_intern_pro\\NexusFlow-Visual-IoT-Telemetry-Rule-Engine\\frontend\\vite.config.js"
+  ]
+}

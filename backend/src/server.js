@@ -10,6 +10,9 @@ const connectDB = require('./config/database');
 const { initSocketServer } = require('./sockets/socketServer');
 const telemetryRoutes = require('./routes/telemetryRoutes');
 const workflowRoutes = require('./routes/workflowRoutes');
+const deviceRoutes = require('./routes/deviceRoutes');
+const alertRoutes = require('./routes/alertRoutes');
+const errorHandler = require('./middleware/errorHandler');
 const Workflow = require('./models/Workflow');
 const streamCompiler = require('./compiler/streamCompiler');
 
@@ -43,8 +46,13 @@ app.get('/api/health', (req, res) => {
 });
 
 // API Routes
+app.use('/api/devices', deviceRoutes);
 app.use('/api/telemetry', telemetryRoutes);
 app.use('/api/workflows', workflowRoutes);
+app.use('/api/alerts', alertRoutes);
+
+// Centralized error handling
+app.use(errorHandler);
 
 // Bootstrapping
 const startServer = async () => {

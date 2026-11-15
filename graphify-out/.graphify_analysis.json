@@ -1,0 +1,360 @@
+{
+  "communities": {
+    "0": [
+      "frontend_package",
+      "frontend_package_dependencies",
+      "frontend_package_dependencies_axios",
+      "frontend_package_dependencies_clsx",
+      "frontend_package_dependencies_lucide_react",
+      "frontend_package_dependencies_react",
+      "frontend_package_dependencies_react_dom",
+      "frontend_package_dependencies_recharts",
+      "frontend_package_dependencies_tailwind_merge",
+      "frontend_package_dependencies_xyflow_react",
+      "frontend_package_devdependencies",
+      "frontend_package_devdependencies_autoprefixer",
+      "frontend_package_devdependencies_postcss",
+      "frontend_package_devdependencies_tailwindcss",
+      "frontend_package_devdependencies_types_react",
+      "frontend_package_devdependencies_types_react_dom",
+      "frontend_package_devdependencies_vite",
+      "frontend_package_devdependencies_vitejs_plugin_react",
+      "frontend_package_name",
+      "frontend_package_private",
+      "frontend_package_scripts",
+      "frontend_package_scripts_build",
+      "frontend_package_scripts_dev",
+      "frontend_package_scripts_preview",
+      "frontend_package_type",
+      "frontend_package_version",
+      "frontend_vite_config",
+      "ref_autoprefixer",
+      "ref_axios",
+      "ref_clsx",
+      "ref_postcss",
+      "ref_react_dom",
+      "ref_recharts",
+      "ref_tailwind_merge",
+      "ref_tailwindcss",
+      "ref_types_react",
+      "ref_types_react_dom",
+      "ref_vite",
+      "ref_vitejs_plugin_react"
+    ],
+    "1": [
+      "frontend_src_app",
+      "frontend_src_app_app",
+      "frontend_src_app_app_onalert",
+      "frontend_src_app_app_onconnect",
+      "frontend_src_app_app_ondisconnect",
+      "frontend_src_app_app_ontelemetry",
+      "frontend_src_components_customnodes_alertnode",
+      "frontend_src_components_customnodes_alertnode_alertnode",
+      "frontend_src_components_customnodes_sensornode",
+      "frontend_src_components_customnodes_sensornode_sensornode",
+      "frontend_src_components_customnodes_thresholdnode",
+      "frontend_src_components_customnodes_thresholdnode_thresholdnode",
+      "frontend_src_components_customnodes_transformnode",
+      "frontend_src_components_customnodes_transformnode_transformnode",
+      "frontend_src_components_dashboard_alertsfeed",
+      "frontend_src_components_dashboard_alertsfeed_alertsfeed",
+      "frontend_src_components_dashboard_livetelemetrychart",
+      "frontend_src_components_dashboard_livetelemetrychart_livetelemetrychart",
+      "frontend_src_components_dashboard_simulatorpanel",
+      "frontend_src_components_dashboard_simulatorpanel_simulatorpanel",
+      "frontend_src_components_grapheditor_flowcanvas",
+      "frontend_src_components_grapheditor_flowcanvas_flowcanvas",
+      "frontend_src_components_grapheditor_flowcanvas_initialedges",
+      "frontend_src_components_grapheditor_flowcanvas_initialnodes",
+      "frontend_src_index",
+      "frontend_src_main",
+      "frontend_src_services_api",
+      "frontend_src_services_api_api",
+      "frontend_src_services_api_createworkflow",
+      "frontend_src_services_api_deleteworkflow",
+      "frontend_src_services_api_getrecenttelemetry",
+      "frontend_src_services_api_getworkflowbyid",
+      "frontend_src_services_api_getworkflows",
+      "frontend_src_services_api_ingestbatchtelemetry",
+      "frontend_src_services_api_ingesttelemetry",
+      "frontend_src_services_api_updateworkflow",
+      "ref_lucide_react",
+      "ref_react",
+      "ref_xyflow_react"
+    ],
+    "2": [
+      "backend_package",
+      "backend_package_author",
+      "backend_package_dependencies",
+      "backend_package_dependencies_cors",
+      "backend_package_dependencies_dotenv",
+      "backend_package_dependencies_express",
+      "backend_package_dependencies_mongoose",
+      "backend_package_dependencies_rxjs",
+      "backend_package_dependencies_socket_io",
+      "backend_package_description",
+      "backend_package_devdependencies",
+      "backend_package_devdependencies_nodemon",
+      "backend_package_keywords",
+      "backend_package_license",
+      "backend_package_main",
+      "backend_package_name",
+      "backend_package_scripts",
+      "backend_package_scripts_dev",
+      "backend_package_scripts_start",
+      "backend_package_scripts_test",
+      "backend_package_version",
+      "ref_cors",
+      "ref_dotenv",
+      "ref_express",
+      "ref_mongoose",
+      "ref_nodemon",
+      "ref_rxjs",
+      "ref_socket_io"
+    ],
+    "3": [
+      "backend_src_config_database",
+      "backend_src_config_database_connectdb",
+      "backend_src_config_database_mongoose",
+      "backend_src_controllers_workflowcontroller",
+      "backend_src_controllers_workflowcontroller_createworkflow",
+      "backend_src_controllers_workflowcontroller_deleteworkflow",
+      "backend_src_controllers_workflowcontroller_getallworkflows",
+      "backend_src_controllers_workflowcontroller_getworkflowbyid",
+      "backend_src_controllers_workflowcontroller_updateworkflow",
+      "backend_src_models_workflow",
+      "backend_src_models_workflow_edgeschema",
+      "backend_src_models_workflow_mongoose",
+      "backend_src_models_workflow_nodeschema",
+      "backend_src_models_workflow_workflow",
+      "backend_src_models_workflow_workflowschema",
+      "backend_src_routes_workflowroutes",
+      "backend_src_routes_workflowroutes_express",
+      "backend_src_routes_workflowroutes_router",
+      "backend_src_server",
+      "backend_src_server_app",
+      "backend_src_server_cors",
+      "backend_src_server_dotenv",
+      "backend_src_server_express",
+      "backend_src_server_http",
+      "backend_src_server_server",
+      "backend_src_server_startserver",
+      "ref_http"
+    ],
+    "4": [
+      "backend_src_controllers_telemetrycontroller",
+      "backend_src_controllers_telemetrycontroller_getrecenttelemetry",
+      "backend_src_controllers_telemetrycontroller_ingestbatchtelemetry",
+      "backend_src_controllers_telemetrycontroller_ingesttelemetry",
+      "backend_src_models_telemetry",
+      "backend_src_models_telemetry_mongoose",
+      "backend_src_models_telemetry_telemetry",
+      "backend_src_models_telemetry_telemetryschema",
+      "backend_src_routes_telemetryroutes",
+      "backend_src_routes_telemetryroutes_express",
+      "backend_src_routes_telemetryroutes_router",
+      "backend_src_services_ingestionservice",
+      "backend_src_services_ingestionservice_ingestionservice",
+      "backend_src_services_ingestionservice_ingestionservice_ingestbatch",
+      "backend_src_services_ingestionservice_ingestionservice_ingestsingle",
+      "backend_src_sockets_socketserver_broadcasttelemetry"
+    ],
+    "5": [
+      "backend_src_compiler_graphparser",
+      "backend_src_compiler_graphparser_graphparser",
+      "backend_src_compiler_graphparser_graphparser_parse",
+      "backend_src_compiler_streamcompiler",
+      "backend_src_compiler_streamcompiler_filter_map",
+      "backend_src_compiler_streamcompiler_streamcompiler",
+      "backend_src_compiler_streamcompiler_streamcompiler_compileworkflow",
+      "backend_src_compiler_streamcompiler_streamcompiler_constructor",
+      "backend_src_compiler_streamcompiler_streamcompiler_processtelemetry",
+      "backend_src_compiler_streamcompiler_streamcompiler_stopworkflow",
+      "backend_src_compiler_streamcompiler_subject"
+    ],
+    "6": [
+      "backend_src_services_alertservice",
+      "backend_src_services_alertservice_alertservice",
+      "backend_src_services_alertservice_alertservice_sendoutboundwebhook",
+      "backend_src_services_alertservice_alertservice_triggeralert",
+      "backend_src_sockets_socketserver",
+      "backend_src_sockets_socketserver_broadcastalert",
+      "backend_src_sockets_socketserver_getio",
+      "backend_src_sockets_socketserver_initsocketserver",
+      "backend_src_sockets_socketserver_server"
+    ],
+    "7": [
+      "frontend_package_dependencies_socket_io_client",
+      "frontend_src_services_socket",
+      "frontend_src_services_socket_socket",
+      "frontend_src_services_socket_subscribetodevice",
+      "frontend_src_services_socket_unsubscribefromdevice",
+      "ref_socket_io_client"
+    ],
+    "8": [
+      "frontend_tailwind_config",
+      "tailwindcss"
+    ],
+    "9": [
+      "frontend_postcss_config"
+    ]
+  },
+  "cohesion": {
+    "0": 0.06882591093117409,
+    "1": 0.10931174089068826,
+    "2": 0.08994708994708994,
+    "3": 0.10541310541310542,
+    "4": 0.19166666666666668,
+    "5": 0.2,
+    "6": 0.3055555555555556,
+    "7": 0.3333333333333333,
+    "8": 1.0,
+    "9": 1.0
+  },
+  "gods": [
+    {
+      "id": "ref_react",
+      "label": "react",
+      "degree": 12
+    },
+    {
+      "id": "frontend_src_app_app",
+      "label": "App()",
+      "degree": 11
+    },
+    {
+      "id": "ref_lucide_react",
+      "label": "lucide-react",
+      "degree": 10
+    },
+    {
+      "id": "frontend_src_components_grapheditor_flowcanvas_flowcanvas",
+      "label": "FlowCanvas()",
+      "degree": 8
+    },
+    {
+      "id": "ref_xyflow_react",
+      "label": "@xyflow/react",
+      "degree": 7
+    },
+    {
+      "id": "ref_express",
+      "label": "express",
+      "degree": 5
+    },
+    {
+      "id": "ref_mongoose",
+      "label": "mongoose",
+      "degree": 5
+    },
+    {
+      "id": "backend_src_compiler_streamcompiler_streamcompiler",
+      "label": "StreamCompiler",
+      "degree": 5
+    },
+    {
+      "id": "frontend_src_components_dashboard_simulatorpanel_simulatorpanel",
+      "label": "SimulatorPanel()",
+      "degree": 5
+    },
+    {
+      "id": "backend_package_scripts",
+      "label": "scripts",
+      "degree": 4
+    }
+  ],
+  "surprises": [
+    {
+      "source": "FlowCanvas()",
+      "target": "AlertNode()",
+      "source_files": [
+        "frontend/src/components/GraphEditor/FlowCanvas.jsx",
+        "frontend/src/components/CustomNodes/AlertNode.jsx"
+      ],
+      "confidence": "INFERRED",
+      "relation": "indirect_call",
+      "why": "inferred connection - not explicitly stated in source; peripheral node `AlertNode()` unexpectedly reaches hub `FlowCanvas()`"
+    },
+    {
+      "source": "FlowCanvas()",
+      "target": "SensorNode()",
+      "source_files": [
+        "frontend/src/components/GraphEditor/FlowCanvas.jsx",
+        "frontend/src/components/CustomNodes/SensorNode.jsx"
+      ],
+      "confidence": "INFERRED",
+      "relation": "indirect_call",
+      "why": "inferred connection - not explicitly stated in source; peripheral node `SensorNode()` unexpectedly reaches hub `FlowCanvas()`"
+    },
+    {
+      "source": "FlowCanvas()",
+      "target": "ThresholdNode()",
+      "source_files": [
+        "frontend/src/components/GraphEditor/FlowCanvas.jsx",
+        "frontend/src/components/CustomNodes/ThresholdNode.jsx"
+      ],
+      "confidence": "INFERRED",
+      "relation": "indirect_call",
+      "why": "inferred connection - not explicitly stated in source; peripheral node `ThresholdNode()` unexpectedly reaches hub `FlowCanvas()`"
+    },
+    {
+      "source": "FlowCanvas()",
+      "target": "TransformNode()",
+      "source_files": [
+        "frontend/src/components/GraphEditor/FlowCanvas.jsx",
+        "frontend/src/components/CustomNodes/TransformNode.jsx"
+      ],
+      "confidence": "INFERRED",
+      "relation": "indirect_call",
+      "why": "inferred connection - not explicitly stated in source; peripheral node `TransformNode()` unexpectedly reaches hub `FlowCanvas()`"
+    },
+    {
+      "source": "startServer()",
+      "target": "connectDB()",
+      "source_files": [
+        "backend/src/server.js",
+        "backend/src/config/database.js"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "calls",
+      "why": "cross-file semantic connection"
+    }
+  ],
+  "questions": [
+    {
+      "type": "bridge_node",
+      "question": "Why does `react` connect `Community 1` to `Community 0`?",
+      "why": "High betweenness centrality (0.035) - this node is a cross-community bridge."
+    },
+    {
+      "type": "verify_inferred",
+      "question": "Are the 4 inferred relationships involving `App()` (e.g. with `onAlert()` and `onConnect()`) actually correct?",
+      "why": "`App()` has 4 INFERRED edges - model-reasoned connections that need verification."
+    },
+    {
+      "type": "low_cohesion",
+      "question": "Should `Community 0` be split into smaller, more focused modules?",
+      "why": "Cohesion score 0.06882591093117409 - nodes in this community are weakly interconnected."
+    },
+    {
+      "type": "bridge_node",
+      "question": "Why does `lucide-react` connect `Community 1` to `Community 0`?",
+      "why": "High betweenness centrality (0.026) - this node is a cross-community bridge."
+    },
+    {
+      "type": "low_cohesion",
+      "question": "Should `Community 1` be split into smaller, more focused modules?",
+      "why": "Cohesion score 0.10931174089068826 - nodes in this community are weakly interconnected."
+    },
+    {
+      "type": "bridge_node",
+      "question": "Why does `express` connect `Community 2` to `Community 3`, `Community 4`?",
+      "why": "High betweenness centrality (0.026) - this node is a cross-community bridge."
+    },
+    {
+      "type": "low_cohesion",
+      "question": "Should `Community 2` be split into smaller, more focused modules?",
+      "why": "Cohesion score 0.08994708994708994 - nodes in this community are weakly interconnected."
+    }
+  ]
+}

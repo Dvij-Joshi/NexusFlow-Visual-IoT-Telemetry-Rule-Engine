@@ -1,4 +1,5 @@
 const Telemetry = require('../models/Telemetry');
+const Device = require('../models/Device');
 const { broadcastTelemetry } = require('../sockets/socketServer');
 const streamCompiler = require('../compiler/streamCompiler');
 
@@ -25,10 +26,16 @@ class IngestionService {
     // 1. Save to MongoDB Time-Series Collection
     const saved = await Telemetry.create(reading);
 
-    // 2. Broadcast via WebSockets for real-time live monitoring
+    // 2. Update device lastSeen (fire-and-forget for speed)
+    Device.findOneAndUpdate(
+      { deviceId: data.deviceId },
+      { lastSeen: new Date(), status: 'online' }
+    ).catch(() => {});
+
+    // 3. Broadcast via WebSockets for real-time live monitoring
     broadcastTelemetry(saved);
 
-    // 3. Process through active compiled RxJS rule engine
+    // 4. Process through active compiled RxJS rule engine
     streamCompiler.processTelemetry(saved);
 
     return saved;
@@ -60,10 +67,19 @@ class IngestionService {
     // High throughput insert
     const savedDocs = await Telemetry.insertMany(prepared, { ordered: false });
 
-    // Stream and broadcast in real-time
-    prepared.forEach((reading) => {
-      broadcastTelemetry(reading);
-      streamCompiler.processTelemetry(reading);
+    // Update lastSeen for all unique devices in the batch (fire-and-forget)
+    const uniqueDeviceIds = [...new Set(batch.map((item) => item.deviceId))];
+    uniqueDeviceIds.forEach((id) => {
+      Device.findOneAndUpdate(
+        { deviceId: id },
+        { lastSeen: new Date(), status: 'online' }
+      ).catch(() => {});
+    });
+
+    // Stream and broadcast in real-time (use savedDocs which have _id)
+    savedDocs.forEach((doc) => {
+      broadcastTelemetry(doc);
+      streamCompiler.processTelemetry(doc);
     });
 
     return {

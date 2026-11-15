@@ -69,8 +69,130 @@ const getRecentTelemetry = async (req, res) => {
   }
 };
 
+/**
+ * Get latest telemetry reading for a device
+ */
+const getLatestTelemetry = async (req, res) => {
+  try {
+    const { deviceId } = req.params;
+    if (!deviceId) {
+      return res.status(400).json({ success: false, error: 'deviceId is required' });
+    }
+
+    const reading = await Telemetry.findOne({ deviceId }).sort({ timestamp: -1 });
+    if (!reading) {
+      return res.status(404).json({
+        success: false,
+        error: `No telemetry found for device "${deviceId}"`,
+      });
+    }
+
+    return res.status(200).json({ success: true, data: reading });
+  } catch (error) {
+    console.error('[TelemetryController] Latest Error:', error);
+    return res.status(500).json({ success: false, error: error.message });
+  }
+};
+
+/**
+ * Get historical telemetry with date-range filtering
+ */
+const getTelemetryHistory = async (req, res) => {
+  try {
+    const { deviceId } = req.params;
+    const { start, end, limit = 200, page = 1 } = req.query;
+
+    if (!deviceId) {
+      return res.status(400).json({ success: false, error: 'deviceId is required' });
+    }
+
+    const filter = { deviceId };
+    if (start || end) {
+      filter.timestamp = {};
+      if (start) filter.timestamp.$gte = new Date(start);
+      if (end) filter.timestamp.$lte = new Date(end);
+    }
+
+    const skip = (parseInt(page, 10) - 1) * parseInt(limit, 10);
+    const total = await Telemetry.countDocuments(filter);
+    const readings = await Telemetry.find(filter)
+      .sort({ timestamp: -1 })
+      .skip(skip)
+      .limit(parseInt(limit, 10));
+
+    return res.status(200).json({
+      success: true,
+      count: readings.length,
+      total,
+      page: parseInt(page, 10),
+      pages: Math.ceil(total / parseInt(limit, 10)),
+      data: readings,
+    });
+  } catch (error) {
+    console.error('[TelemetryController] History Error:', error);
+    return res.status(500).json({ success: false, error: error.message });
+  }
+};
+
+/**
+ * Get basic statistics (avg, min, max) for a device
+ */
+const getTelemetryStats = async (req, res) => {
+  try {
+    const { deviceId } = req.params;
+    const { start, end } = req.query;
+
+    if (!deviceId) {
+      return res.status(400).json({ success: false, error: 'deviceId is required' });
+    }
+
+    const match = { deviceId };
+    if (start || end) {
+      match.timestamp = {};
+      if (start) match.timestamp.$gte = new Date(start);
+      if (end) match.timestamp.$lte = new Date(end);
+    }
+
+    const stats = await Telemetry.aggregate([
+      { $match: match },
+      {
+        $group: {
+          _id: '$deviceId',
+          count: { $sum: 1 },
+          avgTemperature: { $avg: '$temperature' },
+          minTemperature: { $min: '$temperature' },
+          maxTemperature: { $max: '$temperature' },
+          avgPressure: { $avg: '$pressure' },
+          minPressure: { $min: '$pressure' },
+          maxPressure: { $max: '$pressure' },
+          avgVibration: { $avg: '$vibration' },
+          minVibration: { $min: '$vibration' },
+          maxVibration: { $max: '$vibration' },
+          firstReading: { $min: '$timestamp' },
+          lastReading: { $max: '$timestamp' },
+        },
+      },
+    ]);
+
+    if (!stats.length) {
+      return res.status(404).json({
+        success: false,
+        error: `No telemetry found for device "${deviceId}"`,
+      });
+    }
+
+    return res.status(200).json({ success: true, data: stats[0] });
+  } catch (error) {
+    console.error('[TelemetryController] Stats Error:', error);
+    return res.status(500).json({ success: false, error: error.message });
+  }
+};
+
 module.exports = {
   ingestTelemetry,
   ingestBatchTelemetry,
   getRecentTelemetry,
+  getLatestTelemetry,
+  getTelemetryHistory,
+  getTelemetryStats,
 };

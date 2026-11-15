@@ -1,4 +1,5 @@
 const { broadcastAlert } = require('../sockets/socketServer');
+const Alert = require('../models/Alert');
 
 class AlertService {
   /**
@@ -6,29 +7,44 @@ class AlertService {
    * @param {Object} alertPayload
    */
   async triggerAlert(alertPayload) {
-    const alert = {
-      id: `alert_${Date.now()}_${Math.random().toString(36).substring(2, 9)}`,
-      timestamp: new Date().toISOString(),
-      ruleId: alertPayload.ruleId || 'manual',
+    const alertId = `alert_${Date.now()}_${Math.random().toString(36).substring(2, 9)}`;
+
+    const alertData = {
+      alertId,
       workflowId: alertPayload.workflowId || null,
       deviceId: alertPayload.deviceId || 'UNKNOWN',
-      severity: alertPayload.severity || 'WARNING',
+      alertType: alertPayload.alertType || 'threshold',
       message: alertPayload.message || 'Alert condition triggered',
-      reading: alertPayload.reading || null,
-      threshold: alertPayload.threshold || null,
+      triggerValue: alertPayload.triggerValue ?? alertPayload.reading ?? null,
+      thresholdValue: alertPayload.thresholdValue ?? alertPayload.threshold ?? null,
+      severity: (alertPayload.severity || 'medium').toLowerCase(),
+      status: 'unresolved',
     };
 
-    console.warn(`[AlertService] 🔥 ALERT TRIGGERED for Device ${alert.deviceId}: ${alert.message}`);
+    console.warn(`[AlertService] ALERT TRIGGERED for Device ${alertData.deviceId}: ${alertData.message}`);
+
+    // Persist to database
+    try {
+      await Alert.create(alertData);
+    } catch (err) {
+      console.error('[AlertService] Failed to persist alert:', err.message);
+    }
 
     // Broadcast over WebSocket to connected dashboard clients
-    broadcastAlert(alert);
+    broadcastAlert({
+      id: alertId,
+      timestamp: new Date().toISOString(),
+      ...alertData,
+      reading: alertPayload.reading || null,
+      threshold: alertPayload.threshold || null,
+    });
 
     // Mock webhook / SMS notification
     if (alertPayload.webhookUrl) {
-      this.sendOutboundWebhook(alertPayload.webhookUrl, alert);
+      this.sendOutboundWebhook(alertPayload.webhookUrl, alertData);
     }
 
-    return alert;
+    return alertData;
   }
 
   /**
