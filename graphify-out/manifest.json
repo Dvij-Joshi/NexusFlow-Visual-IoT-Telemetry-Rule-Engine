@@ -1,9 +1,9 @@
 {
   "backend/package.json": {
-    "mtime": 1794764494.634127,
-    "seen": 1794765109.1491363,
-    "ast_hash": "cf624b83bb92540677a3450afb336f69",
-    "semantic_hash": "cf624b83bb92540677a3450afb336f69"
+    "mtime": 1794765653.1330125,
+    "seen": 1794765911.974455,
+    "ast_hash": "73a3134f099421ecb61bb1da14ac3bf1",
+    "semantic_hash": ""
   },
   "backend/src/compiler/graphParser.js": {
     "mtime": 1794764494.6361144,
@@ -18,16 +18,16 @@
     "semantic_hash": "4a1ad81e1fddb2c5001f1ea8a417c3a7"
   },
   "backend/src/config/database.js": {
-    "mtime": 1794764494.6381142,
-    "seen": 1794765109.1492317,
-    "ast_hash": "f2d777877857469773da742329da5711",
-    "semantic_hash": "f2d777877857469773da742329da5711"
+    "mtime": 1794765528.6776354,
+    "seen": 1794765911.97447,
+    "ast_hash": "4544ae0897458d0e85403f25ed48d12e",
+    "semantic_hash": ""
   },
   "backend/src/controllers/telemetryController.js": {
-    "mtime": 1794764494.6391077,
-    "seen": 1794765109.149236,
-    "ast_hash": "9578370faa0b98249b5e6878715b8320",
-    "semantic_hash": "9578370faa0b98249b5e6878715b8320"
+    "mtime": 1794765473.693029,
+    "seen": 1794765911.974474,
+    "ast_hash": "dbf6936725bfa37d07f81d947236238a",
+    "semantic_hash": ""
   },
   "backend/src/controllers/workflowController.js": {
     "mtime": 1794764494.6407497,
@@ -48,10 +48,10 @@
     "semantic_hash": "80459379cca2e7cb92ffb19b897d6e07"
   },
   "backend/src/routes/telemetryRoutes.js": {
-    "mtime": 1794764494.6437626,
-    "seen": 1794765109.149281,
-    "ast_hash": "6fad4c458a5b5976e048ded4e1ddda25",
-    "semantic_hash": "6fad4c458a5b5976e048ded4e1ddda25"
+    "mtime": 1794765484.8733473,
+    "seen": 1794765911.9744878,
+    "ast_hash": "4b841480342339752b6d4a8606743c7a",
+    "semantic_hash": ""
   },
   "backend/src/routes/workflowRoutes.js": {
     "mtime": 1794764494.6447625,
@@ -60,22 +60,22 @@
     "semantic_hash": "e4419cc2de39bb58737074556af0c173"
   },
   "backend/src/server.js": {
-    "mtime": 1794764494.6457622,
-    "seen": 1794765109.149297,
-    "ast_hash": "8096dd16bd9a077f0b3817fede3156fd",
-    "semantic_hash": "8096dd16bd9a077f0b3817fede3156fd"
+    "mtime": 1794765529.0486746,
+    "seen": 1794765911.9744918,
+    "ast_hash": "01d9f239a2ab628e2dcef87d1fd95e63",
+    "semantic_hash": ""
   },
   "backend/src/services/alertService.js": {
-    "mtime": 1794764494.6477659,
-    "seen": 1794765109.149302,
-    "ast_hash": "bc723b9ca84b1c55d5303a02693585a4",
-    "semantic_hash": "bc723b9ca84b1c55d5303a02693585a4"
+    "mtime": 1794765527.3702517,
+    "seen": 1794765911.974493,
+    "ast_hash": "9e02336251800aad459712ab0216876f",
+    "semantic_hash": ""
   },
   "backend/src/services/ingestionService.js": {
-    "mtime": 1794764494.6477659,
-    "seen": 1794765109.149305,
-    "ast_hash": "2bef19a285c7927469b8a7f921c1cc0b",
-    "semantic_hash": "2bef19a285c7927469b8a7f921c1cc0b"
+    "mtime": 1794765528.1917841,
+    "seen": 1794765911.974494,
+    "ast_hash": "37658360b7676ca3968667673022c254",
+    "semantic_hash": ""
   },
   "backend/src/sockets/socketServer.js": {
     "mtime": 1794764494.6490378,
@@ -220,5 +220,95 @@
     "seen": 1794765109.1493573,
     "ast_hash": "65936a574c88a50740504e986ded05d1",
     "semantic_hash": "65936a574c88a50740504e986ded05d1"
+  },
+  "backend/src/controllers/alertController.js": {
+    "mtime": 1794765433.818449,
+    "seen": 1794765911.9744713,
+    "ast_hash": "814a5cd7d9b6ca4919fcecc601990dcf",
+    "semantic_hash": ""
+  },
+  "backend/src/controllers/deviceController.js": {
+    "mtime": 1794765433.7935297,
+    "seen": 1794765911.9744728,
+    "ast_hash": "c70f0e1c0631a50e86f93bad86cb5227",
+    "semantic_hash": ""
+  },
+  "backend/src/middleware/errorHandler.js": {
+    "mtime": 1794765412.3934283,
+    "seen": 1794765911.9744768,
+    "ast_hash": "ad264f8e89c4c7442450341638591ffa",
+    "semantic_hash": ""
+  },
+  "backend/src/models/Alert.js": {
+    "mtime": 1794765412.3723576,
+    "seen": 1794765911.9744778,
+    "ast_hash": "de2a1f8025a9756e89dd725f032eb134",
+    "semantic_hash": ""
+  },
+  "backend/src/models/Device.js": {
+    "mtime": 1794765412.3390503,
+    "seen": 1794765911.974479,
+    "ast_hash": "b7b1aa0a5828842a9b735f1e6bcdb858",
+    "semantic_hash": ""
+  },
+  "backend/src/routes/alertRoutes.js": {
+    "mtime": 1794765484.8456743,
+    "seen": 1794765911.974484,
+    "ast_hash": "e885efa66c7fe241c436af9b961622b3",
+    "semantic_hash": ""
+  },
+  "backend/src/routes/deviceRoutes.js": {
+    "mtime": 1794765484.8194273,
+    "seen": 1794765911.9744866,
+    "ast_hash": "7d770b1ea1cbeb32e0f4b321ae02b4c5",
+    "semantic_hash": ""
+  },
+  "backend/src/scripts/mockGenerator.js": {
+    "mtime": 1794765640.2505848,
+    "seen": 1794765911.9744902,
+    "ast_hash": "be3d530231f9157157683413e5795537",
+    "semantic_hash": ""
+  },
+  "backend/src/scripts/seed.js": {
+    "mtime": 1794765640.0827665,
+    "seen": 1794765911.974491,
+    "ast_hash": "bac9b47021672cfe02517c9506bd4cb1",
+    "semantic_hash": ""
+  },
+  "backend/tests/api.test.js": {
+    "mtime": 1794765720.816395,
+    "seen": 1794765911.9744964,
+    "ast_hash": "cd96b2f5a770bb90b435b793a0263089",
+    "semantic_hash": ""
+  },
+  "docs/api-contract.md": {
+    "mtime": 1794765805.5648575,
+    "seen": 1794765911.9745228,
+    "ast_hash": "28ccb2249069600141b652bda2a4431f",
+    "semantic_hash": ""
+  },
+  "docs/database-schema.md": {
+    "mtime": 1794765805.438744,
+    "seen": 1794765911.974524,
+    "ast_hash": "b124c8eb9f9fa721230f702b8675247c",
+    "semantic_hash": ""
+  },
+  "docs/database-setup.md": {
+    "mtime": 1794765805.7290936,
+    "seen": 1794765911.974525,
+    "ast_hash": "2ec555d3b50fbd98fbcc3613c3704307",
+    "semantic_hash": ""
+  },
+  "backend/package-lock.json": {
+    "mtime": 1794765753.4569097,
+    "seen": 1794765911.9745266,
+    "ast_hash": "80edffc0eb4dd36fc7244882331a6ee0",
+    "semantic_hash": ""
+  },
+  "frontend/package-lock.json": {
+    "mtime": 1794764494.651054,
+    "seen": 1794765911.9745278,
+    "ast_hash": "fdbc255b87714bf241dd47b33f9a0f4a",
+    "semantic_hash": ""
   }
 }
