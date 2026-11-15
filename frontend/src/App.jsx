@@ -4,14 +4,18 @@ import FlowCanvas from './components/GraphEditor/FlowCanvas';
 import LiveTelemetryChart from './components/Dashboard/LiveTelemetryChart';
 import AlertsFeed from './components/Dashboard/AlertsFeed';
 import SimulatorPanel from './components/Dashboard/SimulatorPanel';
-import { socket } from './services/socket';
-import { getRecentTelemetry } from './services/api';
+import DeviceBar from './components/Dashboard/DeviceBar';
+import { socket, subscribeToDevice, unsubscribeFromDevice } from './services/socket';
+import { getRecentTelemetry, getHealth } from './services/api';
 
 export default function App() {
   const [activeTab, setActiveTab] = useState('editor'); // 'editor' | 'dashboard'
+  const [selectedDeviceId, setSelectedDeviceId] = useState(null);
   const [telemetryStream, setTelemetryStream] = useState([]);
   const [alerts, setAlerts] = useState([]);
   const [isConnected, setIsConnected] = useState(socket.connected);
+  const [dbStatus, setDbStatus] = useState('Checking...');
+  const [activeWorkflowsCount, setActiveWorkflowsCount] = useState(0);
   const [notification, setNotification] = useState(null);
 
   const notify = (type, message) => {
@@ -19,9 +23,24 @@ export default function App() {
     setTimeout(() => setNotification(null), 4000);
   };
 
+  // Check health and DB status
+  const checkHealth = () => {
+    getHealth()
+      .then((res) => {
+        if (res.data) {
+          setDbStatus('Connected');
+          setActiveWorkflowsCount(res.data.activeWorkflows || 0);
+        }
+      })
+      .catch(() => setDbStatus('Offline'));
+  };
+
   useEffect(() => {
+    checkHealth();
+    const healthInterval = setInterval(checkHealth, 15000);
+
     // Initial fetch of recent telemetry
-    getRecentTelemetry(null, 30)
+    getRecentTelemetry(selectedDeviceId, 50)
       .then((res) => {
         if (res.data && res.data.data) {
           setTelemetryStream(res.data.data.reverse());
@@ -29,6 +48,10 @@ export default function App() {
       })
       .catch((err) => console.log('Could not fetch initial telemetry:', err.message));
 
+    return () => clearInterval(healthInterval);
+  }, [selectedDeviceId]);
+
+  useEffect(() => {
     function onConnect() {
       setIsConnected(true);
     }
@@ -38,7 +61,7 @@ export default function App() {
     }
 
     function onTelemetry(data) {
-      setTelemetryStream((prev) => [...prev.slice(-49), data]);
+      setTelemetryStream((prev) => [...prev.slice(-99), data]);
     }
 
     function onAlert(alert) {
@@ -57,6 +80,16 @@ export default function App() {
       socket.off('telemetry:alert', onAlert);
     };
   }, []);
+
+  // Manage device room subscription
+  useEffect(() => {
+    if (selectedDeviceId) {
+      subscribeToDevice(selectedDeviceId);
+      return () => {
+        unsubscribeFromDevice(selectedDeviceId);
+      };
+    }
+  }, [selectedDeviceId]);
 
   return (
     <div className="min-h-screen bg-slate-950 flex flex-col font-sans">
@@ -106,9 +139,19 @@ export default function App() {
         {/* Status Indicators */}
         <div className="flex items-center gap-4 text-xs font-mono">
           <div className="flex items-center gap-1.5 text-slate-300">
-            <Database className="w-3.5 h-3.5 text-emerald-400" />
+            <Database
+              className={`w-3.5 h-3.5 ${
+                dbStatus === 'Connected' ? 'text-emerald-400' : 'text-amber-400'
+              }`}
+            />
             <span className="hidden sm:inline">MongoDB Atlas:</span>
-            <span className="text-emerald-400 font-semibold">Ready</span>
+            <span
+              className={`font-semibold ${
+                dbStatus === 'Connected' ? 'text-emerald-400' : 'text-amber-400'
+              }`}
+            >
+              {dbStatus}
+            </span>
           </div>
           <div className="flex items-center gap-1.5">
             <span
@@ -143,10 +186,23 @@ export default function App() {
           <FlowCanvas onNotify={notify} />
         ) : (
           <div className="flex-1 p-6 overflow-y-auto space-y-6 max-w-7xl mx-auto w-full">
-            <SimulatorPanel onNotify={notify} />
+            {/* Device Management & Selector Bar */}
+            <DeviceBar
+              selectedDeviceId={selectedDeviceId}
+              onSelectDevice={setSelectedDeviceId}
+              onNotify={notify}
+            />
+
+            {/* Mock IoT Telemetry Simulator */}
+            <SimulatorPanel selectedDeviceId={selectedDeviceId} onNotify={notify} />
+
+            {/* Live Chart & Alerts Feed */}
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
               <div className="lg:col-span-2">
-                <LiveTelemetryChart telemetryData={telemetryStream} />
+                <LiveTelemetryChart
+                  telemetryData={telemetryStream}
+                  selectedDeviceId={selectedDeviceId}
+                />
               </div>
               <div className="lg:col-span-1">
                 <AlertsFeed alerts={alerts} />
