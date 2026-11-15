@@ -10,10 +10,10 @@ const ThresholdNode = ({ data, selected, isConnectable }) => {
 
   return (
     <div
-      className={`w-64 rounded-xl bg-slate-900 border text-slate-100 shadow-md transition-all ${
+      className={`w-72 rounded-xl bg-slate-900/95 backdrop-blur-md border border-t-2 text-slate-100 shadow-xl transition-all ${
         selected
-          ? 'border-amber-400 ring-2 ring-amber-500/40 shadow-amber-950/50'
-          : 'border-slate-800 hover:border-slate-700'
+          ? 'border-amber-400 border-t-amber-400 ring-2 ring-amber-500/40 shadow-amber-950/80'
+          : 'border-slate-800/90 border-t-amber-500 hover:border-slate-700'
       }`}
     >
       {/* Input Handle */}
@@ -22,38 +22,41 @@ const ThresholdNode = ({ data, selected, isConnectable }) => {
         position={Position.Top}
         id="in"
         isConnectable={isConnectable}
-        className="!bg-amber-400 !w-3 !h-3 !border-2 !border-slate-950 hover:!scale-125 transition-transform"
+        className="!bg-amber-400 !w-3.5 !h-3.5 !border-2 !border-slate-950 hover:!scale-125 transition-transform shadow-md shadow-amber-500/50"
       />
 
       {/* Node Header */}
-      <div className="flex items-center justify-between px-3.5 py-2.5 border-b border-slate-800 bg-slate-950/40 rounded-t-xl">
+      <div className="flex items-center justify-between px-3.5 py-2.5 border-b border-slate-800/80 bg-slate-950/60 rounded-t-xl">
         <div className="flex items-center gap-2">
-          <div className="p-1 rounded-md bg-amber-950 text-amber-400 border border-amber-800">
+          <div className="p-1.5 rounded-lg bg-amber-950/90 text-amber-400 border border-amber-800/80 shadow-sm shadow-amber-950">
             <GitCompare className="w-3.5 h-3.5" />
           </div>
-          <span className="text-[11px] font-semibold tracking-wider uppercase text-amber-400">
-            Threshold Check
-          </span>
+          <div>
+            <div className="text-[10px] font-bold tracking-wider uppercase text-amber-400 font-mono">
+              Threshold Check
+            </div>
+            <div className="text-xs font-semibold text-white truncate max-w-[150px]">
+              {label}
+            </div>
+          </div>
         </div>
-        <div className="flex items-center gap-1 text-[10px] text-amber-400/90 bg-amber-950/60 px-1.5 py-0.5 rounded font-mono border border-amber-800/60">
-          <Sliders className="w-2.5 h-2.5" /> Condition
+        <div className="flex items-center gap-1 text-[10px] text-amber-400/90 bg-amber-950/80 px-2 py-0.5 rounded-full font-mono border border-amber-800/80">
+          <Sliders className="w-2.5 h-2.5" /> Rule
         </div>
       </div>
 
       {/* Node Body */}
-      <div className="p-3 space-y-2">
-        <div className="text-xs font-medium text-slate-200 truncate">{label}</div>
-
-        <div className="bg-slate-950/80 rounded-lg p-2 border border-slate-800 space-y-1.5 font-mono text-[11px]">
+      <div className="p-3">
+        <div className="bg-slate-950/90 rounded-lg p-2.5 border border-slate-800/80 space-y-2 text-xs">
           <div className="flex items-center justify-between">
-            <span className="text-slate-400 font-sans text-[11px]">Condition:</span>
-            <span className="text-amber-300 font-semibold">
+            <span className="text-slate-400 text-[11px]">Rule Condition</span>
+            <span className="px-2 py-0.5 rounded bg-amber-950/70 border border-amber-800 text-amber-300 font-mono font-bold text-xs tracking-wide">
               {field} {operator} {value}
             </span>
           </div>
-          <div className="flex items-center justify-between">
-            <span className="text-slate-400 font-sans text-[11px]">Target Value:</span>
-            <span className="text-slate-300">{value}</span>
+          <div className="flex items-center justify-between pt-1 border-t border-slate-900">
+            <span className="text-slate-400 text-[11px]">Threshold Limit</span>
+            <span className="font-mono text-slate-200 text-[11px] font-semibold">{value}</span>
           </div>
         </div>
       </div>
@@ -64,7 +67,7 @@ const ThresholdNode = ({ data, selected, isConnectable }) => {
         position={Position.Bottom}
         id="out"
         isConnectable={isConnectable}
-        className="!bg-amber-400 !w-3 !h-3 !border-2 !border-slate-950 hover:!scale-125 transition-transform"
+        className="!bg-amber-400 !w-3.5 !h-3.5 !border-2 !border-slate-950 hover:!scale-125 transition-transform shadow-md shadow-amber-500/50"
       />
     </div>
   );

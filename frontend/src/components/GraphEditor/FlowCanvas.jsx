@@ -165,6 +165,7 @@ function FlowCanvasInner({ onNotify }) {
         <div
           ref={reactFlowWrapper}
           className="flex-1 min-h-0 h-full w-full relative"
+          style={{ height: 'calc(100vh - 7rem)' }}
           onDragOver={onDragOver}
           onDrop={onDrop}
         >
@@ -179,12 +180,21 @@ function FlowCanvasInner({ onNotify }) {
             onPaneClick={onPaneClick}
             nodeTypes={nodeTypes}
             deleteKeyCode={['Backspace', 'Delete']}
+            defaultViewport={{ x: 120, y: 40, zoom: 0.95 }}
+            minZoom={0.25}
+            maxZoom={2}
             fitView
-            fitViewOptions={{ padding: 0.2 }}
+            fitViewOptions={{ padding: 0.25, includeHiddenNodes: false }}
+            defaultEdgeOptions={{
+              type: 'smoothstep',
+              animated: true,
+              style: { strokeWidth: 2, stroke: '#38bdf8' },
+            }}
+            proOptions={{ hideAttribution: true }}
             style={{ width: '100%', height: '100%' }}
-            className="bg-slate-950"
+            className="bg-[#080c15]"
           >
-            <Background color="#1e293b" gap={20} size={1} />
+            <Background color="#334155" gap={24} size={1.2} />
             <Controls className="!bg-slate-900 !border-slate-800 !text-slate-300 fill-slate-300" />
             <MiniMap
               nodeColor={(n) => {
