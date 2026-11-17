@@ -17,6 +17,7 @@ import WorkflowToolbar from './WorkflowToolbar';
 import JsonExportModal from './JsonExportModal';
 import { useWorkflowState } from '../../hooks/useWorkflowState';
 import { createWorkflow, updateWorkflow, getWorkflows } from '../../services/api';
+import { getWorkflowTemplateById } from '../../utils/workflowTemplates';
 
 function FlowCanvasInner({ onNotify, onActiveWorkflowsUpdated, onRegisterSaveHandler }) {
   const reactFlowWrapper = useRef(null);
@@ -245,6 +246,16 @@ function FlowCanvasInner({ onNotify, onActiveWorkflowsUpdated, onRegisterSaveHan
     }
   };
 
+  const handleSelectTemplate = (templateId) => {
+    const template = getWorkflowTemplateById(templateId);
+    if (template) {
+      loadWorkflow(template);
+      if (onNotify) {
+        onNotify('success', `Loaded template: "${template.name}"`);
+      }
+    }
+  };
+
   const hasSelection = Boolean(selectedNodeId || selectedEdgeId);
 
   return (
@@ -265,6 +276,7 @@ function FlowCanvasInner({ onNotify, onActiveWorkflowsUpdated, onRegisterSaveHan
         savedWorkflows={savedWorkflows}
         currentWorkflowId={workflowId}
         onSelectWorkflow={handleSelectSavedWorkflow}
+        onSelectTemplate={handleSelectTemplate}
         isDirty={isDirty}
       />
 

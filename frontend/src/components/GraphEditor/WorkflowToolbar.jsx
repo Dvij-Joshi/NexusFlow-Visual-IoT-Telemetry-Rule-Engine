@@ -8,7 +8,9 @@ import {
   AlertTriangle,
   XCircle,
   FolderOpen,
+  LayoutTemplate,
 } from 'lucide-react';
+import { WORKFLOW_TEMPLATES } from '../../utils/workflowTemplates';
 
 export default function WorkflowToolbar({
   name,
@@ -25,6 +27,7 @@ export default function WorkflowToolbar({
   savedWorkflows = [],
   currentWorkflowId = null,
   onSelectWorkflow,
+  onSelectTemplate,
   isDirty = false,
 }) {
   const [showValidationDetails, setShowValidationDetails] = useState(false);
@@ -62,6 +65,27 @@ export default function WorkflowToolbar({
               {savedWorkflows.map((wf) => (
                 <option key={wf._id} value={wf._id}>
                   {wf.name} ({wf.nodes?.length || 0} nodes)
+                </option>
+              ))}
+            </select>
+          </div>
+        )}
+
+        {/* Workflow Template Selector */}
+        {onSelectTemplate && (
+          <div className="hidden xl:flex items-center gap-1.5 text-xs">
+            <LayoutTemplate className="w-3.5 h-3.5 text-purple-400" />
+            <select
+              value=""
+              onChange={(e) => {
+                if (e.target.value) onSelectTemplate(e.target.value);
+              }}
+              className="bg-slate-950 border border-slate-800 rounded-lg px-2 py-1 text-[11px] text-slate-300 font-mono focus:outline-none focus:border-cyan-500 max-w-[170px] truncate"
+            >
+              <option value="">Load Template...</option>
+              {WORKFLOW_TEMPLATES.map((tpl) => (
+                <option key={tpl.id} value={tpl.id}>
+                  {tpl.name}
                 </option>
               ))}
             </select>
