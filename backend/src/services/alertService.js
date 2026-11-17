@@ -1,21 +1,46 @@
 const { broadcastAlert } = require('../sockets/socketServer');
 const Alert = require('../models/Alert');
 
+/**
+ * AlertService — central alert lifecycle manager for NexusFlow rule engine.
+ *
+ * Responsibilities:
+ *  - Normalize and validate incoming alert payloads from the rule engine
+ *  - Persist triggered alerts to MongoDB via the Alert model
+ *  - Broadcast real-time alert events to dashboard clients over WebSocket
+ *  - Dispatch outbound webhook notifications (production: use axios/fetch)
+ *
+ * @module AlertService
+ */
 class AlertService {
   /**
-   * Trigger an alert based on a rule evaluation
-   * @param {Object} alertPayload
+   * Trigger an alert based on a rule evaluation result.
+   *
+   * Normalizes triggerValue and thresholdValue to safe numerics, validates
+   * severity against the allowed enum, persists to DB, and broadcasts over WS.
+   *
+   * @param {Object} alertPayload - Raw payload from the rule engine
+   * @param {string} alertPayload.workflowId - Workflow that triggered the alert
+   * @param {string} alertPayload.deviceId   - Source IoT device identifier
+   * @param {string} alertPayload.alertType  - Alert category (e.g. 'threshold')
+   * @param {string} alertPayload.message    - Human-readable alert description
+   * @param {number|Object} alertPayload.reading       - Raw sensor reading
+   * @param {number} [alertPayload.triggerValue]       - Evaluated numeric value
+   * @param {number} [alertPayload.thresholdValue]     - Configured threshold
+   * @param {string} [alertPayload.severity='medium']  - Alert severity level
+   * @param {string} [alertPayload.webhookUrl]         - Optional outbound webhook
+   * @returns {Promise<Object>} The persisted alert data object
    */
   async triggerAlert(alertPayload) {
     const alertId = `alert_${Date.now()}_${Math.random().toString(36).substring(2, 9)}`;
 
-    // Ensure triggerValue is a valid number, extracting from reading if needed
+    // --- Normalize triggerValue to a safe numeric or null ---
     let triggerValue = alertPayload.triggerValue;
     if (typeof triggerValue !== 'number') {
       if (typeof alertPayload.reading === 'number') {
         triggerValue = alertPayload.reading;
       } else if (alertPayload.reading && typeof alertPayload.reading === 'object') {
-        // If reading is a telemetry object, extract the sensor numeric reading
+        // Extract the first available numeric sensor field from a telemetry object
         triggerValue =
           alertPayload.reading.temperature ??
           alertPayload.reading.pressure ??
@@ -30,14 +55,14 @@ class AlertService {
       triggerValue = null;
     }
 
-    // Ensure thresholdValue is a valid number
+    // --- Normalize thresholdValue to a safe numeric or null ---
     let thresholdValue = alertPayload.thresholdValue ?? alertPayload.threshold ?? null;
     if (thresholdValue !== null && typeof thresholdValue !== 'number') {
       thresholdValue = Number(thresholdValue);
       if (isNaN(thresholdValue)) thresholdValue = null;
     }
 
-    // Normalize severity to lowercase valid enum
+    // --- Validate severity against allowed enum values ---
     const rawSeverity = (alertPayload.severity || 'medium').toLowerCase();
     const validSeverities = ['low', 'medium', 'high', 'critical', 'warning', 'info'];
     const severity = validSeverities.includes(rawSeverity) ? rawSeverity : 'medium';
@@ -54,16 +79,16 @@ class AlertService {
       status: 'unresolved',
     };
 
-    console.warn(`[AlertService] ALERT TRIGGERED for Device ${alertData.deviceId}: ${alertData.message}`);
+    console.warn(`[AlertService] ALERT TRIGGERED — Device: ${alertData.deviceId} | Severity: ${severity.toUpperCase()} | ${alertData.message}`);
 
-    // Persist to database
+    // --- Persist to MongoDB (non-blocking — log error but do not throw) ---
     try {
       await Alert.create(alertData);
     } catch (err) {
-      console.error('[AlertService] Failed to persist alert:', err.message);
+      console.error('[AlertService] Failed to persist alert to database:', err.message);
     }
 
-    // Broadcast over WebSocket to connected dashboard clients
+    // --- Broadcast real-time event to all connected dashboard clients ---
     broadcastAlert({
       id: alertId,
       timestamp: new Date().toISOString(),
@@ -72,7 +97,7 @@ class AlertService {
       threshold: thresholdValue,
     });
 
-    // Mock webhook / SMS notification
+    // --- Dispatch outbound webhook if configured ---
     if (alertPayload.webhookUrl) {
       this.sendOutboundWebhook(alertPayload.webhookUrl, alertData);
     }
@@ -81,12 +106,18 @@ class AlertService {
   }
 
   /**
-   * Mock outbound webhook sender
+   * Dispatch an outbound webhook notification.
+   *
+   * In production replace the console.log stub with an axios/fetch POST call.
+   *
+   * @param {string} url  - Destination webhook URL
+   * @param {Object} data - Alert payload to send as request body
+   * @returns {Promise<void>}
    */
   async sendOutboundWebhook(url, data) {
     try {
-      console.log(`[AlertService] Dispatching outbound webhook to ${url}`);
-      // In production, use fetch / axios to POST payload
+      console.log(`[AlertService] Dispatching outbound webhook → ${url}`);
+      // Production: await axios.post(url, data, { timeout: 5000 });
     } catch (err) {
       console.error(`[AlertService] Outbound webhook dispatch failed: ${err.message}`);
     }
