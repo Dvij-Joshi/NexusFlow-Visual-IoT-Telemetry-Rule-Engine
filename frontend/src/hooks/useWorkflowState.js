@@ -100,29 +100,47 @@ function getSavedLocalDraft() {
       }
     }
   } catch (err) {
-    console.warn('[WorkflowState] Failed to read from localStorage:', err);
+    console.warn('Failed to parse localStorage workflow draft:', err);
   }
   return null;
 }
 
-export function useWorkflowState() {
+export function useWorkflowState(initialState = {}) {
+  // Try to load cached draft from localStorage on first mount
   const localDraft = useMemo(() => getSavedLocalDraft(), []);
 
-  const [workflowId, setWorkflowId] = useState(localDraft?.workflowId || null);
-  const [name, setName] = useState(localDraft?.name || 'Turbine Temperature Monitoring');
+  const [workflowId, setWorkflowId] = useState(
+    initialState.workflowId || localDraft?.workflowId || null
+  );
+  const [name, setName] = useState(
+    initialState.name || localDraft?.name || 'Turbine Temperature Monitoring'
+  );
   const [description, setDescription] = useState(
-    localDraft?.description || 'Monitors turbine temperature with moving average and triggers alerts.'
+    initialState.description ||
+      localDraft?.description ||
+      'Monitors turbine temperature with moving average and triggers alerts.'
   );
   const [isActive, setIsActive] = useState(
-    typeof localDraft?.isActive === 'boolean' ? localDraft.isActive : true
+    initialState.isActive ?? localDraft?.isActive ?? true
   );
-  const [nodes, setNodes] = useState(localDraft?.nodes || INITIAL_NODES);
-  const [edges, setEdges] = useState(localDraft?.edges || INITIAL_EDGES);
+
+  const [nodes, setNodes] = useState(() => {
+    const rawNodes = initialState.nodes || localDraft?.nodes || INITIAL_NODES;
+    return rawNodes.map((n) => ({
+      ...n,
+      type: n.type === 'transform' ? 'movingAverage' : n.type,
+    }));
+  });
+
+  const [edges, setEdges] = useState(
+    initialState.edges || localDraft?.edges || INITIAL_EDGES
+  );
+
   const [selectedNodeId, setSelectedNodeId] = useState(null);
   const [selectedEdgeId, setSelectedEdgeId] = useState(null);
   const [isDirty, setIsDirty] = useState(false);
 
-  // Sync to localStorage so tab switches or reloads never lose circuit progress
+  // Auto-sync circuit state to localStorage draft to prevent accidental loss
   useEffect(() => {
     try {
       if (typeof window !== 'undefined') {
@@ -136,67 +154,27 @@ export function useWorkflowState() {
         };
         localStorage.setItem(STORAGE_KEY, JSON.stringify(payload));
       }
-    } catch (err) {
+    } catch (e) {
       // Ignore quota errors
     }
   }, [workflowId, name, description, isActive, nodes, edges]);
 
-  // Apply node changes (drag, select, dimension updates)
+  // Handle node position / selection updates
   const onNodesChange = useCallback((changes) => {
-    setNodes((nds) => {
-      const updated = applyNodeChanges(changes, nds);
-      return updated;
-    });
-
-    const isContentChange = changes.some((c) => c.type === 'position' || c.type === 'remove' || c.type === 'add');
-    if (isContentChange) {
-      setIsDirty(true);
-    }
-
-    // Handle selection changes across full batch
-    const selectChanges = changes.filter((c) => c.type === 'select');
-    if (selectChanges.length > 0) {
-      const selectedItem = [...selectChanges].reverse().find((c) => c.selected);
-      if (selectedItem) {
-        setSelectedNodeId(selectedItem.id);
-        setSelectedEdgeId(null);
-      } else {
-        setSelectedNodeId((curr) => {
-          const wasCurrentDeselected = selectChanges.some((c) => !c.selected && c.id === curr);
-          return wasCurrentDeselected ? null : curr;
-        });
-      }
-    }
+    setNodes((nds) => applyNodeChanges(changes, nds));
+    setIsDirty(true);
   }, []);
 
-  // Apply edge changes (selection, removal)
+  // Handle edge changes / removal
   const onEdgesChange = useCallback((changes) => {
     setEdges((eds) => applyEdgeChanges(changes, eds));
-
-    const isContentChange = changes.some((c) => c.type === 'remove' || c.type === 'add');
-    if (isContentChange) {
-      setIsDirty(true);
-    }
-
-    const selectChanges = changes.filter((c) => c.type === 'select');
-    if (selectChanges.length > 0) {
-      const selectedItem = [...selectChanges].reverse().find((c) => c.selected);
-      if (selectedItem) {
-        setSelectedEdgeId(selectedItem.id);
-        setSelectedNodeId(null);
-      } else {
-        setSelectedEdgeId((curr) => {
-          const wasCurrentDeselected = selectChanges.some((c) => !c.selected && c.id === curr);
-          return wasCurrentDeselected ? null : curr;
-        });
-      }
-    }
+    setIsDirty(true);
   }, []);
 
-  // Connection handler with custom validator
+  // Handle edge creation with visual validation
   const onConnect = useCallback(
     (params) => {
-      if (isValidConnection(params, nodes, edges)) {
+      if (isValidConnection(params, { nodes, edges })) {
         setEdges((eds) =>
           addEdge(
             {
@@ -271,6 +249,35 @@ export function useWorkflowState() {
     setIsDirty(true);
     return newNode;
   }, []);
+
+  // Duplicate an existing node
+  const duplicateNode = useCallback(
+    (nodeId) => {
+      const sourceNode = nodes.find((n) => n.id === nodeId);
+      if (!sourceNode) return null;
+
+      const newId = generateNodeId(sourceNode.type);
+      const clonedNode = {
+        ...sourceNode,
+        id: newId,
+        position: {
+          x: (sourceNode.position?.x ?? 100) + 40,
+          y: (sourceNode.position?.y ?? 100) + 40,
+        },
+        data: {
+          ...sourceNode.data,
+          label: `${sourceNode.data?.label || sourceNode.type} (Copy)`,
+        },
+      };
+
+      setNodes((nds) => [...nds, clonedNode]);
+      setSelectedNodeId(newId);
+      setSelectedEdgeId(null);
+      setIsDirty(true);
+      return clonedNode;
+    },
+    [nodes]
+  );
 
   // Update data payload for a specific node
   const updateNodeData = useCallback((nodeId, partialData) => {
@@ -396,6 +403,7 @@ export function useWorkflowState() {
     onEdgesChange,
     onConnect,
     addNode,
+    duplicateNode,
     updateNodeData,
     deleteNode,
     deleteEdge,

@@ -9,6 +9,7 @@ import {
   XCircle,
   FolderOpen,
   LayoutTemplate,
+  Keyboard,
 } from 'lucide-react';
 import { WORKFLOW_TEMPLATES } from '../../utils/workflowTemplates';
 
@@ -31,6 +32,7 @@ export default function WorkflowToolbar({
   isDirty = false,
 }) {
   const [showValidationDetails, setShowValidationDetails] = useState(false);
+  const [showShortcuts, setShowShortcuts] = useState(false);
 
   const errorCount = validation?.errors?.length || 0;
   const warningCount = validation?.warnings?.length || 0;
@@ -210,6 +212,57 @@ export default function WorkflowToolbar({
             <span className="hidden sm:inline">Delete Selected</span>
           </button>
         )}
+
+        {/* Keyboard Shortcuts Helper Button */}
+        <div className="relative">
+          <button
+            onClick={() => setShowShortcuts(!showShortcuts)}
+            className="p-1.5 text-slate-400 hover:text-cyan-400 hover:bg-slate-800 rounded-lg transition border border-transparent hover:border-slate-700"
+            title="Canvas Keyboard Shortcuts"
+          >
+            <Keyboard className="w-4 h-4" />
+          </button>
+
+          {showShortcuts && (
+            <div className="absolute right-0 mt-2 w-72 p-3 bg-slate-900 border border-slate-700 rounded-xl shadow-2xl z-50 text-xs">
+              <div className="flex items-center justify-between pb-2 mb-2 border-b border-slate-800 font-semibold text-white">
+                <span>Keyboard Shortcuts</span>
+                <button
+                  onClick={() => setShowShortcuts(false)}
+                  className="text-slate-400 hover:text-white"
+                >
+                  ✕
+                </button>
+              </div>
+              <div className="space-y-2 text-slate-300">
+                <div className="flex items-center justify-between text-[11px]">
+                  <span>Delete Selected</span>
+                  <kbd className="px-1.5 py-0.5 bg-slate-950 border border-slate-800 rounded text-cyan-400 font-mono text-[10px]">
+                    Del / Backspace
+                  </kbd>
+                </div>
+                <div className="flex items-center justify-between text-[11px]">
+                  <span>Duplicate Node</span>
+                  <kbd className="px-1.5 py-0.5 bg-slate-950 border border-slate-800 rounded text-cyan-400 font-mono text-[10px]">
+                    Ctrl + D
+                  </kbd>
+                </div>
+                <div className="flex items-center justify-between text-[11px]">
+                  <span>Deselect Element</span>
+                  <kbd className="px-1.5 py-0.5 bg-slate-950 border border-slate-800 rounded text-cyan-400 font-mono text-[10px]">
+                    Esc
+                  </kbd>
+                </div>
+                <div className="flex items-center justify-between text-[11px]">
+                  <span>Multi-Node Selection</span>
+                  <kbd className="px-1.5 py-0.5 bg-slate-950 border border-slate-800 rounded text-cyan-400 font-mono text-[10px]">
+                    Shift + Drag
+                  </kbd>
+                </div>
+              </div>
+            </div>
+          )}
+        </div>
 
         <button
           onClick={onReset}

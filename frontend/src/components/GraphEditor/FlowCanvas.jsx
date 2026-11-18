@@ -45,6 +45,7 @@ function FlowCanvasInner({ onNotify, onActiveWorkflowsUpdated, onRegisterSaveHan
     onEdgesChange,
     onConnect,
     addNode,
+    duplicateNode,
     updateNodeData,
     deleteNode,
     deleteEdge,
@@ -91,6 +92,40 @@ function FlowCanvasInner({ onNotify, onActiveWorkflowsUpdated, onRegisterSaveHan
     }, 150);
     return () => clearTimeout(timer);
   }, []);
+
+  // Keyboard shortcut listener (Delete/Backspace, Escape, Ctrl+D duplicate)
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      const activeEl = document.activeElement;
+      const isInput =
+        activeEl &&
+        (activeEl.tagName === 'INPUT' ||
+          activeEl.tagName === 'TEXTAREA' ||
+          activeEl.tagName === 'SELECT');
+      if (isInput) return;
+
+      if (e.key === 'Delete' || e.key === 'Backspace') {
+        if (selectedNodeId || selectedEdgeId) {
+          e.preventDefault();
+          deleteSelected();
+        }
+      } else if (e.key === 'Escape') {
+        setSelectedNodeId(null);
+        setSelectedEdgeId(null);
+      } else if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'd') {
+        if (selectedNodeId) {
+          e.preventDefault();
+          const cloned = duplicateNode(selectedNodeId);
+          if (cloned && onNotify) {
+            onNotify('success', `Duplicated node "${cloned.data?.label || cloned.id}"`);
+          }
+        }
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [selectedNodeId, selectedEdgeId, deleteSelected, duplicateNode, onNotify]);
 
   // Register custom node types with React Flow
   const nodeTypes = useMemo(
