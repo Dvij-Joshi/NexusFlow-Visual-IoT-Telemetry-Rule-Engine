@@ -50,6 +50,11 @@ const alertSchema = new mongoose.Schema(
       type: Date,
       default: null,
     },
+    resolveNote: {
+      type: String,
+      default: null,
+      trim: true,
+    },
   },
   {
     timestamps: true,

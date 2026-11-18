@@ -50,13 +50,32 @@ const getAlertById = async (req, res) => {
 };
 
 /**
- * Mark alert as resolved
+ * Mark alert as resolved.
+ *
+ * Accepts an optional JSON body `{ note: string }` to store a resolution note
+ * alongside the standard `resolvedAt` timestamp and `status: 'resolved'` update.
+ *
+ * @example
+ *   PATCH /api/alerts/:alertId/resolve
+ *   Body: { "note": "Pressure dropped after valve replacement" }
  */
 const resolveAlert = async (req, res) => {
   try {
+    const { note } = req.body || {};
+
+    const updateFields = {
+      status: 'resolved',
+      resolvedAt: new Date(),
+    };
+
+    // Persist the resolution note if provided
+    if (note && typeof note === 'string' && note.trim().length > 0) {
+      updateFields.resolveNote = note.trim();
+    }
+
     const alert = await Alert.findOneAndUpdate(
       { alertId: req.params.alertId },
-      { status: 'resolved', resolvedAt: new Date() },
+      updateFields,
       { new: true }
     );
 
