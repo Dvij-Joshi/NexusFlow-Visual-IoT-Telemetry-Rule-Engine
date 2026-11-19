@@ -316,25 +316,34 @@ The visual workflow configuration is separately transmitted from the frontend to
 
 ## Core Modules
 
-### Module 1: Visual Graph Builder
+### Module 1: Visual Graph Builder (Phase 1 Implemented)
 
-**Technology:** React.js + React Flow
+**Technology:** React 19 + @xyflow/react (React Flow) + Tailwind CSS + Lucide Icons
 
-The graph builder provides a visual programming environment.
+The graph builder provides an interactive visual workflow surface where industrial operators and developers design real-time telemetry processing circuits with drag-and-drop ergonomics.
 
-Each node represents a specific operation in the telemetry processing pipeline.
+#### Implemented Custom Nodes:
 
-Examples:
+| Node Type | Category | Handles | Functionality |
+|---|---|---|---|
+| **Sensor Node** | Ingress Source | 1 Right Output | Selects target device (`TURBINE_01`, `PUMP_01`, etc.) and telemetry channel (`temperature`, `pressure`, `vibration`). Ingress-only. |
+| **Moving Average** | Transform | 1 Left In, 1 Right Out | Rolling FIFO buffer window (`windowSize`, default: 5). Computes Simple Moving Average (SMA) to eliminate transient noise. |
+| **Threshold Check** | Condition | 1 Left In, 1 Right Out | Conditional evaluator (`>`, `<`, `>=`, `<=`, `==`) with configurable numeric limits. Drops non-matching telemetry. |
+| **Alert Node** | Action Sink | 1 Left In | Configurable alert payload message and severity level (`Low`, `Medium`, `High`). Triggers DB persistence and WebSocket broadcast. |
 
-| Node | Responsibility |
-|---|---|
-| Sensor Node | Receives telemetry input |
-| Moving Average | Calculates average readings |
-| Filter Node | Filters incoming data |
-| Threshold Node | Evaluates numerical conditions |
-| Alert Node | Triggers notifications |
-
-The frontend stores the workflow as a JSON graph containing node definitions and connection information.
+#### Key Workflow Capabilities:
+- **Predefined Industrial Templates:** One-click loading of verified industrial circuit topologies:
+  - *Turbine Thermal Safety Guard*
+  - *Pump Vibration Anomaly Detector (ISO 10816)*
+  - *Compressor Pressure Surge Guard*
+- **Acyclic Graph (DAG) & Cycle Detection:** Real-time DFS 3-color cycle detection prevents infinite loops or recursion in stream pipelines.
+- **Canvas Keyboard Shortcuts:**
+  - `Del` / `Backspace` : Delete selected node or edge
+  - `Ctrl + D` : Duplicate and clone selected node
+  - `Esc` : Clear canvas selection
+  - `Shift + Drag` : Multi-node selection marquee
+- **Dual-Mode Live Sync:** Visual changes auto-save locally to `localStorage` and deploy live into MongoDB Atlas and the RxJS Stream Engine with one click.
+- **Canonical Schema Export:** JSON export modal with one-click clipboard copying and schema validation reporting.
 
 ### Module 2: Time-Series Database
 
@@ -622,6 +631,15 @@ Visit:
 
 ```text
 http://localhost:5173
+```
+
+### Running the Visual Builder Test Suite
+
+NexusFlow includes an automated unit testing suite covering graph connections, cycle detection, edge validation, and JSON serialization:
+
+```bash
+cd frontend
+npm test
 ```
 
 ---
