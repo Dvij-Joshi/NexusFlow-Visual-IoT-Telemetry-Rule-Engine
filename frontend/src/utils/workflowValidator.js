@@ -49,12 +49,66 @@ export function isValidConnection(connection, nodes = [], edges = []) {
 }
 
 /**
+ * Detects if a directed graph contains cycles (loops) using DFS 3-coloring.
+ *
+ * @param {Array} nodes - List of node objects
+ * @param {Array} edges - List of edge objects
+ * @returns {{ hasCycle: boolean, cycleNodes: string[] }}
+ */
+export function detectGraphCycles(nodes = [], edges = []) {
+  const adj = new Map();
+  nodes.forEach((n) => adj.set(n.id, []));
+  edges.forEach((e) => {
+    if (adj.has(e.source)) {
+      adj.get(e.source).push(e.target);
+    }
+  });
+
+  const state = new Map(); // 0: unvisited, 1: visiting, 2: visited
+  nodes.forEach((n) => state.set(n.id, 0));
+
+  const cycleNodes = [];
+
+  function dfs(nodeId, path = []) {
+    state.set(nodeId, 1);
+    const neighbors = adj.get(nodeId) || [];
+
+    for (const neighbor of neighbors) {
+      const neighborState = state.get(neighbor);
+      if (neighborState === 1) {
+        cycleNodes.push(...path, nodeId, neighbor);
+        return true;
+      }
+      if (neighborState === 0) {
+        if (dfs(neighbor, [...path, nodeId])) {
+          return true;
+        }
+      }
+    }
+
+    state.set(nodeId, 2);
+    return false;
+  }
+
+  for (const node of nodes) {
+    if (state.get(node.id) === 0) {
+      if (dfs(node.id)) {
+        return { hasCycle: true, cycleNodes };
+      }
+    }
+  }
+
+  return { hasCycle: false, cycleNodes: [] };
+}
+
+/**
  * Performs full validation of the current workflow graph.
  *
  * Checks:
  * - Unique node IDs
  * - Edge endpoints reference existing nodes
  * - No self-connections
+ * - No directed cycles (DAG requirement)
  * - Presence of at least one ingress sensor node
  * - Validation of individual node configurations
  *
@@ -126,19 +180,25 @@ export function validateWorkflow(workflow) {
     }
   });
 
-  // 3. Check for at least one sensor node
+  // 3. Check for directed cycles
+  const cycleCheck = detectGraphCycles(nodes, edges);
+  if (cycleCheck.hasCycle) {
+    errors.push('Directed cycle detected in pipeline. Visual workflows must be an acyclic graph (DAG).');
+  }
+
+  // 4. Check for at least one sensor node
   const sensorNodes = nodes.filter((n) => n.type === 'sensor');
   if (sensorNodes.length === 0) {
     warnings.push('No Sensor node present. Pipeline requires a telemetry source to ingest data.');
   }
 
-  // 4. Check for alerts
+  // 5. Check for alerts
   const alertNodes = nodes.filter((n) => n.type === 'alert');
   if (alertNodes.length === 0) {
     warnings.push('No Alert node present. Pipeline will not trigger notifications.');
   }
 
-  // 5. Check for disconnected nodes
+  // 6. Check for disconnected nodes
   const connectedNodeIds = new Set();
   edges.forEach((e) => {
     connectedNodeIds.add(e.source);
@@ -151,7 +211,7 @@ export function validateWorkflow(workflow) {
     }
   });
 
-  // 6. Node-specific configuration checks
+  // 7. Node-specific configuration checks
   nodes.forEach((node) => {
     const data = node.data || {};
     const label = data.label || node.id;
@@ -185,4 +245,3 @@ export function validateWorkflow(workflow) {
     warnings,
   };
 }
-

@@ -1,7 +1,18 @@
 import { test, describe } from 'node:test';
 import assert from 'node:assert/strict';
-import { isValidConnection, validateWorkflow } from '../workflowValidator.js';
-import { serializeWorkflow, exportWorkflowToJsonString } from '../workflowSerializer.js';
+import {
+  isValidConnection,
+  validateWorkflow,
+  detectGraphCycles,
+} from '../workflowValidator.js';
+import {
+  serializeWorkflow,
+  exportWorkflowToJsonString,
+} from '../workflowSerializer.js';
+import {
+  WORKFLOW_TEMPLATES,
+  getWorkflowTemplateById,
+} from '../workflowTemplates.js';
 
 describe('Workflow Connection & Validation Engine', () => {
   test('isValidConnection: rejects self-connection', () => {
@@ -284,5 +295,78 @@ describe('Workflow JSON Serialization & Schema Compliance', () => {
     const result = validateWorkflow(nonFinite);
     assert.equal(result.isValid, false);
     assert.ok(result.errors.some((err) => err.includes('windowSize >= 1')));
+  });
+});
+
+describe('Industrial Workflow Topologies & Cycle Detection', () => {
+  test('detectGraphCycles: identifies circular loop (node_a -> node_b -> node_c -> node_a)', () => {
+    const nodes = [
+      { id: 'node_a', type: 'sensor' },
+      { id: 'node_b', type: 'movingAverage' },
+      { id: 'node_c', type: 'threshold' },
+    ];
+    const cyclicEdges = [
+      { id: 'e1', source: 'node_a', target: 'node_b' },
+      { id: 'e2', source: 'node_b', target: 'node_c' },
+      { id: 'e3', source: 'node_c', target: 'node_a' },
+    ];
+
+    const result = detectGraphCycles(nodes, cyclicEdges);
+    assert.equal(result.hasCycle, true);
+    assert.ok(result.cycleNodes.length > 0);
+  });
+
+  test('validateWorkflow: rejects graph containing directed cycles', () => {
+    const cyclicWorkflow = {
+      workflowId: 'wf_cycle',
+      name: 'Cyclic Workflow',
+      nodes: [
+        { id: 's1', type: 'sensor', data: { deviceId: 'TURBINE_01', field: 'temperature' } },
+        { id: 'avg1', type: 'movingAverage', data: { windowSize: 5 } },
+        { id: 't1', type: 'threshold', data: { value: 80 } },
+      ],
+      edges: [
+        { id: 'e1', source: 's1', target: 'avg1' },
+        { id: 'e2', source: 'avg1', target: 't1' },
+        { id: 'e3', source: 't1', target: 'avg1' },
+      ],
+    };
+
+    const res = validateWorkflow(cyclicWorkflow);
+    assert.equal(res.isValid, false);
+    assert.ok(res.errors.some((err) => err.includes('Directed cycle detected')));
+  });
+
+  test('WORKFLOW_TEMPLATES: all predefined templates are structurally valid and error-free', () => {
+    assert.ok(WORKFLOW_TEMPLATES.length >= 3);
+    for (const tpl of WORKFLOW_TEMPLATES) {
+      const res = validateWorkflow(tpl);
+      assert.equal(res.isValid, true, `Template "${tpl.name}" should be valid`);
+      assert.equal(res.errors.length, 0, `Template "${tpl.name}" should have 0 errors`);
+    }
+  });
+
+  test('validateWorkflow: supports multi-branch topologies (1 sensor branching to 2 parallel thresholds)', () => {
+    const multiBranchWf = {
+      workflowId: 'wf_branch',
+      name: 'Multi Branch Pipeline',
+      nodes: [
+        { id: 'sensor_1', type: 'sensor', data: { deviceId: 'TURBINE_01', field: 'temperature' } },
+        { id: 'thresh_hi', type: 'threshold', data: { field: 'temperature', operator: '>', value: 85 } },
+        { id: 'thresh_lo', type: 'threshold', data: { field: 'temperature', operator: '<', value: 10 } },
+        { id: 'alert_hi', type: 'alert', data: { message: 'High heat', severity: 'High' } },
+        { id: 'alert_lo', type: 'alert', data: { message: 'Freezing hazard', severity: 'Medium' } },
+      ],
+      edges: [
+        { id: 'e_split_1', source: 'sensor_1', target: 'thresh_hi' },
+        { id: 'e_split_2', source: 'sensor_1', target: 'thresh_lo' },
+        { id: 'e_out_1', source: 'thresh_hi', target: 'alert_hi' },
+        { id: 'e_out_2', source: 'thresh_lo', target: 'alert_lo' },
+      ],
+    };
+
+    const res = validateWorkflow(multiBranchWf);
+    assert.equal(res.isValid, true);
+    assert.equal(res.errors.length, 0);
   });
 });
