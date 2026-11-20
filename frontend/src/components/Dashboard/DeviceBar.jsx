@@ -67,6 +67,9 @@ export default function DeviceBar({ selectedDeviceId, onSelectDevice, onNotify }
     return new Date(timestamp).toLocaleTimeString();
   };
 
+  const onlineCount = devices.filter((d) => d.status === 'online').length;
+  const offlineCount = devices.filter((d) => d.status === 'offline').length;
+
   return (
     <div className="bg-slate-900 border border-slate-800 rounded-xl p-4 shadow-lg space-y-3">
       <div className="flex items-center justify-between pb-2 border-b border-slate-800">
@@ -76,6 +79,21 @@ export default function DeviceBar({ selectedDeviceId, onSelectDevice, onNotify }
           <span className="text-xs font-mono bg-slate-800 text-slate-400 px-2 py-0.5 rounded-full">
             {devices.length}
           </span>
+          {/* Online / Offline summary badges */}
+          {devices.length > 0 && (
+            <>
+              <span className="hidden md:inline-flex items-center gap-1 text-[11px] font-mono text-emerald-400 bg-emerald-950/60 border border-emerald-900/80 px-2 py-0.5 rounded-full">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                {onlineCount} online
+              </span>
+              {offlineCount > 0 && (
+                <span className="hidden md:inline-flex items-center gap-1 text-[11px] font-mono text-slate-400 bg-slate-800/60 border border-slate-700/60 px-2 py-0.5 rounded-full">
+                  <span className="w-1.5 h-1.5 rounded-full bg-slate-500"></span>
+                  {offlineCount} offline
+                </span>
+              )}
+            </>
+          )}
         </div>
         <div className="flex items-center gap-2">
           <button

@@ -28,7 +28,7 @@ const createDevice = async (req, res) => {
       deviceType,
       location,
       unit,
-      status,
+      status: status || 'online',
     });
 
     return res.status(201).json({
@@ -60,6 +60,52 @@ const getAllDevices = async (req, res) => {
     });
   } catch (error) {
     console.error('[DeviceController] Get All Error:', error);
+    return res.status(500).json({ success: false, error: error.message });
+  }
+};
+
+/**
+ * Get fleet summary metrics
+ */
+const getDeviceMetrics = async (req, res) => {
+  try {
+    const devices = await Device.find();
+    const now = Date.now();
+    const fiveMinutesAgo = now - 5 * 60 * 1000;
+
+    let online = 0;
+    let offline = 0;
+    let maintenance = 0;
+    const byType = {};
+
+    devices.forEach((d) => {
+      const type = d.deviceType || 'other';
+      byType[type] = (byType[type] || 0) + 1;
+
+      if (d.status === 'maintenance') {
+        maintenance += 1;
+      } else {
+        const isRecentlyActive = d.lastSeen && new Date(d.lastSeen).getTime() >= fiveMinutesAgo;
+        if (d.status === 'online' || isRecentlyActive) {
+          online += 1;
+        } else {
+          offline += 1;
+        }
+      }
+    });
+
+    return res.status(200).json({
+      success: true,
+      data: {
+        total: devices.length,
+        online,
+        offline,
+        maintenance,
+        byType,
+      },
+    });
+  } catch (error) {
+    console.error('[DeviceController] Get Metrics Error:', error);
     return res.status(500).json({ success: false, error: error.message });
   }
 };
@@ -134,6 +180,7 @@ const deleteDevice = async (req, res) => {
 module.exports = {
   createDevice,
   getAllDevices,
+  getDeviceMetrics,
   getDeviceById,
   updateDevice,
   deleteDevice,

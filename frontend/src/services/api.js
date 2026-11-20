@@ -12,6 +12,7 @@ export const getHealth = () => api.get('/health');
 
 // Device Management APIs
 export const getDevices = (params) => api.get('/devices', { params });
+export const getDeviceMetrics = () => api.get('/devices/metrics/summary');
 export const getDeviceById = (deviceId) => api.get(`/devices/${deviceId}`);
 export const createDevice = (data) => api.post('/devices', data);
 export const updateDevice = (deviceId, data) => api.put(`/devices/${deviceId}`, data);
@@ -36,6 +37,6 @@ export const deleteWorkflow = (id) => api.delete(`/workflows/${id}`);
 // Alert APIs
 export const getAlerts = (params) => api.get('/alerts', { params });
 export const getAlertById = (alertId) => api.get(`/alerts/${alertId}`);
-export const resolveAlert = (alertId) => api.patch(`/alerts/${alertId}/resolve`);
+export const resolveAlert = (alertId, data) => api.patch(`/alerts/${alertId}/resolve`, data);
 
 export default api;
